@@ -7,8 +7,8 @@ import SignUp from "@/components/signUp/SignUp";
 
 const Home = () => {
   return <div>
-    {/* <Login/> */}
-    <SignUp/>
+    <Login/>
+    {/* <SignUp/> */}
   </div>;
 };
 
