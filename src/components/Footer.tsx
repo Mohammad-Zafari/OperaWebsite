@@ -45,7 +45,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="text-white text-right mx-9 pb-2 flex justify-center rounded-[60px] mt-8">
-            <p className="text-sm rtl mr-2">
+            <p className="text-lg rtl mr-2">
               . تمامی حقوق مادی و معنوی این وبسایت برای مجموعه
               <span style={{ color: "rgba(85, 46, 135, 1)" }}> اپرا</span> محفوظ
               است

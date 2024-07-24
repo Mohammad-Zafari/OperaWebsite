@@ -1,9 +1,10 @@
 import type { Config } from "tailwindcss"
+/** @type {import('tailwindcss').Config} */
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
+    './pages/**/*.{ts,tsx,}',
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
@@ -24,12 +25,12 @@ const config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        customPurple: 'rgba(85, 46, 135, 1)',
+        customBackWhite:'rgba(255, 255, 255, 1)',
+        customFrontWhite:'rgba(231, 231, 231, 1)',
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
-          customPurple: 'rgba(85, 46, 135, 1)',
-          customBackWhite:'rgba(255, 255, 255, 1)',
-          customFrontWhite:'rgba(231, 231, 231, 1)',
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
