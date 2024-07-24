@@ -31,6 +31,8 @@ const Login = () => {
 useEffect(() => {
     dispatch(RsetUserName(""))
     dispatch(RsetPassword(""))
+    dispatch(RsetShowPassword(false))
+
 },[]);
 
   return (

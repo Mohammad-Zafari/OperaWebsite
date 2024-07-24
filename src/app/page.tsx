@@ -3,10 +3,12 @@
 
 import React from "react";
 import Login from "@/components/login/Login";
+import SignUp from "@/components/signUp/SignUp";
 
 const Home = () => {
   return <div>
-    <Login />
+    {/* <Login/> */}
+    <SignUp/>
   </div>;
 };
 

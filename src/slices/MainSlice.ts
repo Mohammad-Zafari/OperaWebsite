@@ -9,6 +9,11 @@ interface MainState {
     showPassWord: boolean;
     userErrorStyle: object;
     passwordErrorStyle: object;
+    passwordConfirmation: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    showPasswordConfirmation: boolean;
 }
 
 const initialState: MainState = {
@@ -17,6 +22,11 @@ const initialState: MainState = {
     showPassWord: false,
     userErrorStyle: {},
     passwordErrorStyle: {},
+    passwordConfirmation: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    showPasswordConfirmation: false,
 };
 
 const mainSlice = createSlice({
@@ -31,7 +41,7 @@ const mainSlice = createSlice({
         state.password = action.payload;
         console.log('password set:', state.userName);
     },
-    RsetShowPassword: (state) => {
+    RsetShowPassword: (state, action: PayloadAction<boolean>) => {
         state.showPassWord = !state.showPassWord;
     },
     RsetUserErrorStyle: (state, action: PayloadAction<object>) => {
@@ -39,14 +49,34 @@ const mainSlice = createSlice({
     },
     RsetPasswordErrorStyle: (state, action: PayloadAction<object>) => {
         state.passwordErrorStyle = action.payload;
-    }
+    },
+    RsetPasswordConfirmation: (state, action: PayloadAction<string>) => {
+        state.passwordConfirmation = action.payload;
+    },
+    RsetFirstName: (state, action: PayloadAction<string>) => {
+        state.firstName = action.payload;
+    },
+    RsetLastName: (state, action: PayloadAction<string>) => {
+        state.lastName = action.payload;
+    },
+    RsetEmail: (state, action: PayloadAction<string>) => {
+        state.email = action.payload;
+    },
+    RsetShowPasswordConfirmation: (state, action: PayloadAction<boolean>) => {
+        state.showPasswordConfirmation = !state.showPasswordConfirmation;
+    },
   },
 });
 
-export const { RsetUserName, RsetPassword, RsetShowPassword, RsetUserErrorStyle, RsetPasswordErrorStyle } = mainSlice.actions;
+export const { RsetUserName, RsetPassword, RsetShowPassword, RsetUserErrorStyle, RsetPasswordErrorStyle, RsetPasswordConfirmation, RsetFirstName, RsetLastName, RsetEmail, RsetShowPasswordConfirmation } = mainSlice.actions;
 export const selectUserName = (state:RootState) => state.main.userName;
 export const selectPassword = (state:RootState) => state.main.password;
 export const selectShowPassword = (state:RootState) => state.main.showPassWord;
 export const selectUserErrorStyle = (state:RootState) => state.main.userErrorStyle;
 export const selectPasswordErrorStyle = (state:RootState) => state.main.passwordErrorStyle; 
+export const selectFirstName = (state:RootState) => state.main.firstName; 
+export const selectLastName = (state:RootState) => state.main.lastName;
+export const selectEmail = (state:RootState) => state.main.email;
+export const selectPasswordConfirmation = (state:RootState) => state.main.passwordConfirmation;
+export const selectShowPasswordConfirmation = (state:RootState) => state.main.showPasswordConfirmation;
 export default mainSlice.reducer;
