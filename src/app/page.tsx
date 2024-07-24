@@ -4,10 +4,12 @@
 import React from "react";
 import Login from "@/components/login/Login";
 import SignUp from "@/components/signUp/SignUp";
+import ForgetPass from "@/components/forgetPass/ForgetPass";
 
 const Home = () => {
   return <div>
-    <Login/>
+    <ForgetPass />
+    {/* <Login/> */}
     {/* <SignUp/> */}
   </div>;
 };

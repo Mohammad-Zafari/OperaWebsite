@@ -34,14 +34,13 @@ const SignUp = () => {
     })
 
     const passwordValidation = (pass) => {
-        // Regular expression for the conditions
         const hasNumber = /[0-9]/;
         const hasUpperCase = /[A-Z]/;
         const hasLowerCase = /[a-z]/;
         const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/;
+        const isEnough = pass.length > 7;
     
-        // Check if the password meets all criteria
-        return hasNumber.test(pass) && hasUpperCase.test(pass) && hasSymbol.test(pass) && hasLowerCase.test(pass);
+        return hasNumber.test(pass) && hasUpperCase.test(pass) && hasSymbol.test(pass) && hasLowerCase.test(pass) && isEnough;
     }
     
     const firstNameIsValid = useSelector(selectFirstName) !== "";

@@ -7,7 +7,9 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
 import { CircleUserRound, Eye, EyeOff, Lock } from "lucide-react";
-import { RsetUserName, selectUserName, RsetPassword, selectPassword, RsetShowPassword, selectShowPassword, RsetUserErrorStyle, selectUserErrorStyle, RsetPasswordErrorStyle, selectPasswordErrorStyle } from "@/slices/MainSlice";
+import { RsetUserName, selectUserName, RsetPassword, selectPassword, RsetShowPassword, selectShowPassword,
+    RsetUserErrorStyle, selectUserErrorStyle, RsetPasswordErrorStyle, selectPasswordErrorStyle, RsetRememberMe,
+    selectRememberMe } from "@/slices/MainSlice";
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -123,7 +125,7 @@ useEffect(() => {
               </div>
               <div className="h-fit">
                 <Label htmlFor="rememberMe" className="px-2 text-purple-600">من را به خاطر بسپار</Label>
-                <Checkbox id="rememberMe" className="mb-4 bg-yellow-300 border-none data-[state=checked]:bg-purple-600"/>
+                <Checkbox id="rememberMe" checked={useSelector(selectRememberMe)} onClick={() => dispatch(RsetRememberMe((prev) => !prev))} className="mb-4 bg-yellow-300 border-none data-[state=checked]:bg-purple-600"/>
                 <br />
                 <Button
                   className="h-4/6 w-full bg-gradient-to-t focus-visible:ring-0 focus-visible:ring-offset-0 from-gray-300 to-purple-600 text-xl text-white rounded-lg py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
