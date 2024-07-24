@@ -27,6 +27,9 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          customPurple: 'rgba(85, 46, 135, 1)',
+          customBackWhite:'rgba(255, 255, 255, 1)',
+          customFrontWhite:'rgba(231, 231, 231, 1)',
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -52,6 +55,10 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      boxShadow: {
+        customShadow1: '-4px -4px 10px 0 rgba(0, 0, 0, 0.33),4px 4px 10px 0 rgba(0, 0, 0, 0.33)',
+              
       },
       borderRadius: {
         lg: "var(--radius)",
