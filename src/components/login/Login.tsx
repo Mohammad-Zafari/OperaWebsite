@@ -13,17 +13,21 @@ import { useDispatch, useSelector } from "react-redux";
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
 
+  const username = useSelector(selectUserName);
+  const password = useSelector(selectPassword);
+
   const userNameIsValid = useSelector(selectUserName) !== "";
   const passwordIsValid = useSelector(selectPassword).length > 7;
   const formIsValid = userNameIsValid && passwordIsValid;
 
   const handleLogin = () => {
-    // if (userName === "qwerty" && password === "Parsa123") {
-    //   console.log("logged in!");
-    // } else {
-    //   console.log("wrong password!");
-    // }
-  
+    if(formIsValid){
+        if ( username === "qwerty" && password === "Parsa123") {
+          console.log("logged in!");
+        } else {
+          console.log("wrong username or password!");
+        }
+    } 
     !userNameIsValid? dispatch(RsetUserErrorStyle({border:"3px solid red"})): dispatch(RsetUserErrorStyle({border:"none"}));
     !passwordIsValid? dispatch(RsetPasswordErrorStyle({border:"3px solid red"})): dispatch(RsetPasswordErrorStyle({border:"none"}));
   };
