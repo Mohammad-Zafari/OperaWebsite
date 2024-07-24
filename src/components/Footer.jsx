@@ -3,8 +3,8 @@ export default function Footer() {
     <div id="container" className="flex flex-col min-h-screen">
       {/* Main content goes here */}
       <div className="flex-grow" />
-      <div className="bg-orange-200 z-10  w-full  h-[830px] flex rotate-[-9deg] rounded-[100px] mb-[-110px] bottom-[-70px]">
-        <div className="bg-[rgba(51,51,51,1)] mx-[20px] mt-20 rounded-[60px] h-[590px] z-20 rotate-[9deg]  bottom-[200px]">
+      {/* <div className="bg-orange-200 z-10  w-full  h-[830px] flex rotate-[-9deg] rounded-[100px] mb-[-110px] bottom-[-70px]"> */}
+        <div className="bg-[rgba(51,51,51,1)] mx-[20px] mt-20 rounded-[60px] h-[590px] z-20   bottom-[200px] mb-10">
           <div className="grid grid-cols-3 rounded-[60px] h-[500px] ">
             <div className="bg-slate-600 col-span-1 flex items-center justify-center ml-9 rounded-[60px]">
               <p className="text-white">Hello world!</p>
@@ -53,7 +53,7 @@ export default function Footer() {
             <img src="/Group 2483.svg" alt="" className="w-8" />
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 }
