@@ -29,7 +29,14 @@ const initialState: MainState = {
     lastName: "",
     email: "",
     showPasswordConfirmation: false,
-    formErrors: {},
+    formErrors: {
+        first:"",
+        last:"",
+        email:"",
+        userName:"",
+        password:"",
+        passwordConfirm:""
+    },
     rememberMe: false,
 };
 
@@ -72,7 +79,7 @@ const mainSlice = createSlice({
     RsetFormErrors: (state, action: PayloadAction<object>) => {
         state.formErrors = action.payload;
     },
-    RsetRememberMe: (state) => {
+    RsetRememberMe: (state, action: PayloadAction<boolean>) => {
         state.rememberMe = !state.rememberMe;
     },
   },

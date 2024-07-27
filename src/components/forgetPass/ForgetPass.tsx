@@ -14,7 +14,7 @@ const ForgetPass = () => {
       
     return (
         <>
-        <div className='w-11/12 sm:w-8/12 lg:w-6/12 xl:w-4/12 bg-purple-400 rounded-2xl shadow-xl py-8 mx-auto mt-40'>
+        <div className='w-11/12 sm:w-8/12 lg:w-6/12 xl:w-4/12 bg-gray-100 rounded-2xl shadow-lg py-8 mx-auto mt-40'>
             <h3 className='text-center text-xl text-purple-800'>فراموشی رمزعبور</h3>
             <div className='p-8 sm:p-16' style={{direction:"rtl"}}>
                 <Input className='h-12 text-white placeholder:text-purple-300 mb-12 focus-visible:ring-0 focus-visible:ring-offset-0 px-8 border-none rounded-xl bg-purple-800' 
