@@ -1,7 +1,7 @@
 "use client";
 
 // import React from "react";
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
@@ -30,20 +30,39 @@ const Login = () => {
   const userName = useSelector(selectUserName);
   const password = useSelector(selectPassword);
   const showPassword = useSelector(selectShowPassword);
-  const remeberMe = useSelector(selectRememberMe);
+  const rememberMe = useSelector(selectRememberMe);
+  const userErrorStyle = useSelector(selectUserErrorStyle);
+  const passwordErrorStyle = useSelector(selectPasswordErrorStyle);
 
   const userNameIsValid = userName !== "";
   const passwordIsValid = password.length > 7;
   const formIsValid = userNameIsValid && passwordIsValid;
 
-  const handleLogin = () => {
+  const [path,setPath] = useState("")
+
+  const handleLogin = (event:any) => {
+
     if (formIsValid) {
       if (userName === "qwerty" && password === "Parsa123") {
-        console.log("logged in!");
+        if (rememberMe) {
+          localStorage.setItem("username",userName);
+          localStorage.setItem("password",password);
+          // localStorage.setItem("rememberMe", true);
+        } else {
+          localStorage.removeItem("username");
+          localStorage.removeItem("password");
+        }
+        setPath("/");
+        window.location.href = '/';
       } else {
         console.log("wrong username or password!");
+        setPath("");
       }
     }
+    if(path!='/'){
+      event.preventDefault();
+    }
+
     !userNameIsValid
       ? dispatch(RsetUserErrorStyle({ border: "3px solid red" }))
       : dispatch(RsetUserErrorStyle({ border: "none" }));
@@ -56,6 +75,18 @@ const Login = () => {
     dispatch(RsetUserName(""));
     dispatch(RsetPassword(""));
     dispatch(RsetShowPassword(false));
+    const userStore = localStorage.getItem("username");
+    const passStore = localStorage.getItem("password");
+
+    if(userStore !== null && passStore !== null){
+      dispatch(RsetUserName(userStore));
+      dispatch(RsetPassword(passStore));
+      console.log("km") 
+      dispatch(RsetRememberMe(rememberMe));
+      console.log(rememberMe) 
+
+    }
+
   }, []);
 
   return (
@@ -79,14 +110,14 @@ const Login = () => {
             <div
               id="userInput"
               className="w-full sm:w-5/6 lg:w-4/6 h-16 flex mb-4 px-2 mx-auto bg-zinc-800 rounded-3xl"
-              style={useSelector(selectUserErrorStyle)}
+              style={userErrorStyle}
             >
               <div id="userIconContainer" className="w-1/12 my-auto h-4/6">
                 <CircleUserRound className="h-full w-full text-violet-700" />
               </div>
               <Input
                 className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
-                value={useSelector(selectUserName)}
+                value={userName!}
                 onChange={(e) => dispatch(RsetUserName(e.target.value))}
                 style={{ border: "none transparent", outline: "none" }}
                 type="text"
@@ -96,7 +127,7 @@ const Login = () => {
             <div
               id="passInput"
               className="w-full sm:w-5/6 lg:w-4/6 h-16 flex mb-4 px-2 pl-4 mx-auto rounded-3xl bg-zinc-800"
-              style={useSelector(selectPasswordErrorStyle)}
+              style={passwordErrorStyle}
             >
               <div
                 id="passIconContainer"
@@ -108,7 +139,7 @@ const Login = () => {
                 <>
                   <Input
                     className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
-                    value={useSelector(selectPassword)}
+                    value={password}
                     onChange={(e) => dispatch(RsetPassword(e.target.value))}
                     style={{ border: "none transparent", outline: "none" }}
                     type="text"
@@ -117,9 +148,7 @@ const Login = () => {
                   <div
                     id="eyeOffIconContainer"
                     className="w-1/12 my-auto h-4/6"
-                    onClick={() =>
-                      dispatch(RsetShowPassword(showPassword))
-                    }
+                    onClick={() => dispatch(RsetShowPassword(showPassword))}
                   >
                     <EyeOff className="h-full w-full text-violet-700" />
                   </div>
@@ -137,9 +166,7 @@ const Login = () => {
                   <div
                     id="eyeIconContainer"
                     className="w-1/12 my-auto h-4/6"
-                    onClick={() =>
-                      dispatch(RsetShowPassword(showPassword))
-                    }
+                    onClick={() => dispatch(RsetShowPassword(showPassword))}
                   >
                     <Eye className="h-full w-full text-violet-700" />
                   </div>
@@ -170,20 +197,21 @@ const Login = () => {
                 </Label>
                 <Checkbox
                   id="rememberMe"
-                  checked={remeberMe}
-                  onClick={() => dispatch(RsetRememberMe(!remeberMe))}
+                  checked={rememberMe}
+                  onClick={() => dispatch(RsetRememberMe(!rememberMe))}
                   className="mb-4 bg-yellow-300 border-none data-[state=checked]:bg-purple-600"
                 />
                 <br />
-                <Button
-                  className="h-4/6 w-full bg-gradient-to-t focus-visible:ring-0 focus-visible:ring-offset-0 from-gray-300 to-purple-600 text-xl text-white rounded-lg py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleLogin();
-                  }}
-                >
-                  ورود
-                </Button>
+                <a href={path}>
+                  <Button
+                    className="h-4/6 w-full bg-gradient-to-t focus-visible:ring-0 focus-visible:ring-offset-0 from-gray-300 to-purple-600 text-xl text-white rounded-lg py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
+                    onClick={(e) => {
+                      handleLogin(e);
+                    }}
+                  >
+                    ورود
+                  </Button>
+                </a>
               </div>
             </div>
           </div>

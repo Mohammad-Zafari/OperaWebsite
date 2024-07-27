@@ -23,17 +23,32 @@ import {
   selectShowPasswordConfirmation,
   RsetFormErrors,
   selectFormErrors,
+  RsetGender,
+  selectGender,
 } from "@/slices/MainSlice";
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { Label } from "../ui/label";
 
 const SignUp = () => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const chars = useSelector(selectUserName).split("");
+  const gender = useSelector(selectGender);
+  const firstName = useSelector(selectFirstName);
+  const lastName = useSelector(selectLastName);
+  const userName = useSelector(selectUserName);
+  const email = useSelector(selectEmail);
+  const password = useSelector(selectPassword);
+  const passwordConfirmation = useSelector(selectPasswordConfirmation);
+  const showPassword = useSelector(selectShowPassword);
+  const showPasswordConfirmation = useSelector(selectShowPasswordConfirmation);
+  const formErrors = useSelector(selectFormErrors);
+
+
+  const chars = userName !== null? userName.split(""): [];
   let usernameValidation = 0;
   chars.forEach((char, i) => {
-    if (char === "-" || (!isNaN(char) && i == 0)) {
+    if (char === "-" || ((char >= '0' && char <= '9') && i == 0)) {
       usernameValidation++;
     }
   });
@@ -53,16 +68,7 @@ const SignUp = () => {
       isEnough
     );
   };
-
-  const firstName = useSelector(selectFirstName);
-  const lastName = useSelector(selectLastName);
-  const userName = useSelector(selectUserName);
-  const email = useSelector(selectEmail);
-  const password = useSelector(selectPassword);
-  const passwordConfirmation = useSelector(selectPasswordConfirmation);
-  const showPassword = useSelector(selectShowPassword);
-  const showPasswordConfirmation = useSelector(selectShowPasswordConfirmation);
-  const formErrors = useSelector(selectFormErrors);
+  
 
   const firstNameIsValid = firstName !== "";
   const lastNameIsValid = lastName !== "";
@@ -85,21 +91,22 @@ const SignUp = () => {
     passwordIsEmpty &&
     passwordConfirmIsValid;
 
-  const validation = () => {
+  const validation = ({}) => {
+
     var errors = {
-      first: "",
-      last: "",
-      email: "",
-      userName: "",
-      password: "",
-      passwordConfirm: "",
+        firstName:"",
+        lastName:"",
+        email:"",
+        userName:"",
+        password:"",
+        passwordConfirmation:""
     };
 
     if (!firstNameIsValid) {
-      errors.first = "نام نمی‌تواند خالی باشد !";
+      errors.firstName = "نام نمی‌تواند خالی باشد !";
     }
     if (!lastNameIsValid) {
-      errors.last = "نام خانوادگی نمی‌تواند خالی باشد !";
+      errors.lastName = "نام خانوادگی نمی‌تواند خالی باشد !";
     }
     if (!emailIsValid) {
       errors.email = "ایمیل وارد شده صحیح نمی‌باشد !";
@@ -121,10 +128,10 @@ const SignUp = () => {
       errors.password = "رمز عبور نمی‌تواند خالی باشد !";
     }
     if (!passwordConfirmIsValid) {
-      errors.passwordConfirm = "با رمز عبور مطابقت ندارد !";
+      errors.passwordConfirmation = "با رمز عبور مطابقت ندارد !";
     }
     if (passwordConfirmIsEmpty) {
-      errors.passwordConfirm = "تأیید رمز عبور نمی‌تواند خالی باشد !";
+      errors.passwordConfirmation = "تأیید رمز عبور نمی‌تواند خالی باشد !";
     }
     return errors;
   };
@@ -132,21 +139,31 @@ const SignUp = () => {
   const handleSignUp = () => {
     if (formIsValid) {
       dispatch(RsetFormErrors({}));
-      // setFormErrors({});
+
       if (userName !== "qwerty" && email !== "opera@gmail.com") {
         console.log("Registerd!");
       } else {
         console.log("username or email is taken !");
       }
     } else {
-      dispatch(RsetFormErrors(validation()));
-      // setFormErrors(validation())
+      dispatch(RsetFormErrors(validation({firstName,lastName,email,userName,password,passwordConfirmation,})));
     }
   };
+
 
   useEffect(() => {
     dispatch(RsetUserName(""));
     dispatch(RsetPassword(""));
+    dispatch(
+      RsetFormErrors({
+        first: "",
+        last: "",
+        email: "",
+        userName: "",
+        password: "",
+        passwordConfirm: "",
+      })
+    );
   }, []);
 
   return (
@@ -167,6 +184,15 @@ const SignUp = () => {
             id="formContiner"
             className="flex flex-col px-2 bg-ate-500 border-4 md:px-0 mx-auto rounded-2xl shadow-md py-12 md:py-20 my-12 md:my-16"
           >
+            <div id="genderContainer" className="w-full sm:w-5/6 lg:w-4/6 flex justi px-2 mx-auto rounded-3xl">                
+                <Label className="w-fit flex items-center">زن
+                    <Input name="gender" onChange={() => dispatch(RsetGender(gender))} type="radio" className="mx-2"/>
+                </Label>
+                <Label className="w-fit flex items-center ml-8">مرد
+                    <Input name="gender" onChange={() => dispatch(RsetGender(gender))} type="radio" className="mx-2"/>
+                </Label>
+            </div>
+
             <div
               id="fullNameInput"
               className="w-full sm:w-5/6 lg:w-4/6 h-16 my-2 flex justify-items-center mx-auto"
@@ -212,12 +238,13 @@ const SignUp = () => {
             </div>
             <div className="w-full sm:w-5/6 lg:w-4/6 text-xs text-red-600 flex justify-items-center mx-auto">
               {!firstNameIsValid && (
-                <p className="w-full px-4 ml-2">{formErrors.first}</p>
+                <p className="w-full px-4 ml-2">{formErrors.firstName}</p>
               )}
               {!lastNameIsValid && (
-                <p className="w-full px-4 mr-2">{formErrors.last}</p>
+                <p className="w-full px-4 mr-2">{formErrors.lastName}</p>
               )}
             </div>
+
             <div
               id="userNameInput"
               className="w-full sm:w-5/6 lg:w-4/6 h-16 flex my-2 px-2 mx-auto bg-zinc-800 rounded-3xl"
@@ -227,7 +254,7 @@ const SignUp = () => {
               </div>
               <Input
                 className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
-                value={userName}
+                value={userName!}
                 onChange={(e) => dispatch(RsetUserName(e.target.value))}
                 style={{ border: "none transparent", outline: "none" }}
                 type="text"
@@ -381,7 +408,7 @@ const SignUp = () => {
             </div>
             {(!passwordConfirmIsValid || passwordConfirmIsEmpty) && (
               <p className="w-full sm:w-5/6 lg:w-4/6 text-xs text-red-600 px-2 mx-auto">
-                {formErrors.passwordConfirm}
+                {formErrors.passwordConfirmation}
               </p>
             )}
             <div

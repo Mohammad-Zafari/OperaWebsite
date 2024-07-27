@@ -4,6 +4,7 @@ import { RootState } from '@/store/store';
 
 
 interface MainState {
+    gender: boolean;
     userName: string;
     password: string;
     showPassWord: boolean;
@@ -16,9 +17,11 @@ interface MainState {
     showPasswordConfirmation: boolean;
     formErrors: object;
     rememberMe: boolean;
+    token: string;
 }
 
 const initialState: MainState = {
+    gender: true,
     userName: "",
     password: "",
     showPassWord: false,
@@ -30,20 +33,24 @@ const initialState: MainState = {
     email: "",
     showPasswordConfirmation: false,
     formErrors: {
-        first:"",
-        last:"",
+        firstName:"",
+        lastName:"",
         email:"",
         userName:"",
         password:"",
         passwordConfirm:""
     },
     rememberMe: false,
+    token:"",
 };
 
 const mainSlice = createSlice({
   name: 'main',
   initialState,
   reducers: {
+    RsetGender: (state, action: PayloadAction<boolean>) => {
+        state.gender = !state.gender;
+    },
     RsetUserName: (state, action: PayloadAction<string>) => {
         state.userName = action.payload;
         console.log('User name set:', state.userName);
@@ -78,15 +85,20 @@ const mainSlice = createSlice({
     },
     RsetFormErrors: (state, action: PayloadAction<object>) => {
         state.formErrors = action.payload;
+        console.log(action.payload);
     },
     RsetRememberMe: (state, action: PayloadAction<boolean>) => {
         state.rememberMe = !state.rememberMe;
     },
+    RsetToken: (state, action: PayloadAction<string>) => {
+        state.token = action.payload;
+    },
   },
 });
 
-export const { RsetUserName, RsetPassword, RsetShowPassword, RsetUserErrorStyle, RsetPasswordErrorStyle, RsetPasswordConfirmation, RsetFirstName,
-     RsetLastName, RsetEmail, RsetShowPasswordConfirmation, RsetFormErrors, RsetRememberMe } = mainSlice.actions;
+export const { RsetGender , RsetUserName, RsetPassword, RsetShowPassword, RsetUserErrorStyle, RsetPasswordErrorStyle, RsetPasswordConfirmation, RsetFirstName, 
+    RsetLastName, RsetEmail, RsetShowPasswordConfirmation, RsetFormErrors, RsetRememberMe, RsetToken } = mainSlice.actions;
+export const selectGender = (state:RootState) => state.main.gender;
 export const selectUserName = (state:RootState) => state.main.userName;
 export const selectPassword = (state:RootState) => state.main.password;
 export const selectShowPassword = (state:RootState) => state.main.showPassWord;
@@ -97,6 +109,7 @@ export const selectLastName = (state:RootState) => state.main.lastName;
 export const selectEmail = (state:RootState) => state.main.email;
 export const selectPasswordConfirmation = (state:RootState) => state.main.passwordConfirmation;
 export const selectShowPasswordConfirmation = (state:RootState) => state.main.showPasswordConfirmation;
-export const selectFormErrors= (state:RootState) => state.main.formErrors;
-export const selectRememberMe= (state:RootState) => state.main.rememberMe;
+export const selectFormErrors = (state:RootState) => state.main.formErrors;
+export const selectRememberMe = (state:RootState) => state.main.rememberMe;
+export const selectToken = (state:RootState) => state.main.token;
 export default mainSlice.reducer;
