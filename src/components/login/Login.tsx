@@ -91,11 +91,11 @@ const Login = () => {
 
   return (
     <>
-      <div id="container" className="h-screen md:flex">
+      <div id="container" dir="ltr" className="h-screen md:flex">
         <div
           id="leftPartContainer"
           className="md:h-full md:w-7/12 px-2 py-8 md:px-16"
-          style={{ direction: "rtl" }}
+          dir="rtl"
         >
           <img
             id="logo"
@@ -105,28 +105,27 @@ const Login = () => {
           />
           <div
             id="formContiner"
-            className="flex flex-col px-2 bg-ate-500 border-4 md:px-0 mx-auto rounded-2xl shadow-md py-32 md:py-40 my-20 md:my-28"
+            className="border4 rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto px-2 sm:px-2 md:px-0 py-32 md:py-40 my-20 md:my-28"
           >
             <div
               id="userInput"
-              className="w-full sm:w-5/6 lg:w-4/6 h-16 flex mb-4 px-2 mx-auto bg-zinc-800 rounded-3xl"
+              className="w-full sm:w-5/6 lg:w-4/6 h-16 flex px-2 mb-4 mx-auto bg-zinc-800 rounded-3xl"
               style={userErrorStyle}
             >
-              <div id="userIconContainer" className="w-1/12 my-auto h-4/6">
+              <div id="userIconContainer" className="w-1/12 h-4/6 my-auto">
                 <CircleUserRound className="h-full w-full text-violet-700" />
               </div>
               <Input
-                className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
+                className="bg-transparent w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
                 value={userName!}
                 onChange={(e) => dispatch(RsetUserName(e.target.value))}
-                style={{ border: "none transparent", outline: "none" }}
                 type="text"
                 placeholder="نام کاربری"
               />
             </div>
             <div
               id="passInput"
-              className="w-full sm:w-5/6 lg:w-4/6 h-16 flex mb-4 px-2 pl-4 mx-auto rounded-3xl bg-zinc-800"
+              className="w-full sm:w-5/6 lg:w-4/6 h-16 flex mx-auto mb-4 px-2 pl-4 rounded-3xl bg-zinc-800"
               style={passwordErrorStyle}
             >
               <div
@@ -138,7 +137,7 @@ const Login = () => {
               {showPassword ? (
                 <>
                   <Input
-                    className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
+                    className="bg-transparent w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
                     value={password}
                     onChange={(e) => dispatch(RsetPassword(e.target.value))}
                     style={{ border: "none transparent", outline: "none" }}
@@ -147,7 +146,7 @@ const Login = () => {
                   />
                   <div
                     id="eyeOffIconContainer"
-                    className="w-1/12 my-auto h-4/6"
+                    className="w-1/12 h-4/6 my-auto"
                     onClick={() => dispatch(RsetShowPassword(showPassword))}
                   >
                     <EyeOff className="h-full w-full text-violet-700" />
@@ -156,10 +155,9 @@ const Login = () => {
               ) : (
                 <>
                   <Input
-                    className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
+                    className="bg-transparent w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
                     value={password}
                     onChange={(e) => dispatch(RsetPassword(e.target.value))}
-                    style={{ border: "none transparent", outline: "none" }}
                     type="password"
                     placeholder="رمز عبور"
                   />
@@ -175,7 +173,7 @@ const Login = () => {
             </div>
             <div
               id="submitContainer"
-              className="w-full sm:w-5/6 lg:w-4/6 py-1 flex justify-between px-2 sm:px-4 mx-auto mt-4 rounded-3xl"
+              className="w-full sm:w-5/6 lg:w-4/6 flex justify-between px-2 sm:px-4 py-1 mx-auto mt-4 rounded-3xl"
             >
               <div id="submitLinksContainer">
                 <a
@@ -204,7 +202,7 @@ const Login = () => {
                 <br />
                 <a href={path}>
                   <Button
-                    className="h-4/6 w-full bg-gradient-to-t focus-visible:ring-0 focus-visible:ring-offset-0 from-gray-300 to-purple-600 text-xl text-white rounded-lg py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
+                    className="h-4/6 w-full focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-t from-gray-300 to-purple-600 text-xl text-white rounded-lg py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
                     onClick={(e) => {
                       handleLogin(e);
                     }}
@@ -218,7 +216,7 @@ const Login = () => {
         </div>
         <img
           src="/design.png"
-          className="md:h-full h-auto md:w-5/12 w-full"
+          className=" h-auto md:h-full w-full md:w-5/12"
           alt=""
         />
       </div>

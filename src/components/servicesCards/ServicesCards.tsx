@@ -23,13 +23,13 @@ const ServicesCards = () => {
     <>
       <div
         id="servicesCardsContainer"
-        className="bg-purple-400 py-20 px-2 sm:px-6 xl:px-12 2xl:px-48 border-b-1"
-        style={{ direction: "rtl" }}
+        className="bg-purple-400 border-b-1 py-20 px-2 sm:px-6 xl:px-12 2xl:px-48"
+        dir="rtl"
       >
-        <h1 id="title" className="text-2xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto md:mr-20">
+        <h1 id="title" className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto md:mr-20">
           طرح ها
         </h1>
-        <div id="cardsContainer" className="mx-auto block lg:flex justify-center pt-24">
+        <div id="cardsContainer" className="block lg:flex justify-center mx-auto pt-24">
           <ServiceCard cardInfo={api[0]} />
           <ServiceCard cardInfo={api[1]} />
           <ServiceCard cardInfo={api[0]} />

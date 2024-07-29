@@ -26,7 +26,7 @@ export default function RootLayout({
       <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
 
       </head>
-      <body className={inter.className} style={{fontFamily:"Vazir , sans-serif"}}>
+      <body className={inter.className} dir="rtl" style={{fontFamily:"Vazir , sans-serif"}}>
         <ToastContainer/>
         <ReduxWrapper>
        {children}

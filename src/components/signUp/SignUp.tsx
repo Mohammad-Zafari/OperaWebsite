@@ -152,25 +152,16 @@ const SignUp = () => {
   useEffect(() => {
     dispatch(RsetUserName(""));
     dispatch(RsetPassword(""));
-    dispatch(
-      RsetFormErrors({
-        first: "",
-        last: "",
-        email: "",
-        userName: "",
-        password: "",
-        passwordConfirm: "",
-      })
-    );
+    dispatch(RsetFormErrors({}));
   }, []);
 
   return (
     <>
-      <div id="container" className="h-screen md:flex">
+      <div id="container" dir="ltr" className="h-screen md:flex">
         <div
           id="leftPartContainer"
           className="md:h-full md:w-7/12 px-2 py-8 md:px-16"
-          style={{ direction: "rtl" }}
+          dir="rtl"
         >
           <img
             id="logo"
@@ -180,11 +171,11 @@ const SignUp = () => {
           />
           <div
             id="formContiner"
-            className="flex flex-col px-2 bg-ate-500 border-4 md:px-0 mx-auto rounded-2xl shadow-md py-12 md:py-20 my-12 md:my-16"
+            className="flex-col px-2 shadow-[0_-5px_60px_-15px] md:px-0 mx-auto rounded-2xl py-12 md:py-20 my-12 md:my-16"
           >
             <div
               id="genderContainer"
-              className="w-full sm:w-5/6 lg:w-4/6 flex justi px-2 mx-auto rounded-3xl"
+              className="w-full sm:w-5/6 lg:w-4/6 flex px-2 mx-auto rounded-3xl"
             >
               <Label className="w-fit flex items-center">
                 زن
@@ -240,10 +231,8 @@ const SignUp = () => {
                   <CircleUserRound className="h-full w-full text-violet-700" />
                 </div>
                 <Input
-                  className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
+                  className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400 w-11/12"
                   value={lastName}
-                  onChange={(e) => dispatch(RsetLastName(e.target.value))}
-                  style={{ border: "none transparent", outline: "none" }}
                   type="text"
                   placeholder="نام خانوادگی"
                 />
@@ -251,7 +240,7 @@ const SignUp = () => {
             </div>
             <div className="w-full sm:w-5/6 lg:w-4/6 text-xs text-red-600 flex justify-items-center mx-auto">
               {!firstNameIsValid && (
-                <p className="w-full px-4 ml-2">{formErrors.firstName!}</p>
+                <p className="w-full px-4 ml-2">{formErrors.firstName}</p>
               )}
               {!lastNameIsValid && (
                 <p className="w-full px-4 mr-2">{formErrors.lastName}</p>
@@ -266,10 +255,9 @@ const SignUp = () => {
                 <CircleUserRound className="h-full w-full text-violet-700" />
               </div>
               <Input
-                className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
-                value={userName!}
+                className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400 w-11/12"
+                value={userName}
                 onChange={(e) => dispatch(RsetUserName(e.target.value))}
-                style={{ border: "none transparent", outline: "none" }}
                 type="text"
                 placeholder="نام کاربری"
               />
@@ -287,10 +275,9 @@ const SignUp = () => {
                 <Mail className="h-full w-full text-violet-700" />
               </div>
               <Input
-                className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
+                className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400 w-11/12"
                 value={email}
                 onChange={(e) => dispatch(RsetEmail(e.target.value))}
-                style={{ border: "none transparent", outline: "none" }}
                 type="email"
                 placeholder="ایمیل"
               />
@@ -366,7 +353,7 @@ const SignUp = () => {
               {showPasswordConfirmation ? (
                 <>
                   <Input
-                    className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
+                    className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400 w-11/12"
                     value={passwordConfirmation}
                     onChange={(e) =>
                       dispatch(RsetPasswordConfirmation(e.target.value))
@@ -374,7 +361,6 @@ const SignUp = () => {
                     onCopy={(e) => e.preventDefault()}
                     onPaste={(e) => e.preventDefault()}
                     onCut={(e) => e.preventDefault()}
-                    style={{ border: "none transparent", outline: "none" }}
                     type="text"
                     placeholder="تأیید رمز عبور"
                   />
@@ -393,7 +379,7 @@ const SignUp = () => {
               ) : (
                 <>
                   <Input
-                    className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
+                    className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400 w-11/12"
                     value={passwordConfirmation}
                     onChange={(e) =>
                       dispatch(RsetPasswordConfirmation(e.target.value))
@@ -401,7 +387,6 @@ const SignUp = () => {
                     onCopy={(e) => e.preventDefault()}
                     onPaste={(e) => e.preventDefault()}
                     onCut={(e) => e.preventDefault()}
-                    style={{ border: "none transparent", outline: "none" }}
                     type="password"
                     placeholder="تأیید رمز عبور"
                   />
