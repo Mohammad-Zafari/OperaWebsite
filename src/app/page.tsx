@@ -5,10 +5,12 @@ import Hero from "@/components/hero/Hero";
 import ServicesCards from "@/components/servicesCards/ServicesCards";
 
 const Home = () => {
-  return <div>
-    <Hero/>
-    <ServicesCards/>
-  </div>;
+  return (
+    <div>
+      <Hero/>
+      <ServicesCards/>
+    </div>
+  );
 };
 
 export default Home;

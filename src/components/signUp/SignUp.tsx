@@ -90,8 +90,6 @@ const SignUp = () => {
     passwordConfirmIsValid &&
     !passwordConfirmIsEmpty;
 
-
-
   const validation = () => {
     var errors = {
       firstName: "",
@@ -101,7 +99,6 @@ const SignUp = () => {
       password: "",
       passwordConfirmation: "",
     };
-
 
     if (!firstNameIsValid) {
       errors.firstName = "نام نمی‌تواند خالی باشد !";
@@ -135,12 +132,7 @@ const SignUp = () => {
       errors.passwordConfirmation = "تأیید رمز عبور نمی‌تواند خالی باشد !";
     }
 
-    // dispatch(RsetFormErrors(errors));
-    console.log(formErrors);
-
-
     return errors;
-
   };
 
   const handleSignUp = () => {
@@ -154,7 +146,6 @@ const SignUp = () => {
       }
     } else {
       dispatch(RsetFormErrors(validation()));
-      validation();
     }
   };
 
