@@ -2,7 +2,7 @@ const Footer2 = () => {
   return (
     <div
       id="container"
-      className="flex flex-col items-center bg-[#333] text-white rounded-[100px] mx-20 mb-10"
+      className="flex flex-col items-center bg-[#333] text-white rounded-[100px] mx-20 mb-8"
     >
       <div
         id="main"

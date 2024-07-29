@@ -1,20 +1,28 @@
 import ContactUsMain from "./ContactUsMain";
 import Footer from "../Footer";
 import Navbar from "../Navbar/Navbar";
+import Map from "../Map";
 const ContactUsPage = () => {
   return (
+    
     <div
     id="container"
-    className="bg-[url('/background-contactUs.svg')]
+    className="bg-[url('/background-contactus-2.svg')]
     bg-cover bg-center h-full flex flex-col"
     >
-      <Navbar/>
+      
+      <div>
+        
+        <Navbar/>
+      </div>
       <div id="top-section" className="flex ">
         <div
           id="left-section"
           className=" flex flex-col flex-1 pt-72 pb-48 items-center justify-center"
           >
-          <div id="map" className="flex-6 bg-slate-600 w-[70%]">map</div>
+          <div id="map" className="flex-6 bg-slate-600 w-[70%]">
+            <Map/>
+          </div>
           <div id="address" className="flex-3 bg-[#333333] w-[70%] rounded-t-3xl mt-[-20px] flex flex-col items-end text-white text-sm font-light leading-relaxed">
             <div className="flex-2 flex items-center px-2">
               <p className="flex-12 text-right">

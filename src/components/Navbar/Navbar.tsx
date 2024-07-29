@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div
       id="container"
-      className="max-w-[1920px] flex w-full h-28 text-white bg-gradient-to-l from-[#552E87]/10 to-black/30 shadow-xl items-center rounded-xl justify-center mx-auto "
+      className="max-w-[1920px] flex w-[95%] h-28 text-white bg-gradient-to-l from-[#552E87]/10 to-black/30 shadow-xl items-center rounded-xl justify-center mx-auto"
       style={{
         background:
           "linear-gradient(90.02deg, #000000 -8.68%, #552E87 105.83%)",
