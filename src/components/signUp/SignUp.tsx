@@ -90,9 +90,7 @@ const SignUp = () => {
     passwordConfirmIsValid &&
     !passwordConfirmIsEmpty;
 
-  interface formErrors {
-    firstName: string;
-  }
+
 
   const validation = () => {
     var errors = {
@@ -136,9 +134,13 @@ const SignUp = () => {
     if (passwordConfirmIsEmpty) {
       errors.passwordConfirmation = "تأیید رمز عبور نمی‌تواند خالی باشد !";
     }
-    // return errors;
 
-    dispatch(RsetFormErrors(errors));
+    // dispatch(RsetFormErrors(errors));
+    console.log(formErrors);
+
+
+    return errors;
+
   };
 
   const handleSignUp = () => {
@@ -151,7 +153,7 @@ const SignUp = () => {
         console.log("username or email is taken !");
       }
     } else {
-      // dispatch(RsetFormErrors(validation({firstName,lastName,email,userName,password,passwordConfirmation,})));
+      dispatch(RsetFormErrors(validation()));
       validation();
     }
   };
@@ -258,7 +260,7 @@ const SignUp = () => {
             </div>
             <div className="w-full sm:w-5/6 lg:w-4/6 text-xs text-red-600 flex justify-items-center mx-auto">
               {!firstNameIsValid && (
-                <p className="w-full px-4 ml-2">{formErrors.firstName}</p>
+                <p className="w-full px-4 ml-2">{formErrors.firstName!}</p>
               )}
               {!lastNameIsValid && (
                 <p className="w-full px-4 mr-2">{formErrors.lastName}</p>

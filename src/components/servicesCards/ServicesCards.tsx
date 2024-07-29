@@ -23,7 +23,7 @@ const ServicesCards = () => {
     <>
       <div
         id="servicesCardsContainer"
-        className="bg-purple-600 py-20 px-2 sm:px-6 xl:px-12 2xl:px-48 border-b-1"
+        className="bg-purple-400 py-20 px-2 sm:px-6 xl:px-12 2xl:px-48 border-b-1"
         style={{ direction: "rtl" }}
       >
         <h1 id="title" className="text-2xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto md:mr-20">

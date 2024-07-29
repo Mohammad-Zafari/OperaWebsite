@@ -15,7 +15,14 @@ interface MainState {
     lastName: string;
     email: string;
     showPasswordConfirmation: boolean;
-    formErrors: object;
+    formErrors: {
+        firstName: string,
+        lastName: string,
+        email: string,
+        userName: string,
+        password: string,
+        passwordConfirmation: string,
+    };
     rememberMe: boolean;
     token: string;
 }
@@ -32,7 +39,14 @@ const initialState: MainState = {
     lastName: "",
     email: "",
     showPasswordConfirmation: false,
-    formErrors: {},
+    formErrors: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        userName: "",
+        password: "",
+        passwordConfirmation: "",
+    },
     rememberMe: false,
     token:"",
 };
@@ -76,9 +90,13 @@ const mainSlice = createSlice({
     RsetShowPasswordConfirmation: (state, action: PayloadAction<boolean>) => {
         state.showPasswordConfirmation = !state.showPasswordConfirmation;
     },
-    RsetFormErrors: (state, action: PayloadAction<object>) => {
-        state.formErrors = action.payload;
-        console.log(action.payload);
+    RsetFormErrors: (state, action) => {
+        state.formErrors.firstName = action.payload.firstName;
+        state.formErrors.lastName = action.payload.lastName;
+        state.formErrors.email = action.payload.email;
+        state.formErrors.userName = action.payload.userName;
+        state.formErrors.password = action.payload.password;
+        state.formErrors.passwordConfirmation = action.payload.passwordConfirmation;        
     },
     RsetRememberMe: (state, action: PayloadAction<boolean>) => {
         state.rememberMe = !state.rememberMe;
