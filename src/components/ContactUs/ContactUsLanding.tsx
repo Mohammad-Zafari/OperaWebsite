@@ -33,10 +33,10 @@ const ContactUsLanding = () => {
               placeholder="نام و نام خانوادگی"
               className="text-right border-gray-800 border-[2px] my-3 pr-14 pl-5 py-12 placeholder-purple-300 text-2xl font-bold focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg"
               style={{
-                color: 'customPurple' // or your default text color
+                color: "customPurple", // or your default text color
               }}
               value={name}
-              onChange={(name)=>{
+              onChange={(name) => {
                 const newValue = name.target.value;
                 setName(newValue);
                 console.log(newValue);
@@ -53,7 +53,7 @@ const ContactUsLanding = () => {
               placeholder="شماره تلفن همراه"
               value={phoneNumber}
               className="text-right border-gray-800 border-2 my-5 p-5 placeholder-purple-300 text-2xl font-bold pr-14 pl-5 py-12 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg "
-              onChange={(phoneNumber)=>{
+              onChange={(phoneNumber) => {
                 const newphoneNumber = phoneNumber.target.value;
                 setPhoneNumber(newphoneNumber);
                 console.log(newphoneNumber);
@@ -70,7 +70,7 @@ const ContactUsLanding = () => {
               placeholder="متن درخواست / نظر / انتقاد"
               className="text-right border-gray-800 border-2 my-5 pb-4 pt-12  placeholder-purple-300 text-2xl font-bold pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg h-72"
               value={text}
-              onChange={(text)=>{
+              onChange={(text) => {
                 const newText = text.target.value;
                 setText(newText);
                 console.log(newText);
@@ -90,10 +90,10 @@ const ContactUsLanding = () => {
           <Button
             variant="outline"
             className="text-right border-gray-800 border-2 mb-0 px-9 py-8  text-purple-700 text-2xl font-bold rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 "
-            onClick={()=>{
-              setName("")
-              setPhoneNumber("")
-              setText("")
+            onClick={() => {
+              setName("");
+              setPhoneNumber("");
+              setText("");
             }}
           >
             ارسال

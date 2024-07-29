@@ -9,9 +9,7 @@ const ContactUsMain = () => {
   const [phoneNumber, setPhoneNumber] = useState();
   const [text, setText] = useState();
   return (
-    <div
-    className="flex items-center mr-40 mb-48 flex-col mt-28 "
-    >
+    <div className="flex items-center mr-40 mb-48 flex-col mt-28 ">
       {/* <h1 className="text-black text-right mr-32 text-7xl font-bold  ">
         ارتباط با ما
       </h1> */}
@@ -33,10 +31,10 @@ const ContactUsMain = () => {
               placeholder="نام و نام خانوادگی"
               className="text-right border-gray-500 border-[2px] my-3 pr-14 pl-5 py-5 placeholder-purple-300 text-sm  focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
               style={{
-                color: 'customPurple' // or your default text color
+                color: "customPurple", // or your default text color
               }}
               value={name}
-              onChange={(name)=>{
+              onChange={(name) => {
                 const newValue = name.target.value;
                 setName(newValue);
                 console.log(newValue);
@@ -53,7 +51,7 @@ const ContactUsMain = () => {
               placeholder="شماره تلفن همراه"
               value={phoneNumber}
               className="text-right border-gray-500 border-2 my-2 p-5 placeholder-purple-300 text-sm  pr-14 pl-5  focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg "
-              onChange={(phoneNumber)=>{
+              onChange={(phoneNumber) => {
                 const newphoneNumber = phoneNumber.target.value;
                 setPhoneNumber(newphoneNumber);
                 console.log(newphoneNumber);
@@ -70,7 +68,7 @@ const ContactUsMain = () => {
               placeholder="متن درخواست / نظر / انتقاد"
               className="text-right border-gray-500 border-2 my-3  pt-3  placeholder-purple-300 text-sm  pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg pb-48"
               value={text}
-              onChange={(text)=>{
+              onChange={(text) => {
                 const newText = text.target.value;
                 setText(newText);
                 console.log(newText);
@@ -90,10 +88,10 @@ const ContactUsMain = () => {
           <Button
             variant="outline"
             className="text-right border-gray-600 border-[2px] px-11  text-purple-700 text-sm font-bold rounded-3xl focus-visible:ring-0 focus-visible:ring-offset-0  bottom-9 left-10 absolute  "
-            onClick={()=>{
-              setName("")
-              setPhoneNumber("")
-              setText("")
+            onClick={() => {
+              setName("");
+              setPhoneNumber("");
+              setText("");
             }}
           >
             ارسال

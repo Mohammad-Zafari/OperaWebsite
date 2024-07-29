@@ -10,10 +10,9 @@ const Navbar = () => {
       style={{
         background:
           "linear-gradient(90.02deg, #000000 -8.68%, #552E87 105.83%)",
-        boxShadow: '0px 5px 42.6px 9px rgba(0, 0, 0, 1.36)'
+        boxShadow: "0px 5px 42.6px 9px rgba(0, 0, 0, 1.36)",
       }}
       //box-shadow: 0px 5px 42.6px 9px rgba(0, 0, 0, 0.36);
-
     >
       <div id="left-section" className="flex-2 flex items-center pl-12">
         <Button
@@ -35,14 +34,12 @@ const Navbar = () => {
         id="middle-section"
         className="flex-6 flex text-2xl justify-center items-center space-x-6"
       >
-        <div className="flex-1">
-           ارتباط با ما
-        </div>
-        <div className="flex-1">درباره ما</div>
-        <div className="flex-1">مشتریان</div>
-        <div className="flex-1">وبلاگ</div>
-        <div className="flex-1">طرح ها</div>
-        <div className="flex-1">خانه</div>
+        <div className="flex-1 cursor-pointer">ارتباط با ما</div>
+        <div className="flex-1 cursor-pointer">درباره ما</div>
+        <div className="flex-1 cursor-pointer">مشتریان</div>
+        <div className="flex-1 cursor-pointer">وبلاگ</div>
+        <div className="flex-1 cursor-pointer">طرح ها</div>
+        <div className="flex-1 cursor-pointer">خانه</div>
       </div>
       <div id="right-section" className="flex-2 flex">
         <img src="logo (1).svg" alt="" className="size-16 flex-1  flex" />

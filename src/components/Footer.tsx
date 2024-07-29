@@ -6,7 +6,7 @@ const Footer2 = () => {
     >
       <div
         id="main"
-        className="flex-12 flex flex-row text-right space-x-40 justify px-12 pt-14"
+        className="flex-12 flex flex-row text-right space-x-20 justify px-12 pt-14"
       >
         <div id="communication-ways " className="flex-2 flex-col space-y-6">
           <h1 className="font-bold text-lg ">راه های ارتباطی</h1>
@@ -24,7 +24,7 @@ const Footer2 = () => {
             2pictures
           </div>
         </div>
-        <div id="site-sections" className="flex-1 flex-col px-12">
+        <div id="site-sections" className="flex-1 flex-col px-12 ">
           <div className="font-bold text-lg pb-6">بخش های سایت</div>
           <div className="text-[#979595] space-y-2 text-sm">
             <div className="">خانه</div>
@@ -38,8 +38,7 @@ const Footer2 = () => {
 
         <div
           id="about-opera"
-          className="flex-2
-        "
+          className="flex-2"
         >
           <div className="flex flex-row justify-end items-start">
             <h1 className="font-bold text-lg flex-1 ">درباره اپرا</h1>
