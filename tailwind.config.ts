@@ -19,6 +19,18 @@ const config = {
       },
     },
     extend: {
+      flex: {
+        '2': '2 1 0%', // Custom utility to allow flex-2
+        3: '3 3 0%',
+        4: '4 4 0%',
+        5: '5 5 0%',
+        6: '6 6 0%',
+
+      },
+      fontFamily: {
+        'ibm': ['"IBM Plex Sans Arabic"', 'sans-serif'],
+        'vazir': ['"Vazirmatn"', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

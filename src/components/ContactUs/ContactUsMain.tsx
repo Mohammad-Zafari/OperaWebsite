@@ -4,34 +4,37 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-const ContactUs = () => {
+const ContactUsMain = () => {
   const [name, setName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
   const [text, setText] = useState();
   return (
-    <div 
-    // className="bg-purple-950 mt-20 py-36"
+    <div
+    className="flex items-center mr-40 mb-48 flex-col mt-28 "
     >
-      <h1 className="text-black text-right mr-32 text-7xl font-bold">
+      {/* <h1 className="text-black text-right mr-32 text-7xl font-bold  ">
         ارتباط با ما
-      </h1>
-      <img src="/subtract.svg" alt="" className="ml-96 bottom my-5 size-28" />
+      </h1> */}
+      <p className="text-[#d9d9d9] text-6xl font-bold ml-44  ">ارتباط با ما</p>
       <div
         id="container"
-        className="w-[60%] rounded-[20px] bg-white m-auto p-3 "
+        className="w-[90%] rounded-[40px] bg-white p-3 mt-24 shadow-customShadow1"
       >
         <div
           id="main"
-          className=" m-auto bg-white rounded-[24px] shadow-customShadow1 p-8 pb-4 pt-10 "
+          className=" o bg-white rounded-[44px] shadow-customShadow1 px-2 pt-10 pb-20 relative "
         >
-          <p className="text-purple-700 text-3xl font-bold text-right pb-5">
+          <p className="text-purple-700 text-base font-bold text-right pb-5">
             درصورت داشتن درخواست، نظر یا انتقاد برای ما بنویسید.
           </p>
 
           <div className="relative">
             <Input
               placeholder="نام و نام خانوادگی"
-              className="text-right border-gray-800 border-[2px] my-3 pr-14 pl-5 py-12 placeholder-purple-300 text-2xl font-bold focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg"
+              className="text-right border-gray-500 border-[2px] my-3 pr-14 pl-5 py-5 placeholder-purple-300 text-sm  focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
+              style={{
+                color: 'customPurple' // or your default text color
+              }}
               value={name}
               onChange={(name)=>{
                 const newValue = name.target.value;
@@ -49,7 +52,7 @@ const ContactUs = () => {
             <Input
               placeholder="شماره تلفن همراه"
               value={phoneNumber}
-              className="text-right border-gray-800 border-2 my-5 p-5 placeholder-purple-300 text-2xl font-bold pr-14 pl-5 py-12 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg "
+              className="text-right border-gray-500 border-2 my-2 p-5 placeholder-purple-300 text-sm  pr-14 pl-5  focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg "
               onChange={(phoneNumber)=>{
                 const newphoneNumber = phoneNumber.target.value;
                 setPhoneNumber(newphoneNumber);
@@ -65,7 +68,7 @@ const ContactUs = () => {
           <div className="relative">
             <Textarea
               placeholder="متن درخواست / نظر / انتقاد"
-              className="text-right border-gray-800 border-2 my-5 pb-4 pt-12  placeholder-purple-300 text-2xl font-bold pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg h-72"
+              className="text-right border-gray-500 border-2 my-3  pt-3  placeholder-purple-300 text-sm  pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg pb-48"
               value={text}
               onChange={(text)=>{
                 const newText = text.target.value;
@@ -81,12 +84,12 @@ const ContactUs = () => {
             <img
               src="/Group 2490.svg"
               alt=""
-              className="absolute bottom-0 left-0"
+              className="absolute bottom-1 left-1"
             />
           </div>
           <Button
             variant="outline"
-            className="text-right border-gray-800 border-2 mb-0 px-9 py-8  text-purple-700 text-2xl font-bold rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 "
+            className="text-right border-gray-600 border-[2px] px-11  text-purple-700 text-sm font-bold rounded-3xl focus-visible:ring-0 focus-visible:ring-offset-0  bottom-9 left-10 absolute  "
             onClick={()=>{
               setName("")
               setPhoneNumber("")
@@ -101,4 +104,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactUsMain;
