@@ -38,28 +38,28 @@ const Login = () => {
   const passwordIsValid = password.length > 7;
   const formIsValid = userNameIsValid && passwordIsValid;
 
-  const [path,setPath] = useState("")
+  const [path, setPath] = useState("");
 
-  const handleLogin = (event:any) => {
-
+  const handleLogin = (event: any) => {
     if (formIsValid) {
       if (userName === "qwerty" && password === "Parsa123") {
         if (rememberMe) {
-          localStorage.setItem("username",userName);
-          localStorage.setItem("password",password);
-          // localStorage.setItem("rememberMe", true);
+          localStorage.setItem("username", userName);
+          localStorage.setItem("password", password);
+          localStorage.setItem("rememberMe", "true");
         } else {
           localStorage.removeItem("username");
           localStorage.removeItem("password");
+          localStorage.removeItem("rememberMe");
         }
         setPath("/");
-        window.location.href = '/';
+        window.location.href = "/";
       } else {
         console.log("wrong username or password!");
         setPath("");
       }
     }
-    if(path!='/'){
+    if (path != "/") {
       event.preventDefault();
     }
 
@@ -77,14 +77,14 @@ const Login = () => {
     dispatch(RsetShowPassword(false));
     const userStore = localStorage.getItem("username");
     const passStore = localStorage.getItem("password");
+    const remStore = localStorage.getItem("rememberMe");
 
-    if(userStore !== null && passStore !== null){
+    if (userStore !== null && passStore !== null && remStore === "true") {
       dispatch(RsetUserName(userStore));
       dispatch(RsetPassword(passStore));
-      console.log("km") 
-      dispatch(RsetRememberMe(rememberMe));
-      console.log(rememberMe) 
-
+      console.log(rememberMe);
+      dispatch(RsetRememberMe(!true));
+      console.log(rememberMe);
     }
 
   }, []);
@@ -197,7 +197,7 @@ const Login = () => {
                 </Label>
                 <Checkbox
                   id="rememberMe"
-                  checked={rememberMe}
+                  checked={(rememberMe)}
                   onClick={() => dispatch(RsetRememberMe(!rememberMe))}
                   className="mb-4 bg-yellow-300 border-none data-[state=checked]:bg-purple-600"
                 />

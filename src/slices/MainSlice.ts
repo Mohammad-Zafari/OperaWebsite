@@ -32,14 +32,7 @@ const initialState: MainState = {
     lastName: "",
     email: "",
     showPasswordConfirmation: false,
-    formErrors: {
-        firstName:"",
-        lastName:"",
-        email:"",
-        userName:"",
-        password:"",
-        passwordConfirm:""
-    },
+    formErrors: {},
     rememberMe: false,
     token:"",
 };

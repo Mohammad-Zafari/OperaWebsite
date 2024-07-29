@@ -44,11 +44,10 @@ const SignUp = () => {
   const showPasswordConfirmation = useSelector(selectShowPasswordConfirmation);
   const formErrors = useSelector(selectFormErrors);
 
-
-  const chars = userName !== null? userName.split(""): [];
+  const chars = userName !== null ? userName.split("") : [];
   let usernameValidation = 0;
   chars.forEach((char, i) => {
-    if (char === "-" || ((char >= '0' && char <= '9') && i == 0)) {
+    if (char === "-" || (char >= "0" && char <= "9" && i == 0)) {
       usernameValidation++;
     }
   });
@@ -68,7 +67,6 @@ const SignUp = () => {
       isEnough
     );
   };
-  
 
   const firstNameIsValid = firstName !== "";
   const lastNameIsValid = lastName !== "";
@@ -92,21 +90,20 @@ const SignUp = () => {
     passwordConfirmIsValid &&
     !passwordConfirmIsEmpty;
 
-  interface formErrors{
+  interface formErrors {
     firstName: string;
   }
 
-
   const validation = () => {
-
     var errors = {
-        firstName:"",
-        lastName:"",
-        email:"",
-        userName:"",
-        password:"",
-        passwordConfirmation:""
+      firstName: "",
+      lastName: "",
+      email: "",
+      userName: "",
+      password: "",
+      passwordConfirmation: "",
     };
+
 
     if (!firstNameIsValid) {
       errors.firstName = "نام نمی‌تواند خالی باشد !";
@@ -159,7 +156,6 @@ const SignUp = () => {
     }
   };
 
-
   useEffect(() => {
     dispatch(RsetUserName(""));
     dispatch(RsetPassword(""));
@@ -174,7 +170,6 @@ const SignUp = () => {
       })
     );
   }, []);
-
 
   return (
     <>
@@ -194,13 +189,28 @@ const SignUp = () => {
             id="formContiner"
             className="flex flex-col px-2 bg-ate-500 border-4 md:px-0 mx-auto rounded-2xl shadow-md py-12 md:py-20 my-12 md:my-16"
           >
-            <div id="genderContainer" className="w-full sm:w-5/6 lg:w-4/6 flex justi px-2 mx-auto rounded-3xl">                
-                <Label className="w-fit flex items-center">زن
-                    <Input name="gender" onChange={() => dispatch(RsetGender(gender))} type="radio" className="mx-2"/>
-                </Label>
-                <Label className="w-fit flex items-center ml-8">مرد
-                    <Input name="gender" onChange={() => dispatch(RsetGender(gender))} type="radio" className="mx-2"/>
-                </Label>
+            <div
+              id="genderContainer"
+              className="w-full sm:w-5/6 lg:w-4/6 flex justi px-2 mx-auto rounded-3xl"
+            >
+              <Label className="w-fit flex items-center">
+                زن
+                <Input
+                  name="gender"
+                  onChange={() => dispatch(RsetGender(gender))}
+                  type="radio"
+                  className="mx-2"
+                />
+              </Label>
+              <Label className="w-fit flex items-center ml-8">
+                مرد
+                <Input
+                  name="gender"
+                  onChange={() => dispatch(RsetGender(gender))}
+                  type="radio"
+                  className="mx-2"
+                />
+              </Label>
             </div>
 
             <div
