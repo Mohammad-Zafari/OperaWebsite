@@ -7,15 +7,17 @@ import Footer from "../components/Footer";
 import ContactUsPage from "../components/ContactUs/ContactUsPage";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer2 from "@/components/Footer";
+import { SheetDemo } from "@/components/Navbar/Haburger-menu";
 const Home = () => {
   return (
     <div className=" flex justify-center items-center border font-vazir">
       {/* <Navbar/> */}
-      {/* <Carts />
-      <ContactUs />
+      {/* <Carts /> */}
+      {/* <ContactUs />
       <Footer /> */}
       <ContactUsPage />
       {/* <Footer/> */}
+      {/* <SheetDemo/> */}
     </div>
   );
 };

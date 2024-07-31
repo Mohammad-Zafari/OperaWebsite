@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      backgroundImage: {
+        'custom-cart-gradient': 'linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(7, 7, 7, 0.24) 135.63%)',
+      },
       flex: {
         '2': '2 1 0%', // Custom utility to allow flex-2
         3: '3 3 0%',

@@ -68,7 +68,7 @@ const ContactUsLanding = () => {
           <div className="relative">
             <Textarea
               placeholder="متن درخواست / نظر / انتقاد"
-              className="text-right border-gray-800 border-2 my-5 pb-4 pt-12  placeholder-purple-300 text-2xl font-bold pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg h-72"
+              className="text-right border-gray-800 border-2 my-5 pb-4 pt-12  placeholder-purple-300 text-2xl font-bold pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg h-72 placeholder-opacity-100"
               value={text}
               onChange={(text) => {
                 const newText = text.target.value;

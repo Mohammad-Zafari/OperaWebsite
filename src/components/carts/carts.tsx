@@ -1,33 +1,89 @@
-import Cart from "./Cart"
+import { space } from "postcss/lib/list";
+import Cart from "./Cart";
 
-const cartData=[
+const cartData = [
   {
-  
-    "title": "امکان بازرسی تمام تماس ها",
-    "description": "با کمک اپرا میتوانید تمام تماس های ورودی و خروجی را بازرسی کنید این امر موجب میشود که...",
-    "imagesrc": "/bazrasi-item.svg"
+    title: "امکان جستجو در تماس ها",
+    description:
+      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
+    imagesrc: "/call-search-item.svg",
+    extratext:
+      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
   },
   {
-
-    "title": "امکان جستجو در تماس ها",
-    "description": "پرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    "imagesrc": "/call-search-item.svg"
-  }
-]
+    title: "امکان جستجو در تماس ها",
+    description:
+      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
+    imagesrc: "/call-search-item.svg",
+    extratext:
+      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+  },
+  {
+    title: "امکان جستجو در تماس ها",
+    description:
+      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
+    imagesrc: "/call-search-item.svg",
+    extratext:
+      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+  },
+  {
+    title: "امکان جستجو در تماس ها",
+    description:
+      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
+    imagesrc: "/call-search-item.svg",
+    extratext:
+      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+  },
+  {
+    title: "امکان جستجو در تماس ها",
+    description:
+      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
+    imagesrc: "/call-search-item.svg",
+    extratext:
+      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+  },
+  {
+    title: "امکان جستجو در تماس ها",
+    description:
+      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
+    imagesrc: "/call-search-item.svg",
+    extratext:
+      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+  },
+  {
+    title: "امکان جستجو در تماس ها",
+    description:
+      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
+    imagesrc: "/call-search-item.svg",
+    extratext:
+      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+  },
+];
 
 const Carts = () => {
   return (
-    <div>
-       {cartData.map((cart, index) => (
-        <Cart 
-          key={index} // Use index as key, but try to use unique IDs if possible
-          title={cart.title} 
-          description={cart.description}
-          imagesrc={cart.imagesrc} 
-        />
-      ))}
+    <div className="bg-[#dbd4ba] lg:w-[60%] md:w-[80%] w-[100%]">
+      <div className="lg:flex items-center justify-center">
+        <img className="" src="/whyOpera.svg" alt="" />
+        <h1 className="text-[#333333]  lg:text-6xl font-bold w-fit mx-auto lg:mx-0 md:text-5xl text-4xl">
+          چرا
+          <span className="text-customPurple mr-3">اپرا </span>؟
+        </h1>
+      </div>
+
+      <div className="flex flex-wrap mt-14 justify-center">
+        {cartData.map((cart, index) => (
+          <Cart
+            key={index} // Use index as key, but try to use unique IDs if possible
+            title={cart.title}
+            description={cart.description}
+            imagesrc={cart.imagesrc}
+            extratext={cart.extratext}
+          />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default Carts;

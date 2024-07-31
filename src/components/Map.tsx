@@ -21,7 +21,7 @@ const Map = () => {
   const position = [35.770441, 51.455009]; 
 // it's not the exact location
   return (
-    <MapContainer center={position} zoom={15} className="h-96 w-full">
+    <MapContainer center={position} zoom={15} className="h-96 w-full rounded-t-3xl">
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors"
