@@ -34,3 +34,31 @@
 
 // export const { toggleModal, RsetUserName, RsetUserAge } = mainSlice.actions;
 // export default mainSlice.reducer;
+// src/features/main/mainSlice.ts
+
+import { RootState } from '@/store/store';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface MainState {
+  token: string | null;
+}
+
+const initialState: MainState = {
+  token: null,
+};
+
+const mainSlice = createSlice({
+  name: 'main',
+  initialState,
+  reducers: {
+    RsetToken: (state, action: PayloadAction<string>) => {
+      state.token = action.payload;
+    },
+    
+  },
+});
+
+export const { RsetToken } = mainSlice.actions;
+export const selectToken=(state: RootState) => state.main.token
+export default mainSlice.reducer;
+

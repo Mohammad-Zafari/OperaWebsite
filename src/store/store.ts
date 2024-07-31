@@ -1,10 +1,11 @@
 // src/store/store.ts
+
 import { configureStore } from '@reduxjs/toolkit';
-// import mainReducer from '../slices/MainSlice'; // Adjust path if needed
+import mainReducer from '../slices/MainSlice'; // Adjust the path if necessary
 
 const store = configureStore({
   reducer: {
-    // main: mainReducer,
+    main: mainReducer,
   },
 });
 
