@@ -13,9 +13,9 @@ import {
 } from "@/components/ui/sheet";
 import { DialogClose, DialogContent } from "@radix-ui/react-dialog";
 
-export function SheetDemo() {
+export function NavbarResponsive() {
   return (
-    <Sheet >
+    <Sheet>
       <SheetTrigger asChild className="">
         <Button className="shadow-none">
           <img src="hamburger-menu.svg" alt="" />
@@ -24,7 +24,10 @@ export function SheetDemo() {
 
       <SheetContent className="bg-purple-100 bg-opacity-100 border-none w-[50%]">
         <SheetHeader className="flex items-end text-white">
-          <SheetTitle> <img src="logo (1).svg" alt="" /></SheetTitle>
+          <SheetTitle>
+            {" "}
+            <img src="logo (1).svg" alt="" />
+          </SheetTitle>
           <SheetDescription></SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4 justify-items-end text-black">

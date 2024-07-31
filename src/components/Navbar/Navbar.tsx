@@ -1,9 +1,18 @@
+
+"use client"
 import { Import } from "lucide-react"; // Ensure to import this if you use it later
 import f from "../../../public/logo (1).svg"; // Ensure the path is correct
 import { Button } from "@/components/ui/button";
-import { SheetDemo } from "./Haburger-menu";
+import { NavbarResponsive } from "./NavbarResponsive";
+
 
 const Navbar = () => {
+  const handleSignup = () => {
+    console.log("signup")
+  }
+  const handleLogin = () => {
+    console.log("login")
+  }
   return (
     <div
       id="container"
@@ -18,14 +27,14 @@ const Navbar = () => {
       <div id="left-section" className="flex-2 flex items-center lg:pl-12 md:pl-6">
         <Button
           className="text-black  lg:h-[50px] lg:text-sm text-xs rounded-2xl absolute transition duration-200 hover:bg-[#a07f3b] bg-[#b09945] lg:w-[100px] w-[80px]"
-          onClick={() => console.log("add")}
+          onClick={handleSignup}
         >
           <img src="/person_add.svg" alt="" className="lg:"/>
           عضویت
         </Button>
         <Button
-          className="bg-white text-black lg:w-[190px] lg:h-[50px] rounded-2xl text-right justify-end hover:bg-gray-300 transition duration-200 lg:text-sm text-xs w-[150px] "
-          onClick={() => console.log("enter")}
+          className="bg-white text-black lg:w-[190px] lg:h-[50px] rounded-2xl text-right justify-end hover:bg-gray-300 transition duration-200 lg:text-sm text-xs w-[150px]"
+          onClick={handleLogin}
         >
           <img src="/login.svg" alt="" className="lg:mr-4 md:mr-" />
           ورود
@@ -46,7 +55,7 @@ const Navbar = () => {
         <img src="logo (1).svg" alt="" className="lg:size-16 md:size-10 sm:size-8 size-6 flex-1 flex" />
       </div>
       <div id="small-screen-right-section" className="md:hidden flex ">
-        <SheetDemo/>
+        <NavbarResponsive/>
 
       </div>
     </div>

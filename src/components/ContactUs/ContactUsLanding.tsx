@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 const ContactUsLanding = () => {
-  const [name, setName] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [text, setText] = useState();
+  const [name, setName] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<number>();
+  const [text, setText] = useState<string>("");
   return (
     <div
     // className="bg-purple-950 mt-20 py-36"
@@ -52,11 +52,13 @@ const ContactUsLanding = () => {
             <Input
               placeholder="شماره تلفن همراه"
               value={phoneNumber}
+              type="number"
               className="text-right border-gray-800 border-2 my-5 p-5 placeholder-purple-300 text-2xl font-bold pr-14 pl-5 py-12 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg "
               onChange={(phoneNumber) => {
-                const newphoneNumber = phoneNumber.target.value;
+                const newphoneNumber = parseInt(phoneNumber.target.value);
                 setPhoneNumber(newphoneNumber);
                 console.log(newphoneNumber);
+                console.log(typeof(newphoneNumber))
               }}
             />
             <img
@@ -92,7 +94,7 @@ const ContactUsLanding = () => {
             className="text-right border-gray-800 border-2 mb-0 px-9 py-8  text-purple-700 text-2xl font-bold rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 "
             onClick={() => {
               setName("");
-              setPhoneNumber("");
+              setPhoneNumber(undefined);
               setText("");
             }}
           >

@@ -1,5 +1,3 @@
-"use client"; // Ensures this component is client-side
-
 import React from "react";
 import Carts from "../components/Carts/Carts";
 import ContactUs from "../components/ContactUs/ContactUsLanding";
@@ -7,7 +5,8 @@ import Footer from "../components/Footer";
 import ContactUsPage from "../components/ContactUs/ContactUsPage";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer2 from "@/components/Footer";
-import { SheetDemo } from "@/components/Navbar/Haburger-menu";
+import { NavbarResponsive } from "@/components/Navbar/NavbarResponsive";
+import ContactUsLanding from "../components/ContactUs/ContactUsLanding";
 const Home = () => {
   return (
     <div className=" flex justify-center items-center border font-vazir">
@@ -15,9 +14,11 @@ const Home = () => {
       {/* <Carts /> */}
       {/* <ContactUs />
       <Footer /> */}
-      <ContactUsPage />
+      {/* <ContactUsPage /> */}
       {/* <Footer/> */}
       {/* <SheetDemo/> */}
+      shayan
+      <ContactUsLanding/>
     </div>
   );
 };

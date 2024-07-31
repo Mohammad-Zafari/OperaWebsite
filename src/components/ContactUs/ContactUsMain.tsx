@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
 const ContactUsMain = () => {
-  const [name, setName] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [text, setText] = useState();
+  const [name, setName] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<number>();
+  const [text, setText] = useState<string>("");
   return (
     <div className="flex items-center mb-24 md:mb-48 flex-col lg:mt-28 mt-8 md:mx-20 lg:mr-10  ">
       {/* <h1 className="text-black text-right mr-32 text-7xl font-bold  ">
@@ -53,6 +53,7 @@ const ContactUsMain = () => {
               className="text-right border-gray-500 border-2 my-1 lg:my-2 lg:py-5 placeholder-purple-300 sm:text-xs md:text-sm text-[8px] pr-14 lg:pl-5  focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg "
               onChange={(phoneNumber) => {
                 const newphoneNumber = phoneNumber.target.value;
+                console.log(phoneNumber.target.value)
                 setPhoneNumber(newphoneNumber);
                 console.log(newphoneNumber);
               }}

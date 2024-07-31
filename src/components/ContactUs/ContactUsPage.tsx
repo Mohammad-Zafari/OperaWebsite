@@ -2,8 +2,7 @@ import ContactUsMain from "./ContactUsMain";
 import Footer from "../Footer";
 import Navbar from "../Navbar/Navbar";
 import Map from "../Map";
-import { HumburgerNavbar, SheetDemo } from "../Navbar/Haburger-menu";
-import NewNavbar from "../Navbar/NewNavbar";
+
 const ContactUsPage = () => {
   return (
     <div
