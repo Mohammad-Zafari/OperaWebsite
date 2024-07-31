@@ -18,17 +18,11 @@ const Hero = () => {
           >
             اپرا
           </h1>
-          <h3
-            id="discribtion"
-            className="text-2xl sm:text-4xl text-white mt-6"
-          >
+          <h3 id="discribtion" className="text-2xl sm:text-4xl text-white mt-6">
             سرویس ها و محصولات مبتنی بر هوش مصنوعی در مراکز تماس و ارتباط با
             مشتریان
           </h3>
-          <div
-            id="buttonContainer"
-            className="flex justify-end ml-8 py-12"
-          >
+          <div id="buttonContainer" className="flex justify-end ml-8 py-12">
             <a
               id="linkToSeeProducts"
               href="#"

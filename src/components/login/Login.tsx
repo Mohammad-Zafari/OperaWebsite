@@ -13,62 +13,76 @@ import {
   RsetPassword,
   selectPassword,
   RsetShowPassword,
+  RsetShowPasswordType,
+  selectShowPasswordType,
   selectShowPassword,
-  RsetUserErrorStyle,
-  selectUserErrorStyle,
-  RsetPasswordErrorStyle,
-  selectPasswordErrorStyle,
   RsetRememberMe,
   selectRememberMe,
+  RsetLoginErrors,
+  selectLoginErrors,
 } from "@/slices/MainSlice";
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter, usePathname } from "next/navigation";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
-
+  const router = useRouter();
+  const currentPage = usePathname();
   const userName = useSelector(selectUserName);
   const password = useSelector(selectPassword);
   const showPassword = useSelector(selectShowPassword);
+  const showPasswordType = useSelector(selectShowPasswordType);
   const rememberMe = useSelector(selectRememberMe);
-  const userErrorStyle = useSelector(selectUserErrorStyle);
-  const passwordErrorStyle = useSelector(selectPasswordErrorStyle);
+  const loginErrors = useSelector(selectLoginErrors);
 
   const userNameIsValid = userName !== "";
   const passwordIsValid = password.length > 7;
   const formIsValid = userNameIsValid && passwordIsValid;
 
-  const [path, setPath] = useState("");
+  showPassword
+    ? dispatch(RsetShowPasswordType("text"))
+    : dispatch(RsetShowPasswordType("password"));
+
+  const validation = () => {
+    var errors = {
+      userErrorStyle: {},
+      passwordErrorStyle: {},
+    };
+
+    !userNameIsValid
+      ? (errors.userErrorStyle = { border: "3px solid red" })
+      : {};
+    !passwordIsValid
+      ? (errors.passwordErrorStyle = { border: "3px solid red" })
+      : {};
+
+    return errors;
+  };
 
   const handleLogin = (event: any) => {
     if (formIsValid) {
+      dispatch(RsetLoginErrors(validation()));
       if (userName === "qwerty" && password === "Parsa123") {
         if (rememberMe) {
           localStorage.setItem("username", userName);
           localStorage.setItem("password", password);
-          localStorage.setItem("rememberMe", "true");
         } else {
           localStorage.removeItem("username");
           localStorage.removeItem("password");
-          localStorage.removeItem("rememberMe");
         }
-        setPath("/");
-        window.location.href = "/";
+        router.push("/");
       } else {
         console.log("wrong username or password!");
-        setPath("");
       }
-    }
-    if (path != "/") {
-      event.preventDefault();
-    }
+    } else {
+      if (currentPage != "/") {
+        console.log(currentPage);
+        event.preventDefault();
+      }
 
-    !userNameIsValid
-      ? dispatch(RsetUserErrorStyle({ border: "3px solid red" }))
-      : dispatch(RsetUserErrorStyle({ border: "none" }));
-    !passwordIsValid
-      ? dispatch(RsetPasswordErrorStyle({ border: "3px solid red" }))
-      : dispatch(RsetPasswordErrorStyle({ border: "none" }));
+      dispatch(RsetLoginErrors(validation()));
+    }
   };
 
   useEffect(() => {
@@ -77,47 +91,47 @@ const Login = () => {
     dispatch(RsetShowPassword(false));
     const userStore = localStorage.getItem("username");
     const passStore = localStorage.getItem("password");
-    const remStore = localStorage.getItem("rememberMe");
 
-    if (userStore !== null && passStore !== null && remStore === "true") {
+    if (userStore !== null && passStore !== null) {
       dispatch(RsetUserName(userStore));
       dispatch(RsetPassword(passStore));
-      console.log(rememberMe);
-      dispatch(RsetRememberMe(!true));
-      console.log(rememberMe);
+      dispatch(RsetRememberMe(true));
     }
-
   }, []);
 
   return (
     <>
-      <div id="container" dir="ltr" className="h-screen md:flex">
+      <div
+        id="container"
+        dir="ltr"
+        className="before:absolute before:w-full before:h-full before:bg-cover before:bg-center before:filter before:blur-[10px] before:-z-10 before:bg-[url('/design.png')] before:md:bg-[url('')] h-screen md:flex"
+      >
         <div
           id="leftPartContainer"
-          className="md:h-full md:w-7/12 px-2 py-8 md:px-16"
+          className="h-screen md:w-7/12 flex-col items-center px-2 sm:px-4 py-8 md:px-16"
           dir="rtl"
         >
           <img
             id="logo"
-            className="w-44 h-16 mx-2 md:m-0"
+            className="w-44 h-16 mx-auto sm:mx-2 md:m-0"
             src="/logo.png"
             alt=""
           />
           <div
             id="formContiner"
-            className="border4 rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto px-2 sm:px-2 md:px-0 py-32 md:py-40 my-20 md:my-28"
+            className="bg-white rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto px-2 sm:px-8 lg:px-12 xl:px-20 2xl:px-32 py-20 sm:py-32 md:py-40 my-12 min-[321px]:my-24 md:my-20"
           >
             <div
               id="userInput"
-              className="w-full sm:w-5/6 lg:w-4/6 h-16 flex px-2 mb-4 mx-auto bg-zinc-800 rounded-3xl"
-              style={userErrorStyle}
+              className="h-16 flex px-2 mb-4 mx-auto bg-zinc-800 rounded-3xl"
+              style={loginErrors.userErrorStyle}
             >
               <div id="userIconContainer" className="w-1/12 h-4/6 my-auto">
                 <CircleUserRound className="h-full w-full text-violet-700" />
               </div>
               <Input
-                className="bg-transparent w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
-                value={userName!}
+                className="w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
+                value={userName}
                 onChange={(e) => dispatch(RsetUserName(e.target.value))}
                 type="text"
                 placeholder="نام کاربری"
@@ -125,8 +139,8 @@ const Login = () => {
             </div>
             <div
               id="passInput"
-              className="w-full sm:w-5/6 lg:w-4/6 h-16 flex mx-auto mb-4 px-2 pl-4 rounded-3xl bg-zinc-800"
-              style={passwordErrorStyle}
+              className="h-16 flex mx-auto mb-4 px-2 pl-4 rounded-3xl bg-zinc-800"
+              style={loginErrors.passwordErrorStyle}
             >
               <div
                 id="passIconContainer"
@@ -134,89 +148,69 @@ const Login = () => {
               >
                 <Lock className="h-full w-full text-violet-700" />
               </div>
-              {showPassword ? (
-                <>
-                  <Input
-                    className="bg-transparent w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
-                    value={password}
-                    onChange={(e) => dispatch(RsetPassword(e.target.value))}
-                    style={{ border: "none transparent", outline: "none" }}
-                    type="text"
-                    placeholder="رمز عبور"
-                  />
-                  <div
-                    id="eyeOffIconContainer"
-                    className="w-1/12 h-4/6 my-auto"
-                    onClick={() => dispatch(RsetShowPassword(showPassword))}
-                  >
-                    <EyeOff className="h-full w-full text-violet-700" />
-                  </div>
-                </>
-              ) : (
-                <>
-                  <Input
-                    className="bg-transparent w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
-                    value={password}
-                    onChange={(e) => dispatch(RsetPassword(e.target.value))}
-                    type="password"
-                    placeholder="رمز عبور"
-                  />
-                  <div
-                    id="eyeIconContainer"
-                    className="w-1/12 my-auto h-4/6"
-                    onClick={() => dispatch(RsetShowPassword(showPassword))}
-                  >
-                    <Eye className="h-full w-full text-violet-700" />
-                  </div>
-                </>
-              )}
+              <Input
+                className="w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
+                value={password}
+                onChange={(e) => dispatch(RsetPassword(e.target.value))}
+                type={showPasswordType}
+                placeholder="رمز عبور"
+              />
+              <div
+                id="iconContainer"
+                className="w-1/12 h-4/6 my-auto"
+                onClick={() => dispatch(RsetShowPassword(showPassword))}
+              >
+                {showPassword ? (
+                  <EyeOff className="h-full w-full text-violet-700" />
+                ) : (
+                  <Eye className="h-full w-full text-violet-700" />
+                )}
+              </div>
             </div>
             <div
               id="submitContainer"
-              className="w-full sm:w-5/6 lg:w-4/6 flex justify-between px-2 sm:px-4 py-1 mx-auto mt-4 rounded-3xl"
+              className="flex justify-between px-2 sm:px-4 py-1 mx-auto mt-4 rounded-3xl"
             >
-              <div id="submitLinksContainer">
+              <div id="submitLinksContainer" className="text-center">
                 <a
-                  className="block py-1 text-amber-400 hover:text-amber-300"
+                  className="block text-sm py-1 text-amber-400 hover:text-amber-300"
                   href="/forgetPass"
                 >
                   فراموشی رمز عبور
                 </a>
                 <a
-                  className="block py-1 text-purple-600 hover:text-purple-400"
+                  className="block text-sm py-1 text-purple-600 hover:text-purple-400"
                   href="/signUp"
                 >
                   ایجاد حساب کاربری
                 </a>
               </div>
-              <div className="h-fit">
+              <div>
                 <Label htmlFor="rememberMe" className="px-2 text-purple-600">
                   من را به خاطر بسپار
                 </Label>
                 <Checkbox
                   id="rememberMe"
-                  checked={(rememberMe)}
+                  checked={rememberMe}
                   onClick={() => dispatch(RsetRememberMe(!rememberMe))}
                   className="mb-4 bg-yellow-300 border-none data-[state=checked]:bg-purple-600"
                 />
                 <br />
-                <a href={path}>
-                  <Button
-                    className="h-4/6 w-full focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-t from-gray-300 to-purple-600 text-xl text-white rounded-lg py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
-                    onClick={(e) => {
-                      handleLogin(e);
-                    }}
-                  >
-                    ورود
-                  </Button>
-                </a>
+                <Button
+                  className="mr-2 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-t from-gray-300 to-purple-600 text-xl text-white rounded-lg py-6 px-12 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
+                  onClick={(e) => {
+                    handleLogin(e);
+                  }}
+                >
+                  ورود
+                </Button>
               </div>
             </div>
           </div>
         </div>
         <img
           src="/design.png"
-          className=" h-auto md:h-full w-full md:w-5/12"
+          className="hidden md:block h-auto md:h-full w-full md:w-5/12"
           alt=""
         />
       </div>
