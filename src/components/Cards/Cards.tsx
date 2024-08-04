@@ -1,7 +1,7 @@
 import { space } from "postcss/lib/list";
-import Cart from "./Cart";
+import Card from "./Card";
 
-const cartData = [
+const cardData = [
   {
     title: "امکان جستجو در تماس ها",
     description:
@@ -72,7 +72,7 @@ const Carts = () => {
       </div>
 
       <div className="flex flex-wrap mt-14 justify-center">
-        {cartData.map((cart, index) => (
+        {cardData.map((cart, index) => (
           <Cart
             key={index} // Use index as key, but try to use unique IDs if possible
             title={cart.title}

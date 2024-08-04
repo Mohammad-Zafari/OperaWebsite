@@ -4,14 +4,22 @@ import { Import } from "lucide-react"; // Ensure to import this if you use it la
 import f from "../../../public/logo (1).svg"; // Ensure the path is correct
 import { Button } from "@/components/ui/button";
 import { NavbarResponsive } from "./NavbarResponsive";
-
+import {RsetLoggedIn,RsetSignedUp,selectLoggedIn,selectSignedUp} from "../../slices/NavabarSlice"
+import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
+  const dispatch= useDispatch();
+  const loggedIn=useSelector(selectLoggedIn)
+  const signedUp=useSelector(selectSignedUp)
   const handleSignup = () => {
-    console.log("signup")
+    dispatch(RsetSignedUp(true))
+    dispatch(RsetLoggedIn(false))
+
   }
   const handleLogin = () => {
-    console.log("login")
+    dispatch(RsetLoggedIn(true))
+    dispatch(RsetSignedUp(false))
+
   }
   return (
     <div
@@ -26,14 +34,14 @@ const Navbar = () => {
     >
       <div id="left-section" className="flex-2 flex items-center lg:pl-12 md:pl-6">
         <Button
-          className="text-black  lg:h-[50px] lg:text-sm text-xs rounded-2xl absolute transition duration-200 hover:bg-[#a07f3b] bg-[#b09945] lg:w-[100px] w-[80px]"
+          className="text-black  lg:h-[50px] lg:text-sm text-xs rounded-2xl absolute transition duration-200 hover:bg-[#a07f3b] bg-[#b09945] lg:w-[100px] w-[80px] ml-2"
           onClick={handleSignup}
         >
           <img src="/person_add.svg" alt="" className="lg:"/>
           عضویت
         </Button>
         <Button
-          className="bg-white text-black lg:w-[190px] lg:h-[50px] rounded-2xl text-right justify-end hover:bg-gray-300 transition duration-200 lg:text-sm text-xs w-[150px]"
+          className="bg-white text-black lg:w-[190px] lg:h-[50px] rounded-2xl text-right justify-end hover:bg-gray-300 transition duration-200 lg:text-sm text-xs w-[150px] ml-2"
           onClick={handleLogin}
         >
           <img src="/login.svg" alt="" className="lg:mr-4 md:mr-" />
@@ -44,7 +52,7 @@ const Navbar = () => {
         id="middle-section"
         className="flex-6 md:flex xl:text-xl md:text-lg sm:text-sm text-xs justify-center hidden items-center lg:space-x-2"
       >
-        <div className="flex-1 cursor-pointer">ارتباط با ما</div>
+        <div className="flex-1 cursor-pointer ">ارتباط با ما</div>
         <div className="flex-1 cursor-pointer">درباره ما</div>
         <div className="flex-1 cursor-pointer">مشتریان</div>
         <div className="flex-1 cursor-pointer">وبلاگ</div>
@@ -63,4 +71,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-// do nothing

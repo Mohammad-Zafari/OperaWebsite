@@ -1,10 +1,12 @@
 // src/store/store.ts
 import { configureStore } from '@reduxjs/toolkit';
 // import mainReducer from '../slices/MainSlice'; // Adjust path if needed
-
+import navbarReducer from "../slices/NavabarSlice";
+import contactReducer from "../slices/contactSlice"
 const store = configureStore({
   reducer: {
-    // main: mainReducer,
+    navbar: navbarReducer,
+    contact: contactReducer,
   },
 });
 

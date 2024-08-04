@@ -31,7 +31,7 @@ export function NavbarResponsive() {
           <SheetDescription></SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4 justify-items-end text-black">
-          <div className=" bg-yellow-400 cursor-pointer">ارتباط با ما</div>
+          <div className=" cursor-pointer">ارتباط با ما</div>
           <div className=" items-center cursor-pointer">درباره ما</div>
           <div className=" items-center cursor-pointer">مشتریان</div>
           <div className=" items-center cursor-pointer">وبلاگ</div>

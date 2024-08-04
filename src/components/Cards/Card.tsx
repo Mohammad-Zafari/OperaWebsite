@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Cart = ({ title, description, imagesrc, extratext }) => {
+const Card = ({ title, description, imagesrc, extratext }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -63,4 +63,4 @@ const Cart = ({ title, description, imagesrc, extratext }) => {
   );
 };
 
-export default Cart;
+export default Card;

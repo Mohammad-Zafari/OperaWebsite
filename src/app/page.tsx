@@ -1,5 +1,5 @@
 import React from "react";
-import Carts from "../components/Carts/Carts";
+import Carts from "../components/Cards/Cards";
 import ContactUs from "../components/ContactUs/ContactUsLanding";
 import Footer from "../components/Footer";
 import ContactUsPage from "../components/ContactUs/ContactUsPage";
@@ -17,8 +17,7 @@ const Home = () => {
       {/* <ContactUsPage /> */}
       {/* <Footer/> */}
       {/* <SheetDemo/> */}
-      shayan
-      <ContactUsLanding/>
+     <ContactUsLanding/>
     </div>
   );
 };
