@@ -1,5 +1,10 @@
+"use client"; // Ensures this component is client-side
+
 import React from "react";
-import Carts from "../components/Cards/Cards";
+import Hero from "@/components/hero/Hero";
+import ServicesCards from "@/components/servicesCards/ServicesCards";
+import BlogPages from "@/components/blogPages/BlogPages";
+import AboutUsVideo from "@/components/aboutUsVideo/AboutUsVideo";import Carts from "../components/Cards/Cards";
 import ContactUs from "../components/ContactUs/ContactUsLanding";
 import Footer from "../components/Footer";
 import ContactUsPage from "../components/ContactUs/ContactUsPage";
