@@ -11,8 +11,8 @@ const Home = () => {
     <div>
       {/* <Hero/>
       <ServicesCards/>
-      <AboutUsVideo/> */}
-      <BlogPages/>  
+      <AboutUsVideo/>
+      <BlogPages/>   */}
     </div>
   );
 };
