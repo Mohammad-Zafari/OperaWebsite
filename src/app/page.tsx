@@ -17,6 +17,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import Footer2 from "@/components/Footer";
 import { NavbarResponsive } from "@/components/Navbar/NavbarResponsive";
 import ContactUsLanding from "../components/ContactUs/ContactUsLanding";
+import ContactUsMain from "@/components/ContactUs/ContactUsMain";
 const Home = () => {
   return (
     <div className="font-vazir">
@@ -24,13 +25,11 @@ const Home = () => {
       <Hero/>
       <ServicesCards/>
       <Cards/>
-      {/* <Carts /> */}
-      {/* <ContactUs /> */}
-      {/* <ContactUsPage /> */}
-      {/* <Footer /> */}
-      {/* <Footer/> */}
-      {/* <SheetDemo/> */}
-     {/* <ContactUsLanding/> */}
+      <BlogList blogPosts={blogPosts}/>
+      <ImageCarousel/>
+      <AboutUsVideo/>
+      <ContactUsLanding/>
+      <Footer/>
     </div>
   );
 };

@@ -30,6 +30,7 @@ interface MainState {
         passwordErrorStyle: object;
     }
     rememberMe: boolean;
+    token: string | null;
 }
 
 const initialState: MainState = {
@@ -59,6 +60,8 @@ const initialState: MainState = {
         passwordErrorStyle: {},
     },
     rememberMe: false,
+    token: null,
+
 };
 
 const mainSlice = createSlice({
@@ -119,7 +122,8 @@ const mainSlice = createSlice({
     },
     RsetToken: (state, action: PayloadAction<string>) => {
         state.token = action.payload;
-    },
+      },
+
   },
 });
 
@@ -142,29 +146,6 @@ export const selectLoginErrors = (state:RootState) => state.main.loginErrors;
 export const selectRememberMe = (state:RootState) => state.main.rememberMe;
 export const selectToken = (state:RootState) => state.main.token;
 export default mainSlice.reducer;
-// src/features/main/mainSlice.ts
 
 
-
-interface MainState {
-}
-
-const initialState: MainState = {
-  token: null,
-};
-
-const mainSlice = createSlice({
-  name: 'main',
-  initialState,
-  reducers: {
-    RsetToken: (state, action: PayloadAction<string>) => {
-      state.token = action.payload;
-    },
-    
-  },
-});
-
-export const { RsetToken } = mainSlice.actions;
-export const selectToken=(state: RootState) => state.main.token
-export default mainSlice.reducer;
 
