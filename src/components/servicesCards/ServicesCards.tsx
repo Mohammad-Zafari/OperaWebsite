@@ -2,12 +2,12 @@ import React from "react";
 import ServiceCard from "../serviceCard/ServiceCard";
 
 const ServicesCards = () => {
-  const api = [
+  const cardContents = [
     {
       title: "اپــراگو",
       topic: "سرویس تبدیل متن به گفتار با هوش مصنوعی",
       discribtion:
-        "این محصول امکان تماس صوتی خودکار با مشتریان  را ایجاد می نماید. ",
+        "این محصول امکان تماس صوتی خودکار با مشتریان را ایجاد می نماید. ",
       imgUrl: "/card1.png",
     },
     {
@@ -30,9 +30,9 @@ const ServicesCards = () => {
           طرح ها
         </h1>
         <div id="cardsContainer" className="block lg:flex justify-center mx-auto pt-24">
-          <ServiceCard cardInfo={api[0]} />
-          <ServiceCard cardInfo={api[1]} />
-          <ServiceCard cardInfo={api[0]} />
+          <ServiceCard cardInfo={cardContents[0]} />
+          <ServiceCard cardInfo={cardContents[1]} />
+          <ServiceCard cardInfo={cardContents[0]} />
         </div>
       </div>
     </>

@@ -70,21 +70,48 @@ const SignUp = () => {
     const hasLowerCase = /[a-z]/;
     const hasSymbol = /[!@#$%^&*(),.?":{}|<>]/;
     const isEnough = pass.length > 7;
-
+    const passChars = pass.split("");
+    const hasSpace = () => {
+      let cnt = 0;
+      passChars.forEach((char) => char===" "? cnt++ : cnt = 0)
+      if(cnt){
+        return true;
+      }else{
+        return false;
+      }
+    }
     return (
       hasNumber.test(pass) &&
       hasUpperCase.test(pass) &&
       hasSymbol.test(pass) &&
       hasLowerCase.test(pass) &&
+      !hasSpace() &&
       isEnough
     );
   };
-
+  
+  const farsi = /[پچجحخهعغفقثصضشسیبلاتنمکگوئدذرزطظژؤآإأءًٌٍَُِّ\s]+$/;
+  const namevalidation = (name : string) => {
+    let y : number = 0;
+    const firstnameChars = name.split("");
+    firstnameChars.forEach((char) => {
+      if(!Boolean(farsi.test(char))){
+        y++;
+      }
+    })
+    if(y===0){
+      return true;
+    }else{
+      return false;
+    }
+  }
 
 
   const genderIsEmpty = isGenderChecked === "no";
-  const firstNameIsValid = firstName !== "";
-  const lastNameIsValid = lastName !== "";
+  const firstNameIsValid = namevalidation(firstName);
+  const firstNameIsEmpty = firstName.trim() === "";
+  const lastNameIsValid = namevalidation(lastName);
+  const lastNameIsEmpty = lastName.trim() === "";
   const userNameIsValid = usernameValidation > 0 ? false : true;
   const userNameIsEmpty = userName == "";
   const emailIsValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
@@ -94,8 +121,8 @@ const SignUp = () => {
   const passwordConfirmIsValid = password === passwordConfirmation;
   const passwordConfirmIsEmpty = passwordConfirmation === "";
   const formIsValid =
-    firstNameIsValid &&
-    lastNameIsValid &&
+    firstNameIsEmpty &&
+    lastNameIsEmpty &&
     !userNameIsEmpty &&
     userNameIsValid &&
     emailIsValid &&
@@ -128,14 +155,20 @@ const SignUp = () => {
     if (genderIsEmpty) {
       errors.gender = "جنسیت نمی‌تواند خالی باشد !";
     }
-    if (!firstNameIsValid) {
+    if(!firstNameIsValid){
+      errors.firstName = "نام باید تنها شامل حروف فارسی باشد"
+    }
+    if (firstNameIsEmpty) {
       errors.firstName = "نام نمی‌تواند خالی باشد !";
     }
-    if (!lastNameIsValid) {
+    if(!lastNameIsValid){
+      errors.lastName = "نام خانوادگی باید تنها شامل حروف فارسی باشد"
+    }
+    if (lastNameIsEmpty) {
       errors.lastName = "نام خانوادگی نمی‌تواند خالی باشد !";
     }
     if (!emailIsValid) {
-      errors.email = "ایمیل وارد شده صحیح نمی‌باشد !";
+      errors.email = "فرمت ایمیل وارد شده صحیح نمی‌باشد !";
     }
     if (emailIsEmpty) {
       errors.email = "ایمیل نمی‌تواند خالی باشد !";
@@ -148,7 +181,7 @@ const SignUp = () => {
     }
     if (!passwordIsValid) {
       errors.password =
-        "رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ ، یک سمبل، یک عدد و حداقل شامل 8 کاراکتر باشد !";
+        "رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ ، یک سمبل، یک عدد و حداقل شامل 8 کاراکتر باشد  و نباید شامل فاصله باشد  !";
     }
     if (passwordIsEmpty) {
       errors.password = "رمز عبور نمی‌تواند خالی باشد !";
@@ -164,6 +197,8 @@ const SignUp = () => {
   };
 
   const handleSignUp = () => {
+    console.log(firstNameIsValid);
+
     if (formIsValid) {
       dispatch(RsetFormErrors({}));
 
@@ -212,15 +247,14 @@ const SignUp = () => {
             className="flex-col bg-white shadow-[0_-5px_60px_-15px] mx-auto rounded-2xl px-2 sm:px-8 lg:px-12 xl:px-20 2xl:px-32 py-12 md:py-20 my-24 "
           >
             <div id="genderContainer" className="flex px-2 mx-auto rounded-3xl">
-              {genders.map((gen) => (
+              {genders.map((gen,i) => (
                 <Label className="w-fit flex items-center">
                   {gen}
                   <Input
                     name="gender"
                     value={isGenderChecked}
                     onChange={(e) => {
-                      console.log(e.target.value)
-                      dispatch(RsetGender(gender));
+                      i===0?dispatch(RsetGender("male")):dispatch(RsetGender("female"));
                       dispatch(RsetIsGenderChecked("yes"));
                     }}
                     type="radio"
@@ -237,7 +271,7 @@ const SignUp = () => {
             
             <div
               id="fullNameInput"
-              className="h-16 flex my-2 justify-items-center mx-auto"
+              className="h-16 flex my-1 justify-items-center mx-auto"
             >
               {fullName.map((name, i) => (
                 <div
@@ -271,10 +305,10 @@ const SignUp = () => {
               id="nameErrorContainer"
               className="text-xs text-red-600 flex justify-items-center mx-auto"
             >
-              {!firstNameIsValid && (
+              {(firstNameIsEmpty || !firstNameIsValid) && (
                 <p className="w-full px-4 ml-2">{formErrors.firstName}</p>
               )}
-              {!lastNameIsValid && (
+              {(lastNameIsEmpty || !lastNameIsValid) && (
                 <p className="w-full px-4 mr-2">{formErrors.lastName}</p>
               )}
             </div>
@@ -377,11 +411,6 @@ const SignUp = () => {
             </div>
           </div>
         </div>
-        {/* <img
-          src="/design.png"
-          className="hidden md:block h-auto md:h-full w-full md:w-5/12"
-          alt=""
-        /> */}
         <div className="hidden bg-[url('/design.png')] bg-cover md:block w-full md:w-5/12"></div>
       </div>
     </>

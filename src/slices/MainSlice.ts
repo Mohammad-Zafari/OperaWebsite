@@ -4,7 +4,7 @@ import { RootState } from '@/store/store';
 
 
 interface MainState {
-    gender: boolean;
+    gender: string;
     isGenderChecked: string;
     userName: string;
     password: string;
@@ -34,7 +34,7 @@ interface MainState {
 }
 
 const initialState: MainState = {
-    gender: true,
+    gender: "",
     isGenderChecked: "no",
     userName: "",
     password: "",
@@ -67,8 +67,8 @@ const mainSlice = createSlice({
   name: 'main',
   initialState,
   reducers: {
-    RsetGender: (state, action: PayloadAction<boolean>) => {
-        state.gender = !state.gender;
+    RsetGender: (state, action: PayloadAction<string>) => {
+        state.gender = action.payload;
     },
     RsetIsGenderChecked: (state, action: PayloadAction<string>) => {
         state.isGenderChecked = action.payload;
