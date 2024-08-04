@@ -1,4 +1,5 @@
 // src/store/store.ts
+
 import { configureStore } from '@reduxjs/toolkit';
 import mainReducer from '../slices/MainSlice'; // Adjust path if needed
 import navbarReducer from "../slices/NavabarSlice";

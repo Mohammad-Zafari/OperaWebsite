@@ -1,7 +1,11 @@
-"use client"; // Ensures this component is client-side
+// src/app/page.tsx
+"use client";
 
 import React from "react";
-import Hero from "@/components/hero/Hero";
+import BlogList from "../components/Blog/BlogList";
+import { blogPosts } from "../helper/data";
+import ImageCarousel from "@/components/CustomersInfo/ImageCarousel";
+import GoogleLoginHandler from "@/components/GoogleLoginHandler";import Hero from "@/components/hero/Hero";
 import ServicesCards from "@/components/servicesCards/ServicesCards";
 import BlogPages from "@/components/blogPages/BlogPages";
 import AboutUsVideo from "@/components/aboutUsVideo/AboutUsVideo";

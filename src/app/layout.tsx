@@ -1,9 +1,10 @@
 // src/app/layout.tsx
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import ReduxWrapper from "./providers/ReduxProvider"; // Import the ReduxWrapper
+import ReduxWrapper from "./providers/ReduxProvider";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import "react-toastify/dist/ReactToastify.css";
-
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import Navbar from "@/components/Navbar/Navbar";
@@ -33,11 +34,12 @@ export default function RootLayout({
           <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head>
       <body className={`${inter.className} font-vazir`}>
-        <ToastContainer/>
-        <ReduxWrapper>
-       {children}
-        </ReduxWrapper>
-        
+        <ToastContainer />
+        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID!}>
+          <ReduxWrapper>
+            {children}
+          </ReduxWrapper>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );
