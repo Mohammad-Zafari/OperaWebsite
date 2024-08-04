@@ -60,7 +60,7 @@ const cardData = [
   },
 ];
 
-const Carts = () => {
+const Cards = () => {
   return (
     <div className="bg-[#dbd4ba] lg:w-[60%] md:w-[80%] w-[100%]">
       <div className="lg:flex items-center justify-center">
@@ -73,7 +73,7 @@ const Carts = () => {
 
       <div className="flex flex-wrap mt-14 justify-center">
         {cardData.map((cart, index) => (
-          <Cart
+          <Card
             key={index} // Use index as key, but try to use unique IDs if possible
             title={cart.title}
             description={cart.description}
@@ -86,4 +86,4 @@ const Carts = () => {
   );
 };
 
-export default Carts;
+export default Cards;

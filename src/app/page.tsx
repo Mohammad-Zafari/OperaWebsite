@@ -4,7 +4,8 @@ import React from "react";
 import Hero from "@/components/hero/Hero";
 import ServicesCards from "@/components/servicesCards/ServicesCards";
 import BlogPages from "@/components/blogPages/BlogPages";
-import AboutUsVideo from "@/components/aboutUsVideo/AboutUsVideo";import Carts from "../components/Cards/Cards";
+import AboutUsVideo from "@/components/aboutUsVideo/AboutUsVideo";
+import Cards from "../components/Cards/Cards";
 import ContactUs from "../components/ContactUs/ContactUsLanding";
 import Footer from "../components/Footer";
 import ContactUsPage from "../components/ContactUs/ContactUsPage";
@@ -14,15 +15,18 @@ import { NavbarResponsive } from "@/components/Navbar/NavbarResponsive";
 import ContactUsLanding from "../components/ContactUs/ContactUsLanding";
 const Home = () => {
   return (
-    <div className=" flex justify-center items-center border font-vazir">
-      {/* <Navbar/> */}
+    <div className="font-vazir">
+      <Navbar/>
+      <Hero/>
+      <ServicesCards/>
+      <Cards/>
       {/* <Carts /> */}
-      {/* <ContactUs />
-      <Footer /> */}
+      {/* <ContactUs /> */}
       {/* <ContactUsPage /> */}
+      {/* <Footer /> */}
       {/* <Footer/> */}
       {/* <SheetDemo/> */}
-     <ContactUsLanding/>
+     {/* <ContactUsLanding/> */}
     </div>
   );
 };
