@@ -16,12 +16,12 @@ const ContactUsPage = () => {
         {/* <NewNavbar/> */}
         {/* <SheetDemo/> */}
       </div>
-      <div id="top-section" className="lg:flex lg:flex-row flex flex-col-reverse ">
+      <div id="top-section" className="lg:flex lg:flex-row flex flex-col-reverse mt-20 ">
         <div
           id="left-section"
           className=" flex flex-col flex-1 lg:pt-72 lg:pb-48 md:pb-20 pb-12 items-center justify-center"
         >
-          <div id="map" className="flex-1 sm:flex-6 md:w-[70%] w-[70%]">
+          <div id="map" className="flex-1 sm:flex-6 md:w-[70%] w-[70%] z-0">
             <Map />
           </div>
           <div

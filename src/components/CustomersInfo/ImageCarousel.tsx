@@ -8,7 +8,7 @@ import { Autoplay } from 'swiper/modules';
 
 const ImageCarousel: FC = () => {
     return (
-        <div className="relative w-[1026px] h-[154px] mx-auto  bg-[#CECECE] p-0 px-6">
+        <div id='customers-section' className="relative w-[1026px] h-[154px] mx-auto  bg-[#CECECE] p-0 px-6">
             <Swiper
                 modules={[Autoplay]}
                 spaceBetween={20}

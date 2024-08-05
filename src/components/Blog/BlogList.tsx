@@ -33,7 +33,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogPosts }) => {
   };
 
   return (
-    <div className="relative p-6 flex flex-col items-center">
+    <div id="blog-container" className="relative p-6 flex flex-col items-center">
       <div className="relative w-full flex items-center justify-center">
         <button
           onClick={handlePrev}
