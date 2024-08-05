@@ -1,75 +1,99 @@
-// ContactUsLanding.tsx
+
+// ContactUsMain.tsx
 "use client";
 import { useDispatch, useSelector } from 'react-redux';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { RsetContactName, RsetContactPhoneNumber, RsetContactText, resetContactForm } from "../../slices/contactSlice"
+import { RsetContactName, RsetContactPhoneNumber, RsetContactText, resetContactForm } from "../../slices/contactSlice"; // Adjust the import paths
 
-const ContactUsLanding = () => {
+const ContactUsMain = () => {
   const dispatch = useDispatch();
   
-  // Use selector to get current values from the store
+  // Access state from the Redux store
   const contactName = useSelector((state: any) => state.contact.contactName);
   const contactPhoneNumber = useSelector((state: any) => state.contact.contactPhoneNumber);
   const contactText = useSelector((state: any) => state.contact.contactText);
-
+  
   return (
-    <div>
-      <h1 className="text-black text-right mr-32 text-7xl font-bold">
-        ارتباط با ما
-      </h1>
-      <img src="/subtract.svg" alt="" className="ml-96 bottom my-5 size-28" />
-      <div id="container" className="w-[60%] rounded-[20px] bg-white m-auto p-3 ">
-        <div id="main" className="m-auto bg-white rounded-[24px] shadow-customShadow1 p-8 pb-4 pt-10 ">
-          <p className="text-purple-700 text-3xl font-bold text-right pb-5">
+    
+    <div className="flex mb-24 md:mb-48 flex-col lg:mt-28 mt-8 md:mx-20 lg:w-[50%] mx-auto sm:w-[80%] w-[90%]">
+      <div className='flex flex-row-reverse '>
+        <h1 className="text-black text-right  xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-lg font-bold flex-1 lg:mr-2 md:mr-40 sm:mr-28 mr-32 ">
+                ارتباط با ما
+        </h1>
+        <img src="/subtract.svg" alt="" className=" bottom my-5 lg:size-28 md:size-24 sm:size-20 size-14 " />
+      </div>
+      <div id="container" className="w-[75%] md:w-[70%] lg:w-[90%] rounded-[40px] bg-white p-1 sm:p-2 md:p-3 lg:mt-20 md:mt-16 sm:mt-10 mt-8 shadow-customShadow1">
+        <div id="main" className="bg-white rounded-[44px] shadow-customShadow1 px-2 pt-10 pb-8 md:pb-20 relative ">
+          <p className="text-purple-700 md:text-base sm:text-sm text-[10px] font-bold text-right pb-5">
             درصورت داشتن درخواست، نظر یا انتقاد برای ما بنویسید.
           </p>
 
           <div className="relative">
             <Input
               placeholder="نام و نام خانوادگی"
-              className="text-right border-gray-800 border-[2px] my-3 pr-14 pl-5 py-12 placeholder-purple-300 text-2xl font-bold focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg"
+              className="text-right border-gray-500 border-2 md:my-3 pr-14 pl-5 md:py-5 py-1 placeholder-purple-300 md:text-sm text-[8px] focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg sm:text-xs"
               value={contactName}
               onChange={(e) => {
                 dispatch(RsetContactName(e.target.value));
               }}
             />
-            <img src="/account_circle.svg" alt="" className="absolute right-3 top-1/2 transform -translate-y-1/2 " />
+            <img
+              src="/account_circle.svg"
+              alt=""
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 sm:size-7 size-5"
+            />
           </div>
+
           <div className="relative">
             <Input
               placeholder="شماره تلفن همراه"
-              value={contactPhoneNumber || ''} // Display as empty string when undefined
-              type="text" // Use text to allow for custom handling
-              className="text-right border-gray-800 border-2 my-5 p-5 placeholder-purple-300 text-2xl font-bold pr-14 pl-5 py-12 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg "
+              value={contactPhoneNumber ? contactPhoneNumber.toString() : ''} // Convert to string for display
+              className="text-right border-gray-500 border-2 my-1 lg:my-2 lg:py-5 placeholder-purple-300 sm:text-xs md:text-sm text-[8px] pr-14 lg:pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg "
               onChange={(e) => {
-                const newPhoneNumber = e.target.value;
-                // Validate input: allow only digits or empty
-                if (/^\d*$/.test(newPhoneNumber)) {
-                  dispatch(RsetContactPhoneNumber(newPhoneNumber ? parseInt(newPhoneNumber) : undefined));
+                const newphoneNumber = e.target.value;
+                // Validate input to allow only digits
+                if (/^\d*$/.test(newphoneNumber)) {
+                  dispatch(RsetContactPhoneNumber(newphoneNumber ? parseInt(newphoneNumber) : undefined));
                 }
               }}
             />
-            <img src="/call.svg" alt="" className="absolute right-3 top-1/2 transform -translate-y-1/2 " />
+            <img
+              src="/call.svg"
+              alt=""
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 sm:size-7 size-5"
+            />
           </div>
+
           <div className="relative">
             <Textarea
               placeholder="متن درخواست / نظر / انتقاد"
-              className="text-right border-gray-800 border-2 my-5 pb-4 pt-12  placeholder-purple-300 text-2xl font-bold pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-xl shadow-lg h-72 placeholder-opacity-100"
+              className="text-right border-gray-500 border-2 md:my-3 pt-3 placeholder-purple-300 md:text-sm sm:text-xs text-[8px] pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg pb-48"
               value={contactText}
               onChange={(e) => {
                 dispatch(RsetContactText(e.target.value));
               }}
             />
-            <img src="/chat.svg" alt="" className="absolute right-3 top-8 transform -translate-y-1/2 " />
+            <img
+              src="/chat.svg"
+              alt=""
+              className="absolute right-3 top-8 transform -translate-y-1/2 md:size-9 sm:size-7 size-5"
+            />
+            <img
+              src="/Group 2490.svg"
+              alt=""
+              className="absolute bottom-2 left-2 md:size-9 sm:size-7 size-5"
+            />
           </div>
+
           <Button
             variant="outline"
-            className="text-right border-gray-800 border-2 mb-0 px-9 py-8 text-purple-700 text-2xl font-bold rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 "
+            className="text-right border-gray-600 border-[2px] md:px-11 sm:px-7 px-5 text-purple-700 md:text-sm text-[8px] sm:text-xs font-bold md:rounded-3xl rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 md:bottom-9 md:left-10 md:absolute ml-5 md:ml-0 md:mt-0 mt-4"
             onClick={() => {
-              console.log({ contactName, contactPhoneNumber, contactText }); // Log the current values
-              dispatch(resetContactForm()); // Reset the form state in Redux
+              // Log the current values
+              console.log({ contactName, contactPhoneNumber, contactText });
+              dispatch(resetContactForm()); // Optional: Reset the form
             }}
           >
             ارسال
@@ -80,4 +104,4 @@ const ContactUsLanding = () => {
   );
 };
 
-export default ContactUsLanding;
+export default ContactUsMain;

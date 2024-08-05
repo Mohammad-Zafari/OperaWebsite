@@ -8,7 +8,7 @@ const Card = ({ title, description, imagesrc, extratext }) => {
   };
 
   return (
-    <div id="first-container" className="bg-red-500 w-fit">
+    <div id="first-container" className=" w-fit">
       <div
         id="second-container"
         className="bg-customBackWhite w-[180px] md:w-[203px] lg:w-[243px] rounded-[29px] flex items-center justify-center md:m-6 m-4 lg:m-8 lg:p-2 p-1 hover:scale-105 transition-transform duration-300"
