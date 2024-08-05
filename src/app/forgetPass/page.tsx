@@ -1,11 +1,9 @@
-import Login from '@/components/login/Login'
+import ForgetPass from '@/components/forgetPass/ForgetPass'
 import React from 'react'
 
 const page = () => {
   return (
-    <>
-      <Login/>
-    </>
+    <ForgetPass/>
   )
 }
 

@@ -25,6 +25,7 @@ import {
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter, usePathname } from "next/navigation";
+import Footer from "../Footer";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -125,7 +126,7 @@ const Login = () => {
           />
           <div
             id="formContiner"
-            className="bg-white rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto px-2 sm:px-8 lg:px-12 xl:px-20 2xl:px-32 py-20 sm:py-32 md:py-40 my-12 min-[321px]:my-24 md:my-20"
+            className="bg-white rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto px-2 sm:px-8 md:px-3 lg:px-12 xl:px-20 2xl:px-32 py-20 sm:py-32 md:py-24 lg:py-32 xl:py-40 my-12 min-[321px]:my-24 md:my-20"
           >
             <div
               id="userInput"
@@ -221,6 +222,9 @@ const Login = () => {
           className="hidden md:block h-auto md:h-full w-full md:w-5/12"
           alt=""
         />
+      </div>
+      <div className="bg-[url('/Group-8738.svg')] bg-cover absolute -bottom-[700px] sm:-bottom-[500px] lg:-bottom-[330px] xl:-bottom-[380px] pt-16 pb-1">
+        <Footer/>
       </div>
     </>
   );

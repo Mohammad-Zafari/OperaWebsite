@@ -35,6 +35,7 @@ import {
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Label } from "../ui/label";
+import Footer from "../Footer";
 
 const SignUp = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -226,6 +227,8 @@ const SignUp = () => {
 
   return (
     <>
+    <div>
+
       <div
         id="container"
         dir="ltr"
@@ -413,6 +416,10 @@ const SignUp = () => {
         </div>
         <div className="hidden bg-[url('/design.png')] bg-cover md:block w-full md:w-5/12"></div>
       </div>
+      <div className="bg-[url('/Group-8738.svg')] bg-cover max-md:bg-bottom absolute -bottom-[800px] sm:-bottom-[600px] md:-bottom-[700px] lg:-bottom-[420px] xl:-bottom-[385px] pt-11 pb-1">
+        <Footer/>
+      </div>
+    </div>
     </>
   );
 };
