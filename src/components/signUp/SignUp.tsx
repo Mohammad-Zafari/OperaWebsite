@@ -244,7 +244,7 @@ const SignUp = () => {
           />
           <div
             id="formContiner"
-            className="flex-col bg-white shadow-[0_-5px_60px_-15px] mx-auto rounded-2xl px-2 sm:px-8 lg:px-12 xl:px-20 2xl:px-32 py-12 md:py-20 my-24 "
+            className="flex-col bg-white shadow-[0_-5px_60px_-15px] mx-auto rounded-2xl px-2 sm:px-8 lg:px-12 xl:px-20 2xl:px-32 py-12 md:py-16 my-24 "
           >
             <div id="genderContainer" className="flex px-2 mx-auto rounded-3xl">
               {genders.map((gen,i) => (
@@ -400,7 +400,7 @@ const SignUp = () => {
                 </a>
               </div>
               <Button
-                className="h-4/6 bg-gradient-to-t focus-visible:ring-0 focus-visible:ring-offset-0 from-gray-300 to-purple-600 text-xl text-white rounded-lg py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
+                className="h-4/6 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-b from-[#7836cf] via-[#9a79e5] to-[#a8a7c1] text-xl text-white rounded-xl py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
                 onClick={(e) => {
                   e.preventDefault();
                   handleSignUp();

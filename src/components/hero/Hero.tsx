@@ -6,7 +6,8 @@ const Hero = () => {
     <>
       <div
         id="heroContainer"
-        className="bg-[url('/hero-pattern.png')] bg-cover bg-right pb-96 pt-32 sm:pt-44"
+        className="bg-[url('/hero-pattern.png')] bg-cover bg-right pb-40 sm:pb-96 pt-32 sm:pt-44"
+        dir="rtl"
       >
         <div
           id="textsContainer"

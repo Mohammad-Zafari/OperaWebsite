@@ -6,6 +6,8 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
+import { ToastAction } from "@/components/ui/toast"
+import { useToast } from "@/components/ui/use-toast"
 import { CircleUserRound, Eye, EyeOff, Lock } from "lucide-react";
 import {
   RsetUserName,
@@ -29,6 +31,7 @@ const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
   const currentPage = usePathname();
+  const { toast } = useToast()
   const userName = useSelector(selectUserName);
   const password = useSelector(selectPassword);
   const showPassword = useSelector(selectShowPassword);
@@ -61,6 +64,7 @@ const Login = () => {
   };
 
   const handleLogin = (event: any) => {
+    
     if (formIsValid) {
       dispatch(RsetLoginErrors(validation()));
       if (userName === "qwerty" && password === "Parsa123") {
@@ -73,6 +77,9 @@ const Login = () => {
         }
         router.push("/");
       } else {
+        toast({
+          description: "نام کاربری یا رمزعبور اشتباه است !",
+        })
         console.log("wrong username or password!");
       }
     } else {
@@ -186,18 +193,20 @@ const Login = () => {
                 </a>
               </div>
               <div>
-                <Label htmlFor="rememberMe" className="px-2 text-purple-600">
+                <Label htmlFor="rememberMe" className="flex justify-center w-fit pr-1 items-center text-purple-600">
                   من را به خاطر بسپار
+                  <Checkbox
+                    id="rememberMe"
+                    checked={rememberMe}
+                    onClick={() => {
+                    dispatch(RsetRememberMe(!rememberMe))}
+                  }
+                    className="bg-yellow-300 mx-2 rounded-xl border-none data-[state=checked]:bg-purple-600 data-[state=checked]:text-white"
+                  />
                 </Label>
-                <Checkbox
-                  id="rememberMe"
-                  checked={rememberMe}
-                  onClick={() => dispatch(RsetRememberMe(!rememberMe))}
-                  className="mb-4 bg-yellow-300 border-none data-[state=checked]:bg-purple-600"
-                />
                 <br />
                 <Button
-                  className="mr-2 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-t from-gray-300 to-purple-600 text-xl text-white rounded-lg py-6 px-12 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
+                  className="mr-2 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-b from-[#7836cf] via-[#9a79e5] to-[#a8a7c1] text-xl text-white rounded-xl py-6 px-12 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
                   onClick={(e) => {
                     handleLogin(e);
                   }}
