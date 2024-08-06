@@ -103,13 +103,13 @@ const ContactUsMain = () => {
           id="main"
           className="bg-white rounded-[44px] shadow-customShadow1 px-2 pt-10 pb-8 md:pb-20 relative "
         >
-          <p className="text-purple-700 md:text-base sm:text-sm text-[10px] font-bold text-right pb-5">
+          <p className="text-purple-700 md:text-base text-sm font-bold text-right pb-5">
             درصورت داشتن درخواست، نظر یا انتقاد برای ما بنویسید.
           </p>
           <div className="relative">
             <Input
               placeholder="نام و نام خانوادگی"
-              className="text-right border-gray-500 border-2 md:my-3 pr-14 pl-5 md:py-5 py-1 placeholder-purple-300 md:text-sm text-[8px] focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg sm:text-xs"
+              className="text-right border-gray-500 border-2 md:my-3 pr-14 pl-5 md:py-5 py-1 placeholder-purple-300 md:text-sm  focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg text-xs"
               value={contactName}
               onChange={(e) => {
                 dispatch(RsetContactName(e.target.value));
@@ -118,11 +118,11 @@ const ContactUsMain = () => {
             <img
               src="/account_circle.svg"
               alt=""
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 sm:size-7 size-5"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 size-7 "
             />
           </div>
           {nameError && (
-            <p className="text-red-600 md:text-sm sm:text-xs text-[8px] text-right pr-3 my-1">
+            <p className="text-red-600 md:text-sm text-xs  text-right pr-3 my-1">
               {nameError}
             </p>
           )}
@@ -130,7 +130,7 @@ const ContactUsMain = () => {
             <Input
               placeholder="شماره تلفن همراه"
               value={contactPhoneNumber ? contactPhoneNumber.toString() : ""} // Convert to string for display
-              className="text-right border-gray-500 border-2 my-1 lg:my-2 lg:py-5 placeholder-purple-300 sm:text-xs md:text-sm text-[8px] pr-14 lg:pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg "
+              className="text-right border-gray-500 border-2 my-1 lg:my-2 lg:py-5 placeholder-purple-300 text-xs md:text-sm pr-14 lg:pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg "
               onChange={(e) => {
                 const newPhoneNumber = e.target.value;
                 // Validate input to allow only digits
@@ -149,34 +149,39 @@ const ContactUsMain = () => {
             <img
               src="/call.svg"
               alt=""
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 sm:size-7 size-5"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 size-7"
             />
           </div>
           {numberError && (
-            <p className="text-red-600 md:text-sm sm:text-xs text-[8px] text-right pr-3 my-1">
+            <p className="text-red-600 md:text-sm text-xs text-right pr-3 my-1">
               {numberError}
             </p>
           )}
-          <div>
+          <div className="relative">
             <Input
               placeholder="ایمیل"
               type="email"
               value={contactEmail ? contactEmail : ""}
-              className="text-right border-gray-500 border-2 my-1 lg:my-2 lg:py-5 placeholder-purple-300 sm:text-xs md:text-sm text-[8px] pr-14 lg:pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
+              className="text-right border-gray-500 border-2 my-1 lg:my-2 lg:py-5 placeholder-purple-300 text-xs md:text-sm pr-14 lg:pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
               onChange={(e) => {
                 dispatch(RsetContactEmail(e.target.value));
               }}
             />
+                          <img
+                src="/mail.svg"
+                alt=""
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 size-7"
+              />
           </div>
           {emailError && (
-            <p className="text-red-600 md:text-sm sm:text-xs text-[8px] py-1 text-right pr-3">
+            <p className="text-red-600 md:text-sm text-xs py-1 text-right pr-3">
               {emailError}
             </p>
           )}{" "}
           <div className="relative">
             <Textarea
               placeholder="متن درخواست / نظر / انتقاد"
-              className="text-right border-gray-500 border-2 md:my-3 pt-3 placeholder-purple-300 md:text-sm sm:text-xs text-[8px] pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg pb-48"
+              className="text-right border-gray-500 border-2 md:my-3 pt-3 placeholder-purple-300 md:text-sm text-xs pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg pb-48"
               value={contactText}
               onChange={(e) => {
                 dispatch(RsetContactText(e.target.value));
@@ -185,22 +190,22 @@ const ContactUsMain = () => {
             <img
               src="/chat.svg"
               alt=""
-              className="absolute right-3 top-8 transform -translate-y-1/2 md:size-9 sm:size-7 size-5"
+              className="absolute right-3 top-8 transform -translate-y-1/2 md:size-9 size-7"
             />
             <img
               src="/Group 2490.svg"
               alt=""
-              className="absolute bottom-2 left-2 md:size-9 sm:size-7 size-5"
+              className="absolute bottom-2 left-2 md:size-9 size-7 "
             />
           </div>
           {textError && (
-            <p className="text-red-600 md:text-sm sm:text-xs text-[8px] py-1 text-right pr-3">
+            <p className="text-red-600 md:text-sm text-xs py-1 text-right pr-3">
               {textError}
             </p>
           )}
           <Button
             variant="outline"
-            className="text-right border-gray-600 border-[2px] md:px-11 sm:px-7 px-5 text-purple-700 md:text-sm text-[8px] sm:text-xs font-bold md:rounded-3xl rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 md:bottom-9 md:left-10 md:absolute ml-5 md:ml-0 md:mt-0 mt-4"
+            className="text-right border-gray-600 border-[2px] md:px-11 px-7 text-purple-700 md:text-sm sm:text-xs font-bold md:rounded-3xl rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 md:bottom-9 md:left-10 md:absolute ml-5 md:ml-0 md:mt-0 mt-4"
             onClick={handleSubmit}
           >
             ارسال

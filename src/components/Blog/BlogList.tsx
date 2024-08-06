@@ -19,7 +19,9 @@ interface BlogListProps {
 
 const BlogList: React.FC<BlogListProps> = ({ blogPosts }) => {
   return (
+
     <div className="relative p-6 flex flex-col items-center w-full">
+      
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

@@ -8,85 +8,84 @@ import { Autoplay } from "swiper/modules";
 
 const ImageCarousel: FC = () => {
   return (
-    <div className="relative mx-auto px-6 bg-[#CECECE] w-[220px] xl:w-[1200px] md:w-[750px] sm:w-[400px]">
-      
-      <Swiper
-        modules={[Autoplay]}
-        spaceBetween={20}
-        slidesPerView={5}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        loop={true}
-        speed={2000}
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 10,
-          },
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 15,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 25,
-          },
-          1280: {
-            slidesPerView: 5,
-            spaceBetween: 30,
-          },
-        }}
+    <div>
+      <h1
+        id="title"
+        className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto md:mr-20 mt-20 mb-10"
       >
-        <SwiperSlide className="flex justify-center items-center">
-          <img
-            src="https://via.placeholder.com/177x146?text=Image+1"
-            alt="Image 1"
-            className="w-[177px] h-[146px]"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center">
-          <img
-            src="https://via.placeholder.com/177x146?text=Image+2"
-            alt="Image 2"
-            className="w-[177px] h-[146px]"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center">
-          <img
-            src="https://via.placeholder.com/177x146?text=Image+3"
-            alt="Image 3"
-            className="w-[177px] h-[146px]"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center">
-          <img
-            src="https://via.placeholder.com/177x146?text=Image+4"
-            alt="Image 4"
-            className="w-[177px] h-[146px]"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center">
-          <img
-            src="https://via.placeholder.com/177x146?text=Image+5"
-            alt="Image 5"
-            className="w-[177px] h-[146px]"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex justify-center items-center">
-          <img
-            src="https://via.placeholder.com/177x146?text=Image+6"
-            alt="Image 6"
-            className="w-[177px] h-[146px]"
-          />
-        </SwiperSlide>
-      </Swiper>
+        مشتریان
+      </h1>
+      <div className="relative mx-auto p-4 bg-opacity-30 backdrop-blur-md   rounded-lg shadow-lg w-full mt-10">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={20}
+          slidesPerView={5}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          loop={true}
+          speed={2000}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 15,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 4,
+              spaceBetween: 25,
+            },
+            1280: {
+              slidesPerView: 5,
+              spaceBetween: 30,
+            },
+          }}
+        >
+          <SwiperSlide className="flex justify-center items-center">
+            <img src="/image 13.svg" alt="Image 1" className="w-[177px] h-[146px]" />
+          </SwiperSlide>
+          <SwiperSlide className="flex justify-center items-center">
+            <img
+              src="/image 14.svg"
+              alt="Image 2"
+              className="w-[177px] h-[146px]"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="flex justify-center items-center">
+            <img
+ src="/image 16.svg"              alt="Image 3"
+              className="w-[177px] h-[146px]"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="flex justify-center items-center">
+            <img
+ src="/image 17.svg"              alt="Image 4"
+              className="w-[177px] h-[146px]"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="flex justify-center items-center">
+            <img
+ src="/image 19.svg"              alt="Image 5"
+              className="w-[177px] h-[146px]"
+            />
+          </SwiperSlide>
+          <SwiperSlide className="flex justify-center items-center">
+            <img
+ src="/image 20.svg"              alt="Image 6"
+              className="w-[177px] h-[146px]"
+            />
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   );
 };
