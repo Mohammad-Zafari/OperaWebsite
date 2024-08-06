@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 import BlogCard from "./BlogCard";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 interface BlogPost {
   imageSrc: string;
   title: string;
   description: string;
   link: string;
-  date?: string;
 }
 
 interface BlogListProps {
@@ -14,52 +18,55 @@ interface BlogListProps {
 }
 
 const BlogList: React.FC<BlogListProps> = ({ blogPosts }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % blogPosts.length);
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + blogPosts.length) % blogPosts.length);
-  };
-
-  const getVisiblePosts = () => {
-    const posts = [];
-    for (let i = 0; i < 3; i++) {
-      posts.push(blogPosts[(activeIndex + i) % blogPosts.length]);
-    }
-    return posts;
-  };
-
   return (
-    <div id="blog-container" className="relative p-6 flex flex-col items-center">
-      <div className="relative w-full flex items-center justify-center">
-        <button
-          onClick={handlePrev}
-          className="p-2 bg-gray-200 text-black rounded-full hover:bg-gray-300 absolute left-2 z-10"
-        >
-          &#8249;
-        </button>
-        <div className="flex justify-center gap-4 overflow-hidden">
-          {getVisiblePosts().map((post, index) => (
+    <div className="relative p-6 flex flex-col items-center w-full">
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        loop={true}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        effect="coverflow"
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: true,
+        }}
+        modules={[Navigation, Pagination, EffectCoverflow]}
+        className="w-full"
+        breakpoints={{
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+        }}
+      >
+        {blogPosts.map((post, index) => (
+          <SwiperSlide key={index} className="flex justify-center">
             <BlogCard
-              key={index}
               imageSrc={post.imageSrc}
               title={post.title}
               description={post.description}
               link={post.link}
-              isActive={index === 1} // Always make the middle card active
+              isActive={false}
             />
-          ))}
-        </div>
-        <button
-          onClick={handleNext}
-          className="p-2 bg-gray-200 text-black rounded-full hover:bg-gray-300 absolute right-2 z-10"
-        >
-          &#8250;
-        </button>
-      </div>
+          </SwiperSlide>
+        ))}
+        <div className="swiper-button-next"></div>
+        <div className="swiper-button-prev"></div>
+      </Swiper>
     </div>
   );
 };
