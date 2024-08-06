@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <div
       id="container"
-      className="max-w-[1920px] flex w-[95%] lg:h-28 md:h-20 sm:h-16 h-14 text-white justify-center bg-gradient-to-l from-[#552E87]/10 to-black/30 shadow-xl items-center rounded-xl mx-auto z-50 fixed left-0 right-0 top-0"
+      className="max-w-[1920px] flex w-[95%] lg:h-24 md:h-20 sm:h-18 h-14 text-white justify-center bg-gradient-to-l from-[#552E87]/10 to-black/30 shadow-xl items-center rounded-xl mx-auto z-50 fixed left-0 right-0 top-0"
       style={{
         background:
           "linear-gradient(90.02deg, #000000 -8.68%, #552E87 105.83%)",
