@@ -1,45 +1,50 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import Link from "next/link";
 import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
+  SheetFooter,
 } from "@/components/ui/sheet";
-import { DialogClose, DialogContent } from "@radix-ui/react-dialog";
 
 export function NavbarResponsive() {
   return (
     <Sheet>
-      <SheetTrigger asChild className="">
-        <Button className="shadow-none">
-          <img src="hamburger-menu.svg" alt="" />
+      <SheetTrigger asChild>
+        <Button className="shadow-none" aria-label="Menu">
+          <img src="hamburger-menu.svg" alt="Menu" />
         </Button>
       </SheetTrigger>
 
-      <SheetContent className="bg-purple-100 bg-opacity-100 border-none w-[50%]">
+      <SheetContent className="bg-purple-100 border-none w-[50%]">
         <SheetHeader className="flex items-end text-white">
           <SheetTitle>
-            {" "}
-            <img src="logo (1).svg" alt="" />
+            <img src="logo (1).svg" alt="Logo" />
           </SheetTitle>
-          <SheetDescription></SheetDescription>
         </SheetHeader>
-        <div className="grid gap-4 py-4 justify-items-end text-black">
-          <div className=" cursor-pointer">ارتباط با ما</div>
-          <div className=" items-center cursor-pointer">درباره ما</div>
-          <div className=" items-center cursor-pointer">مشتریان</div>
-          <div className=" items-center cursor-pointer">وبلاگ</div>
-          <div className=" items-center cursor-pointer">طرح ها</div>
-          <div className=" items-center cursor-pointer">خانه</div>
-        </div>
+
+        <nav className="grid gap-4 py-4 justify-items-end text-black">
+          {[
+            { href: "/contactus", label: "ارتباط با ما" },
+            { href: "/#main-footer", label: "درباره ما" },
+            { href: "/#customers-section", label: "مشتریان" },
+            { href: "/#blog-container", label: "وبلاگ" },
+            { href: "/#servicesCardsContainer", label: "طرح ها" },
+            { href: "/", label: "خانه" },
+          ].map(({ href, label }) => (
+            <SheetClose asChild key={href}>
+              <Link href={href} className="block items-center cursor-pointer">
+                {label}
+              </Link>
+            </SheetClose>
+          ))}
+        </nav>
+
         <SheetFooter>
-          <SheetClose asChild className=""></SheetClose>
+          {/* Additional footer content can go here */}
         </SheetFooter>
       </SheetContent>
     </Sheet>

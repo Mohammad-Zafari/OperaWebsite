@@ -15,12 +15,12 @@ const Navbar = () => {
   const handleSignup = () => {
     dispatch(RsetSignedUp(true))
     dispatch(RsetLoggedIn(false))
-
+    window.location.href="/signUp"
   }
   const handleLogin = () => {
     dispatch(RsetLoggedIn(true))
     dispatch(RsetSignedUp(false))
-
+    window.location.href="/login"
   }
   return (
     <div
@@ -39,19 +39,18 @@ const Navbar = () => {
           className="text-black  lg:h-[50px] lg:text-sm text-xs rounded-2xl absolute transition duration-200 hover:bg-[#a07f3b] bg-[#b09945] lg:w-[100px] w-[80px] ml-2"
           onClick={handleSignup}
         >
-          <Link href="/signUp" className="flex items-center justify-end ml-6">
-          
+           
           <img src="/person_add.svg" alt="" className="lg:"/> عضویت         
-          </Link>
+          
         </Button>
         <Button
           className="bg-white text-black lg:w-[190px] lg:h-[50px] rounded-2xl text-right justify-end hover:bg-gray-300 transition duration-200 lg:text-sm text-xs w-[150px] ml-2"
           onClick={handleLogin}
         >
-          <Link href="/login" className="flex items-center ">
-            <img src="/login.svg" alt="" className="lg:mr-4 md:mr- mr-1" />
+          
+            <img src="/login.svg" alt="" className="lg:mr-4 md:mr- mr-1 " />
            ورود
-          </Link>
+          
   
         </Button>
       </div>
