@@ -9,7 +9,6 @@ import { Checkbox } from "../ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
 import {
   CircleUserRound,
-  DoorClosed,
   Eye,
   EyeOff,
   Lock,

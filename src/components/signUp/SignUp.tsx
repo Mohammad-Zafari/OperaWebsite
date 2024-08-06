@@ -5,6 +5,8 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { CircleUserRound, Eye, EyeOff, Lock, Mail, X } from "lucide-react";
 import { useRouter, usePathname } from "next/navigation";
+import { useToast } from "@/components/ui/use-toast";
+import axios from "axios";
 import {
   RsetUserName,
   selectUserName,
@@ -43,6 +45,8 @@ const SignUp = () => {
 
   const router = useRouter();
 
+  const { toast } = useToast();
+
   const gender = useSelector(selectGender);
   const isGenderChecked = useSelector(selectIsGenderChecked);
   const firstName = useSelector(selectFirstName);
@@ -59,14 +63,6 @@ const SignUp = () => {
   );
 
   const formErrors = useSelector(selectFormErrors);
-
-  const chars = userName !== null ? userName.split("") : [];
-  let usernameValidation = 0;
-  chars.forEach((char, i) => {
-    if (char === "-" || (char >= "0" && char <= "9" && i == 0)) {
-      usernameValidation++;
-    }
-  });
 
   const passwordValidation = (pass: string) => {
     const hasNumber = /[0-9]/;
@@ -110,14 +106,17 @@ const SignUp = () => {
     }
   }
 
+  // const validUsername = "^[A-Za-z]\\w{5, 29}$";
 
   const genderIsEmpty = isGenderChecked === "no";
   const firstNameIsValid = namevalidation(firstName);
   const firstNameIsEmpty = firstName.trim() === "";
   const lastNameIsValid = namevalidation(lastName);
   const lastNameIsEmpty = lastName.trim() === "";
-  const userNameIsValid = usernameValidation > 0 ? false : true;
-  const userNameIsEmpty = userName == "";
+  const userNameIsValid = /^(?!\.)(?![a-zA-Z._]*(?:\._|_\.|\.\.))[a-zA-Z._]*[a-zA-Z_]$/.test(userName);
+  console.log(userNameIsValid);
+  console.log(userName);
+  const userNameIsEmpty = userName === "";
   const emailIsValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email);
   const emailIsEmpty = email === "";
   const passwordIsValid = passwordValidation(password);
@@ -125,8 +124,8 @@ const SignUp = () => {
   const passwordConfirmIsValid = password === passwordConfirmation;
   const passwordConfirmIsEmpty = passwordConfirmation === "";
   const formIsValid =
-    firstNameIsEmpty &&
-    lastNameIsEmpty &&
+    !firstNameIsEmpty &&
+    !lastNameIsEmpty &&
     !userNameIsEmpty &&
     userNameIsValid &&
     emailIsValid &&
@@ -178,7 +177,7 @@ const SignUp = () => {
       errors.email = "ایمیل نمی‌تواند خالی باشد !";
     }
     if (!userNameIsValid) {
-      errors.userName = 'نام کابری نباید شامل "-" باشد یا با عدد شروع شود ! ';
+      errors.userName = 'نام کابری تنها می تواند شامل حروف انگلیسی، عدد، "_" و "." باشد ! ';
     }
     if (userNameIsEmpty) {
       errors.userName = "نام کاربری نمی‌تواند خالی باشد !";
@@ -201,15 +200,24 @@ const SignUp = () => {
   };
 
   const handleSignUp = () => {
-    console.log(firstNameIsValid);
-
+    
     if (formIsValid) {
+      console.log(firstNameIsValid);
       dispatch(RsetFormErrors({}));
-
       if (userName !== "qwerty" && email !== "opera@gmail.com") {
         console.log("Registerd!");
-      } else {
+      }else if(userName !== "qwerty"){
         console.log("username or email is taken !");
+        toast({
+          description: "این نام کاربری قبلا گرفته شده است !",
+          variant: "destructive",
+        });
+      } else{
+        console.log("username or email is taken !");
+        toast({
+          description: "این ایمیل قبلا گرفته شده است !",
+          variant: "destructive",
+        });
       }
     } else {
       dispatch(RsetFormErrors(validation()));
