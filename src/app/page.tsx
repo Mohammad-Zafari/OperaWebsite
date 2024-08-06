@@ -20,17 +20,21 @@ import ContactUsLanding from "../components/ContactUs/ContactUsLanding";
 import ContactUsMain from "@/components/ContactUs/ContactUsMain";
 const Home = () => {
   return (
-    <div className="font-vazir">
-      <Navbar/>
-      <Hero/>
+    <>
+    <Navbar/>
+    <Hero/>
+    <div id="container" className="bg-[url('/ascdvfv.svg')] bg-cover shadow-[0px_-70px_100px_15px]">
       <ServicesCards/>
       <Cards/>
       <BlogList blogPosts={blogPosts}/>
       <ImageCarousel/>
       <AboutUsVideo/>
       <ContactUsLanding/>
-      <Footer/>
+      <div id="footerContainer" className="bg-[url('/Group-8738.svg')] bg-cover pt-16 pb-1">
+        <Footer/>
+      </div>
     </div>
+    </>
   );
 };
 
