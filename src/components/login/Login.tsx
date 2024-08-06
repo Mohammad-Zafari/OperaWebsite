@@ -6,8 +6,15 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
-import { useToast } from "@/components/ui/use-toast"
-import { CircleUserRound, Eye, EyeOff, Lock } from "lucide-react";
+import { useToast } from "@/components/ui/use-toast";
+import {
+  CircleUserRound,
+  DoorClosed,
+  Eye,
+  EyeOff,
+  Lock,
+  X,
+} from "lucide-react";
 import {
   RsetUserName,
   selectUserName,
@@ -25,13 +32,12 @@ import {
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter, usePathname } from "next/navigation";
-import Footer from "../Footer";
 
 const Login = () => {
   const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
   const currentPage = usePathname();
-  const { toast } = useToast()
+  const { toast } = useToast();
   const userName = useSelector(selectUserName);
   const password = useSelector(selectPassword);
   const showPassword = useSelector(selectShowPassword);
@@ -64,7 +70,6 @@ const Login = () => {
   };
 
   const handleLogin = (event: any) => {
-    
     if (formIsValid) {
       dispatch(RsetLoginErrors(validation()));
       if (userName === "qwerty" && password === "Parsa123") {
@@ -79,7 +84,8 @@ const Login = () => {
       } else {
         toast({
           description: "نام کاربری یا رمزعبور اشتباه است !",
-        })
+          variant: "destructive",
+        });
         console.log("wrong username or password!");
       }
     } else {
@@ -126,93 +132,105 @@ const Login = () => {
           />
           <div
             id="formContiner"
-            className="bg-white rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto px-2 sm:px-8 md:px-3 lg:px-12 xl:px-20 2xl:px-32 py-20 sm:py-32 md:py-24 lg:py-32 xl:py-40 my-12 min-[321px]:my-24 md:my-20"
+            className="bg-white rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto my-12 min-[321px]:my-24 md:my-20"
           >
             <div
-              id="userInput"
-              className="h-16 flex px-2 mb-4 mx-auto bg-zinc-800 rounded-3xl"
-              style={loginErrors.userErrorStyle}
+              id="closeIconContainer"
+              onClick={() => router.push("/")}
+              className="p-4 w-fit transition ease-in-out delay-150 hover:scale-125 hover:cursor-pointer"
             >
-              <div id="userIconContainer" className="w-1/12 h-4/6 my-auto">
-                <CircleUserRound className="h-full w-full text-violet-700" />
-              </div>
-              <Input
-                className="w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
-                value={userName}
-                onChange={(e) => dispatch(RsetUserName(e.target.value))}
-                type="text"
-                placeholder="نام کاربری"
-              />
+              <X />
             </div>
-            <div
-              id="passInput"
-              className="h-16 flex mx-auto mb-4 px-2 pl-4 rounded-3xl bg-zinc-800"
-              style={loginErrors.passwordErrorStyle}
-            >
+            <div id="inputsConatainer" className="px-2 sm:px-8 md:px-3 lg:px-12 xl:px-20 2xl:px-32 py-16 sm:py-28 md:py-20 lg:py-28 xl:py-36">
               <div
-                id="passIconContainer"
-                className="w-1/12 my-auto h-5/6 md:h-4/6"
+                id="userInput"
+                className="h-16 flex px-2 mb-4 mx-auto bg-zinc-800 rounded-3xl"
+                style={loginErrors.userErrorStyle}
               >
-                <Lock className="h-full w-full text-violet-700" />
+                <div id="userIconContainer" className="w-1/12 h-4/6 my-auto">
+                  <CircleUserRound className="h-full w-full text-violet-700" />
+                </div>
+                <Input
+                  className="w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
+                  value={userName}
+                  onChange={(e) => dispatch(RsetUserName(e.target.value))}
+                  type="text"
+                  placeholder="نام کاربری"
+                />
               </div>
-              <Input
-                className="w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
-                value={password}
-                onChange={(e) => dispatch(RsetPassword(e.target.value))}
-                type={showPasswordType}
-                placeholder="رمز عبور"
-              />
               <div
-                id="iconContainer"
-                className="w-1/12 h-4/6 my-auto"
-                onClick={() => dispatch(RsetShowPassword(showPassword))}
+                id="passInput"
+                className="h-16 flex mx-auto mb-4 px-2 pl-4 rounded-3xl bg-zinc-800"
+                style={loginErrors.passwordErrorStyle}
               >
-                {showPassword ? (
-                  <EyeOff className="h-full w-full text-violet-700" />
-                ) : (
-                  <Eye className="h-full w-full text-violet-700" />
-                )}
+                <div
+                  id="passIconContainer"
+                  className="w-1/12 my-auto h-5/6 md:h-4/6"
+                >
+                  <Lock className="h-full w-full text-violet-700" />
+                </div>
+                <Input
+                  className="w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
+                  value={password}
+                  onChange={(e) => dispatch(RsetPassword(e.target.value))}
+                  type={showPasswordType}
+                  placeholder="رمز عبور"
+                />
+                <div
+                  id="iconContainer"
+                  className="w-1/12 h-4/6 my-auto"
+                  onClick={() => dispatch(RsetShowPassword(showPassword))}
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-full w-full text-violet-700" />
+                  ) : (
+                    <Eye className="h-full w-full text-violet-700" />
+                  )}
+                </div>
               </div>
-            </div>
-            <div
-              id="submitContainer"
-              className="flex justify-between px-2 sm:px-4 py-1 mx-auto mt-4 rounded-3xl"
-            >
-              <div id="submitLinksContainer" className="text-center">
-                <a
-                  className="block text-sm py-1 text-amber-400 hover:text-amber-300"
-                  href="/forgetPass"
-                >
-                  فراموشی رمز عبور
-                </a>
-                <a
-                  className="block text-sm py-1 text-purple-600 hover:text-purple-400"
-                  href="/signUp"
-                >
-                  ایجاد حساب کاربری
-                </a>
-              </div>
-              <div>
-                <Label htmlFor="rememberMe" className="flex justify-center w-fit pr-1 items-center text-purple-600">
-                  من را به خاطر بسپار
-                  <Checkbox
-                    id="rememberMe"
-                    checked={rememberMe}
-                    onClick={() => {
-                    dispatch(RsetRememberMe(!rememberMe))}
-                  }
-                    className="bg-yellow-300 mx-2 rounded-xl border-none data-[state=checked]:bg-purple-600 data-[state=checked]:text-white"
-                  />
-                </Label>
-                <br />
-                <Button
-                  className="mr-2 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-b from-[#7836cf] via-[#9a79e5] to-[#a8a7c1] text-xl text-white rounded-xl py-6 px-12 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
-                  onClick={(e) => {
-                    handleLogin(e);
-                  }}
-                >
-                  ورود
-                </Button>
+              <div
+                id="submitContainer"
+                className="flex justify-between px-2 sm:px-4 py-1 mx-auto mt-4 rounded-3xl"
+              >
+                <div id="submitLinksContainer" className="text-center">
+                  <a
+                    className="block text-sm py-1 text-amber-400 hover:text-amber-300"
+                    href="/forgetPass"
+                  >
+                    فراموشی رمز عبور
+                  </a>
+                  <a
+                    className="block text-sm py-1 text-purple-600 hover:text-purple-400"
+                    href="/signUp"
+                  >
+                    ایجاد حساب کاربری
+                  </a>
+                </div>
+                <div>
+                  <Label
+                    htmlFor="rememberMe"
+                    className="flex justify-center w-fit pr-1 items-center text-purple-600"
+                  >
+                    من را به خاطر بسپار
+                    <Checkbox
+                      id="rememberMe"
+                      checked={rememberMe}
+                      onClick={() => {
+                        dispatch(RsetRememberMe(!rememberMe));
+                      }}
+                      className="bg-yellow-300 mx-2 rounded-xl border-none data-[state=checked]:bg-purple-600 data-[state=checked]:text-white"
+                    />
+                  </Label>
+                  <br />
+                  <Button
+                    className="mr-2 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-b from-[#7836cf] via-[#9a79e5] to-[#a8a7c1] text-xl text-white rounded-xl py-6 px-12 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
+                    onClick={(e) => {
+                      handleLogin(e);
+                    }}
+                  >
+                    ورود
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -222,9 +240,6 @@ const Login = () => {
           className="hidden md:block h-auto md:h-full w-full md:w-5/12"
           alt=""
         />
-      </div>
-      <div className="bg-[url('/Group-8738.svg')] bg-cover absolute -bottom-[700px] sm:-bottom-[500px] lg:-bottom-[330px] xl:-bottom-[380px] pt-16 pb-1">
-        <Footer/>
       </div>
     </>
   );
