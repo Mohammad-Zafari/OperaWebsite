@@ -62,7 +62,7 @@ const cardData = [
 
 const Cards = () => {
   return (
-    <div className=" lg:w-[70%] md:w-[80%] w-[100%] mx-auto">
+    <div className=" lg:w-[80%] md:w-[80%] w-[100%] mx-auto">
       <div className="lg:flex items-center justify-center">
         <img className="" src="/whyOpera.svg" alt="" />
         <h1 className="text-[#333333]  lg:text-6xl font-bold w-fit mx-auto lg:mx-0 md:text-5xl text-4xl">
