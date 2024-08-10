@@ -27,10 +27,9 @@ const Hero = () => {
             <a
               id="linkToSeeProducts"
               href="#"
-              className="flex items-end p-4 rounded-xl bg-gradient-to-l from-[#ddc157] to-[#78682f] text-black text-lg shadow-sm shadow-white hover:shadow-none"
+              className="flex items-end p-4 font-semibold rounded-xl bg-gradient-to-l from-[#ddc157] to-[#78682f] text-black text-lg shadow-sm shadow-white hover:shadow-none"
             >
-              مشاهده محصولات
-              <MoveLeft className="mr-2" />
+تجربه نسخه آزمایشی              <MoveLeft className="mr-2" />
             </a>
           </div>
         </div>
