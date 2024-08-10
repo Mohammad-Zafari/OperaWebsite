@@ -90,33 +90,33 @@ const ContactUsLanding = () => {
   };
 
   return (
-    <div className="flex mb-24 md:mb-48 flex-col lg:mt-28 mt-8 md:mx-20 lg:w-[50%] mx-auto sm:w-[80%] w-[90%]">
+    <div className="flex mb-24   md:mb-48 flex-col lg:mt-28 lg:ml-[20vw] mt-8 md:mx-16 lg:w-[48%] mx-auto sm:w-[75%] w-[85%]">
       <div className="flex flex-row-reverse ">
-        <h1 className="text-black text-right xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold flex-1 lg:mr-2 md:mr-40 sm:mr-28 mr-32 ">
+        <h1 className="text-black text-right xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold flex-1 lg:mr-2 md:mr-36 sm:mr-28 mr-28">
           ارتباط با ما
         </h1>
         <img
           src="/subtract.svg"
           alt=""
-          className="bottom mt-8 lg:size-28 md:size-24 sm:size-20 size-14 "
+          className="bottom mt-8 lg:size-28 md:size-24 sm:size-20 size-14"
         />
       </div>
       <div className="flex items-center md:justify-start justify-center ">
         <div
           id="container"
-          className="w-[95%] md:w-[70%] lg:w-[90%] rounded-[40px] bg-white p-1 sm:p-2 md:p-3 lg:mt-8 md:mt-4 sm:mt-4 mt-4 shadow-customShadow1"
+          className="w-[95%] md:w-[65%] lg:w-[80%] rounded-[40px] bg-white p-1 sm:p-2 md:p-3 lg:mt-8 md:mt-4 sm:mt-4 mt-4 shadow-customShadow1"
         >
           <div
             id="main"
-            className="bg-white rounded-[44px] shadow-customShadow1 px-2 pt-10 pb-8 md:pb-20 relative "
+            className="bg-white rounded-[44px] shadow-customShadow1 px-2 pt-10 pb-8 md:pb-20 relative"
           >
-            <p className="text-purple-700 md:text-base text-sm  font-bold text-right pb-5">
-              درصورت داشتن درخواست، نظر یا انتقاد برای ما بنویسید.
+            <p className="text-purple-700 md:text-base text-sm font-bold text-right pb-5">
+              .درصورت داشتن درخواست، نظر یا انتقاد برای ما بنویسید
             </p>
             <div className="relative">
               <Input
                 placeholder="نام و نام خانوادگی"
-                className="text-right border-gray-500 border-2 md:my-3 pr-14 pl-5 md:py-5 py-1 placeholder-purple-300 md:text-sm text-xs focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg "
+                className="text-right border-gray-500 border-2 md:my-3 pr-14 pl-5 md:py-5 py-1 placeholder-purple-300 md:text-sm text-xs focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
                 value={contactName}
                 onChange={(e) => {
                   dispatch(RsetContactName(e.target.value));
@@ -125,7 +125,7 @@ const ContactUsLanding = () => {
               <img
                 src="/account_circle.svg"
                 alt=""
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 size-7 "
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-7 size-5"
               />
             </div>
             {nameError && (
@@ -156,7 +156,7 @@ const ContactUsLanding = () => {
               <img
                 src="/call.svg"
                 alt=""
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 size-7"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-7 size-5"
               />
             </div>
             {numberError && (
@@ -177,7 +177,7 @@ const ContactUsLanding = () => {
               <img
                 src="/mail.svg"
                 alt=""
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 size-7"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-7 size-5"
               />
             </div>
             {emailError && (
@@ -186,10 +186,10 @@ const ContactUsLanding = () => {
               </p>
             )}{" "}
             {/* Show email error message */}
-            <div className="relative">
+            <div className="relative ">
               <Textarea
                 placeholder="متن درخواست / نظر / انتقاد"
-                className="text-right border-gray-500 border-2 md:my-3 pt-3 placeholder-purple-300 md:text-sm text-xs pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg pb-48"
+                className="text-right min-h-60   border-gray-500 border-2 md:my-3 pt-3 placeholder-purple-300 md:text-sm text-xs pr-14 pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
                 value={contactText}
                 onChange={(e) => {
                   dispatch(RsetContactText(e.target.value));
@@ -198,12 +198,7 @@ const ContactUsLanding = () => {
               <img
                 src="/chat.svg"
                 alt=""
-                className="absolute right-3 top-8 transform -translate-y-1/2 md:size-9 size-7"
-              />
-              <img
-                src="/Group 2490.svg"
-                alt=""
-                className="absolute bottom-2 left-2 md:size-9 size-7"
+                className="absolute right-3 top-6 transform -translate-y-1/2 md:size-7 size-5"
               />
             </div>
             {textError && (
@@ -213,7 +208,7 @@ const ContactUsLanding = () => {
             )}
             <Button
               variant="outline"
-              className="text-right border-gray-600 border-[2px] md:px-11 px-7 text-purple-700 md:text-sm text-xs font-bold md:rounded-3xl rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 md:bottom-9 md:left-10 md:absolute ml-5 md:ml-0 md:mt-0 mt-4"
+              className="text-right border-gray-600 border-[2px] md:px-10 px-6 text-purple-700 md:text-sm text-xs font-bold md:rounded-3xl rounded-2xl focus-visible:ring-0 focus-visible:ring-offset-0 md:bottom-9 md:left-10 md:absolute ml-5 md:ml-0 md:mt-0 mt-4"
               onClick={handleSubmit} // Use handleSubmit function here
             >
               ارسال
