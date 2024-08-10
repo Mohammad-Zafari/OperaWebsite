@@ -50,14 +50,7 @@ const cardData = [
     extratext:
       "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
   },
-  {
-    title: "امکان جستجو در تماس ها",
-    description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
-    extratext:
-      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
-  },
+  
 ];
 
 const Cards = () => {
