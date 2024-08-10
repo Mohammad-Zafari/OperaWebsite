@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import { CircleUserRound, Eye, EyeOff, Lock, Mail } from "lucide-react";
+import { CircleUserRound, Eye, EyeOff, Lock, Mail, X } from "lucide-react";
+import { useRouter, usePathname } from "next/navigation";
 import {
   RsetUserName,
   selectUserName,
@@ -39,6 +40,8 @@ import Footer from "../Footer";
 
 const SignUp = () => {
   const dispatch = useDispatch<AppDispatch>();
+
+  const router = useRouter();
 
   const gender = useSelector(selectGender);
   const isGenderChecked = useSelector(selectIsGenderChecked);
@@ -247,178 +250,188 @@ const SignUp = () => {
           />
           <div
             id="formContiner"
-            className="flex-col bg-white shadow-[0_-5px_60px_-15px] mx-auto rounded-2xl px-2 sm:px-8 lg:px-12 xl:px-20 2xl:px-32 py-12 md:py-16 my-24 "
+            className="flex-col bg-white shadow-[0_-5px_60px_-15px] mx-auto rounded-2xl my-24"
           >
-            <div id="genderContainer" className="flex px-2 mx-auto rounded-3xl">
-              {genders.map((gen,i) => (
-                <Label className="w-fit flex items-center">
-                  {gen}
-                  <Input
-                    name="gender"
-                    value={isGenderChecked}
-                    onChange={(e) => {
-                      i===0?dispatch(RsetGender("male")):dispatch(RsetGender("female"));
-                      dispatch(RsetIsGenderChecked("yes"));
-                    }}
-                    type="radio"
-                    className="mx-2"
-                  />
-                </Label>
-              ))}
-            </div>
-            {genderIsEmpty && (
-            <p className="text-xs text-red-600 px-2 mx-auto">
-              {formErrors.gender}
-            </p>
-            )}
-            
             <div
-              id="fullNameInput"
-              className="h-16 flex my-1 justify-items-center mx-auto"
+              id="closeIconContainer"
+              onClick={() => router.push("/")}
+              className="w-fit transition ease-in-out delay-150 hover:scale-125 hover:cursor-pointer p-4"
             >
-              {fullName.map((name, i) => (
-                <div
-                  id={i === 0 ? "firstNameInput" : "lastNameInput"}
-                  className="w-full h-16 flex px-2 mx-1 bg-zinc-800 rounded-3xl"
-                >
-                  <div
-                    id={i === 0 ? "firstNameIcon" : "lastNameIcon"}
-                    className="w-2/12 my-auto h-3/6"
-                  >
-                    <CircleUserRound className="h-full w-full text-violet-700" />
-                  </div>
-                  <Input
-                    className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
-                    value={i === 0 ? firstName : lastName}
-                    onChange={(e) =>
-                      dispatch(
-                        i === 0
-                          ? RsetFirstName(e.target.value)
-                          : RsetLastName(e.target.value)
-                      )
-                    }
-                    style={{ border: "none transparent", outline: "none" }}
-                    type="text"
-                    placeholder={name}
-                  />
-                </div>
-              ))}
+              <X />
             </div>
-            <div
-              id="nameErrorContainer"
-              className="text-xs text-red-600 flex justify-items-center mx-auto"
-            >
-              {(firstNameIsEmpty || !firstNameIsValid) && (
-                <p className="w-full px-4 ml-2">{formErrors.firstName}</p>
-              )}
-              {(lastNameIsEmpty || !lastNameIsValid) && (
-                <p className="w-full px-4 mr-2">{formErrors.lastName}</p>
-              )}
-            </div>
-            {users.map((user,i) => (
-              <>
-                <div
-                  id={i===0? "userNameInput": "emailInput"}
-                  className="h-16 flex my-2 px-2 mx-auto bg-zinc-800 rounded-3xl"
-                >
-                  <div id={i===0? "userIconContainer": "emailIconContainer"} className="w-1/12 my-auto h-3/6">
-                    {i===0?<CircleUserRound className="h-full w-full text-violet-700" />:<Mail className="h-full w-full text-violet-700" />}
-                  </div>
-                  <Input
-                    className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400 w-11/12"
-                    value={i===0? userName : email}
-                    onChange={i===0? (e) => dispatch(RsetUserName(e.target.value)) : (e) => dispatch(RsetEmail(e.target.value))}
-                    type={i===0? "text" : "email"}
-                    placeholder={user}
-                  />
-                </div>
-                {i===0? ((!userNameIsValid || userNameIsEmpty) && (
-                  <p className="text-xs text-red-600 px-2 mx-auto">
-                    {formErrors.userName}
-                  </p> 
-                )): ((!emailIsValid || emailIsEmpty) && (
-                  <p className="text-xs text-red-600 px-2 mx-auto">
-                    {formErrors.email}
-                  </p>)) }
-              </>
-            ))}
-            {passes.map((pass,i) => (
-              <>
-                <div
-                  id={i===0?"passInput" : "passConfirmInput"}
-                  className="h-16 flex mx-auto my-2 px-2 pl-4 rounded-3xl bg-zinc-800"
-                >
-                  <div
-                    id={i===0? "passIconContainer" : "passConfirmIconContainer"}
-                    className="w-1/12 my-auto h-3/6"
-                  >
-                    <Lock className="h-full w-full text-violet-700" />
-                  </div>
-                  <Input
-                    className="w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
-                    value={i===0? password : passwordConfirmation}
-                    onChange={(e) =>
-                      i===0? dispatch(RsetPassword(e.target.value)) : dispatch(RsetPasswordConfirmation(e.target.value))
-                    }
-                    type={i===0?showPasswordType : showPasswordConfirmationType}
-                    placeholder={pass}
-                  />
-                  <div
-                    id="iconContainer"
-                    className="w-1/12 h-3/6 my-auto"
-                    onClick={() =>
-                      i===0?
-                      dispatch(
-                        RsetShowPassword(showPassword)
-                      ) :
-                      dispatch(
-                        RsetShowPasswordConfirmation(showPasswordConfirmation)
-                      )
-                    }
-                  >
-                    {(i===0? showPassword : showPasswordConfirmation) ? (
-                      <EyeOff className="h-full w-full text-violet-700" />
-                    ) : (
-                      <Eye className="h-full w-full text-violet-700" />
-                    )}
-                  </div>
-                </div>
-                {(i===0? (!passwordIsValid || passwordIsEmpty) : (!passwordIsValid || passwordIsEmpty)) && (
-                  <p className="text-xs text-red-600 px-2 mx-auto">
-                    {i===0? formErrors.password : formErrors.passwordConfirmation}
-                  </p> 
-                )}
-              </>
-            ))}
-            <div
-              id="submitContainer"
-              className="py-1 flex justify-between px-2 sm:px-4 mx-auto mt-4 rounded-3xl"
-            >
-              <div id="submitLinksContainer">
-                <a
-                  className="block text-amber-600 hover:text-amber-500 py-1 ml-2"
-                  href="/login"
-                >
-                  حساب کاربری دارم
-                </a>
+            <div id="inputsContainer" className="px-2 sm:px-8 lg:px-12 xl:px-20 2xl:px-32 pt-2 pb-16">
+              <div id="genderContainer" className="flex px-2 mx-auto rounded-3xl">
+                {genders.map((gen,i) => (
+                  <Label className="w-fit flex items-center">
+                    {gen}
+                    <Input
+                      name="gender"
+                      value={isGenderChecked}
+                      onChange={(e) => {
+                        i===0?dispatch(RsetGender("male")):dispatch(RsetGender("female"));
+                        dispatch(RsetIsGenderChecked("yes"));
+                      }}
+                      type="radio"
+                      className="mx-2"
+                    />
+                  </Label>
+                ))}
               </div>
-              <Button
-                className="h-4/6 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-b from-[#7836cf] via-[#9a79e5] to-[#a8a7c1] text-xl text-white rounded-xl py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleSignUp();
-                }}
+              {genderIsEmpty && (
+              <p className="text-xs text-red-600 px-2 mx-auto">
+                {formErrors.gender}
+              </p>
+              )}
+              
+              <div
+                id="fullNameInput"
+                className="h-16 flex my-1 justify-items-center mx-auto"
               >
-                ثبت نام
-              </Button>
+                {fullName.map((name, i) => (
+                  <div
+                    id={i === 0 ? "firstNameInput" : "lastNameInput"}
+                    className="w-full h-16 flex px-2 mx-1 bg-zinc-800 rounded-3xl"
+                  >
+                    <div
+                      id={i === 0 ? "firstNameIcon" : "lastNameIcon"}
+                      className="w-2/12 my-auto h-3/6"
+                    >
+                      <CircleUserRound className="h-full w-full text-violet-700" />
+                    </div>
+                    <Input
+                      className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 mx-2 text-gray-400 w-11/12"
+                      value={i === 0 ? firstName : lastName}
+                      onChange={(e) =>
+                        dispatch(
+                          i === 0
+                            ? RsetFirstName(e.target.value)
+                            : RsetLastName(e.target.value)
+                        )
+                      }
+                      style={{ border: "none transparent", outline: "none" }}
+                      type="text"
+                      placeholder={name}
+                    />
+                  </div>
+                ))}
+              </div>
+              <div
+                id="nameErrorContainer"
+                className="text-xs text-red-600 flex justify-items-center mx-auto"
+              >
+                {(firstNameIsEmpty || !firstNameIsValid) && (
+                  <p className="w-full px-4 ml-2">{formErrors.firstName}</p>
+                )}
+                {(lastNameIsEmpty || !lastNameIsValid) && (
+                  <p className="w-full px-4 mr-2">{formErrors.lastName}</p>
+                )}
+              </div>
+              {users.map((user,i) => (
+                <>
+                  <div
+                    id={i===0? "userNameInput": "emailInput"}
+                    className="h-16 flex my-2 px-2 mx-auto bg-zinc-800 rounded-3xl"
+                  >
+                    <div id={i===0? "userIconContainer": "emailIconContainer"} className="w-1/12 my-auto h-3/6">
+                      {i===0?<CircleUserRound className="h-full w-full text-violet-700" />:<Mail className="h-full w-full text-violet-700" />}
+                    </div>
+                    <Input
+                      className="bg-transparent h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400 w-11/12"
+                      value={i===0? userName : email}
+                      onChange={i===0? (e) => dispatch(RsetUserName(e.target.value)) : (e) => dispatch(RsetEmail(e.target.value))}
+                      type={i===0? "text" : "email"}
+                      placeholder={user}
+                    />
+                  </div>
+                  {i===0? ((!userNameIsValid || userNameIsEmpty) && (
+                    <p className="text-xs text-red-600 px-2 mx-auto">
+                      {formErrors.userName}
+                    </p> 
+                  )): ((!emailIsValid || emailIsEmpty) && (
+                    <p className="text-xs text-red-600 px-2 mx-auto">
+                      {formErrors.email}
+                    </p>)) }
+                </>
+              ))}
+              {passes.map((pass,i) => (
+                <>
+                  <div
+                    id={i===0?"passInput" : "passConfirmInput"}
+                    className="h-16 flex mx-auto my-2 px-2 pl-4 rounded-3xl bg-zinc-800"
+                  >
+                    <div
+                      id={i===0? "passIconContainer" : "passConfirmIconContainer"}
+                      className="w-1/12 my-auto h-3/6"
+                    >
+                      <Lock className="h-full w-full text-violet-700" />
+                    </div>
+                    <Input
+                      className="w-11/12 h-full focus-visible:ring-0 focus-visible:ring-offset-0 border-transparent focus:border-transparent focus:ring-0 mx-2 text-gray-400"
+                      value={i===0? password : passwordConfirmation}
+                      onChange={(e) =>
+                        i===0? dispatch(RsetPassword(e.target.value)) : dispatch(RsetPasswordConfirmation(e.target.value))
+                      }
+                      type={i===0?showPasswordType : showPasswordConfirmationType}
+                      placeholder={pass}
+                    />
+                    <div
+                      id="iconContainer"
+                      className="w-1/12 h-3/6 my-auto"
+                      onClick={() =>
+                        i===0?
+                        dispatch(
+                          RsetShowPassword(showPassword)
+                        ) :
+                        dispatch(
+                          RsetShowPasswordConfirmation(showPasswordConfirmation)
+                        )
+                      }
+                    >
+                      {(i===0? showPassword : showPasswordConfirmation) ? (
+                        <EyeOff className="h-full w-full text-violet-700" />
+                      ) : (
+                        <Eye className="h-full w-full text-violet-700" />
+                      )}
+                    </div>
+                  </div>
+                  {(i===0? (!passwordIsValid || passwordIsEmpty) : (!passwordIsValid || passwordIsEmpty)) && (
+                    <p className="text-xs text-red-600 px-2 mx-auto">
+                      {i===0? formErrors.password : formErrors.passwordConfirmation}
+                    </p> 
+                  )}
+                </>
+              ))}
+              <div
+                id="submitContainer"
+                className="py-1 flex justify-between px-2 sm:px-4 mx-auto mt-4 rounded-3xl"
+              >
+                <div id="submitLinksContainer">
+                  <a
+                    className="block text-amber-600 hover:text-amber-500 py-1 ml-2"
+                    href="/login"
+                  >
+                    حساب کاربری دارم
+                  </a>
+                </div>
+                <Button
+                  className="h-4/6 focus-visible:ring-0 focus-visible:ring-offset-0 bg-gradient-to-b from-[#7836cf] via-[#9a79e5] to-[#a8a7c1] text-xl text-white rounded-xl py-2 px-10 hover:bg-gradient-to-t hover:from-gray-400 hover:to-purple-700"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleSignUp();
+                  }}
+                >
+                  ثبت نام
+                </Button>
+              </div>
             </div>
-          </div>
+
+            </div>
         </div>
         <div className="hidden bg-[url('/design.png')] bg-cover md:block w-full md:w-5/12"></div>
       </div>
-      <div className="bg-[url('/Group-8738.svg')] bg-cover max-md:bg-bottom absolute -bottom-[800px] sm:-bottom-[600px] md:-bottom-[700px] lg:-bottom-[420px] xl:-bottom-[385px] pt-11 pb-1">
+      {/* <div className="bg-[url('/Group-8738.svg')] bg-cover max-md:bg-bottom absolute -bottom-[800px] sm:-bottom-[600px] md:-bottom-[700px] lg:-bottom-[420px] xl:-bottom-[385px] pt-11 pb-1">
         <Footer/>
-      </div>
+      </div> */}
     </div>
     </>
   );
