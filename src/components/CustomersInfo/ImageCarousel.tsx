@@ -15,7 +15,7 @@ const ImageCarousel: FC = () => {
       >
         مشتریان
       </h1>
-      <div className="relative mx-auto p-4 bg-opacity-30 backdrop-blur-md   rounded-lg shadow-lg w-full mt-10">
+      <div  className="relative mx-auto p-4 bg-opacity-30 backdrop-blur-lg border-[rgba(255,255,255,0.2)]   bg-[rgba(255,255,255,0.1)]   rounded-lg shadow-lg w-full mt-10">
         <Swiper
           modules={[Autoplay]}
           spaceBetween={20}
