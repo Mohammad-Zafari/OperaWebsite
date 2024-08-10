@@ -21,6 +21,8 @@ const BlogList: React.FC<BlogListProps> = ({ blogPosts }) => {
   return (
 
     <div className="relative p-6 flex flex-col items-center w-full">
+      <h1 id="title" className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto my-16 md:mr-20">
+بلاگ ها        </h1>
       
       <Swiper
         spaceBetween={30}
