@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <div
       id="container"
-      className="max-w-[1920px] flex w-[95%] lg:h-24 md:h-20 sm:h-18 h-14 text-white justify-center bg-gradient-to-l from-[#552E87]/10 to-black/30 shadow-xl items-center rounded-xl mx-auto z-50 fixed left-0 right-0 top-0"
+      className="max-w-[1920px] absolute right-0 left-0 flex w-[95%] lg:h-24 md:h-20 sm:h-18 h-14 text-white justify-center bg-gradient-to-l from-[#552E87]/10 to-black/30 shadow-xl items-center rounded-xl z-50  mx-auto"
       style={{
         background:
           "linear-gradient(90.02deg, #000000 -8.68%, #552E87 105.83%)",
@@ -41,7 +41,7 @@ const Navbar = () => {
       }}
       //box-shadow: 0px 5px 42.6px 9px rgba(0, 0, 0, 0.36);
     >
-     <div id="left-section-container" className="md:relative fixed left-6"
+     <div id="left-section-container" className="md:relative md:flex-none flex-1"
     //  "md:flex items-center lg:pl-12 md:pl-6"
      >
       {!loggedIn &&
@@ -78,7 +78,7 @@ const Navbar = () => {
           <Link href="/contactus">ارتباط با ما</Link>
         </div>
         <div className=" cursor-pointer  text-center">
-          <Link href="/#main-footer">درباره ما</Link>
+          <Link href="/#aboutus-container">درباره ما</Link>
         </div>
         <div className=" cursor-pointer  text-center">
           <Link href="/#customers-section">مشتریان</Link>
@@ -100,7 +100,7 @@ const Navbar = () => {
           className="md:flex md:items-end"
         />
       </div>
-      <div id="small-screen-right-section" className="md:hidden flex fixed right-5">
+      <div id="small-screen-right-section" className="md:hidden flex right-5">
         <NavbarResponsive/>
       </div>
     </div>

@@ -4,20 +4,28 @@ import ServiceCard from "../serviceCard/ServiceCard";
 const ServicesCards = () => {
   const cardContents = [
     {
-      title: "اپــراگو",
-      topic: "سرویس تبدیل متن به گفتار با هوش مصنوعی",
+      title: "اشتراک 1 ماهه",
+      topic: "آشنایی اولیه و ارزیابی امکانات",
       discribtion:
-        "این محصول امکان تماس صوتی خودکار با مشتریان را ایجاد می نماید. ",
+        "این طرح مناسب کسب‌وکارهایی است که می‌خواهند به طور آزمایشی از خدمات اپرا استفاده کنند و قابلیت‌های تبدیل گفتار به متن و تحلیل مکالمات را بررسی کنند.",
       imgUrl: "/card1.png",
     },
     {
-      title: "اپــرا گپ",
-      topic: "سرویس گفت‌و‌گو، استعلام و هدایت هوشمند تماس",
+      title: "اشتراک 3 ماهه",
+      topic: "تحلیل منظم مکالمات",
       discribtion:
-        "اپرا محصولی مبتنی بر فناوری های هوش مصنوعی است که امکان پاسخگویی موتور هوش مصنوعی را به صورت مستقیم با مشتریان ایجاد می نماید.",
-      imgUrl: "/card2.png",
+        "این طرح برای شرکت‌هایی طراحی شده که به تحلیل مداوم و دقیق مکالمات نیاز دارند و به بهبودهای قابل توجه در خدمات خود دست یابند.",
+      imgUrl: "/card1.png",
+    },
+    {
+      title: "اشتراک 6 ماهه",
+      topic: "بهینه‌سازی بلندمدت عملکرد",
+      discribtion:
+        "این طرح به شرکت‌هایی که به دنبال ارتقاء سطح کیفیت خدمات و بهینه‌سازی بلندمدت عملکرد تماس‌ها هستند، توصیه می‌شود.",
+      imgUrl: "/card1.png", 
     },
   ];
+
 
   return (
     <>
@@ -32,7 +40,7 @@ const ServicesCards = () => {
         <div id="cardsContainer" className="block lg:flex justify-center mx-auto pt-24">
           <ServiceCard cardInfo={cardContents[0]} />
           <ServiceCard cardInfo={cardContents[1]} />
-          <ServiceCard cardInfo={cardContents[0]} />
+          <ServiceCard cardInfo={cardContents[2]} />
         </div>
       </div>
     </>

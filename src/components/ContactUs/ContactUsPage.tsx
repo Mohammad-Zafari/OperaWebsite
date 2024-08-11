@@ -11,10 +11,10 @@ const ContactUsPage = () => {
     bg-cover bg-center h-full flex flex-col"
     >
       <div>
-        <Navbar />
         {/* <HumburgerNavbar/> */}
         {/* <NewNavbar/> */}
         {/* <SheetDemo/> */}
+        <Navbar/>
       </div>
       <div id="top-section" className="lg:flex lg:flex-row flex flex-col-reverse mt-20 ">
         <div

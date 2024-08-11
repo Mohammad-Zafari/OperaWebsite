@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -5,39 +6,88 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { RsetLoggedIn } from "@/slices/NavbarSlices";
-import { useDispatch, UseDispatch } from "react-redux";
-
+import { useDispatch } from "react-redux";
+import { Router } from "lucide-react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const DropDownMenu = () => {
-  const dispatch= useDispatch()
-  const handleLoginChange =()=> {
-    {
-      dispatch(RsetLoggedIn(false)); // Make sure to use 'setLoggedIn' instead of 'RsetLoggedIn'
-    }
-  };
+  const [isDialogOpen, setDialogOpen] = useState(false);
+  const dispatch = useDispatch();
   return (
-<div className="items-start">
-<DropdownMenu>
-  <DropdownMenuTrigger className="outline-none" >
-    <div className="flex items-center rounded-3xl border-white border-2 mt-1 outline-none" >
-    <img src="man-avatar.svg" alt="" className="size-10 w-fit bg-[#b09945] rounded-3xl m-1"/>
-    <p className="text-white m-1 px-2"> محمد ظفری</p>
-    
+    <div className="ml-4">
+      <DropdownMenu>
+        <DropdownMenuTrigger className="outline-none">
+          <div className="flex items-center rounded-3xl border-white border-2 ml-1 mt-1 outline-none">
+            <img
+              src="man-avatar.svg"
+              alt=""
+              className="md:size-10 size-8 w-fit bg-[#b09945] rounded-3xl md:m-1 m-[2px]"
+            />
+            <p className="text-white md:m-1 md:px-2 px-1 md:text-base text-sm">
+              محمد ظفری
+            </p>
+          </div>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="bg-gray-400 text-center">
+          <DropdownMenuLabel>حساب من</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem className="cursor-pointer text-right flex justify-end">
+            پروفایل
+          </DropdownMenuItem>
+          <DropdownMenuItem
+            className="cursor-pointer flex justify-end"
+            onClick={() => setDialogOpen(true)}
+          >
+            خروج از حساب
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+
+      {/* <div > */}
+      <Dialog open={isDialogOpen} onOpenChange={setDialogOpen}>
+        <DialogContent className="sm:max-w-[425px] text-white bg-[#b09945] w-[90vw] !rounded-3xl border-none">
+          <DialogHeader>
+            <DialogTitle></DialogTitle>
+            <DialogDescription className="text-center">
+              آیا از خروج از حساب خود اطمینان دارید؟
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-center items-center">
+            <DialogFooter>
+              <Button className="border p-1 " onClick={() => setDialogOpen(false)}>
+                انصراف
+              </Button>
+              <Link href="/">
+                <Button
+                  className=" border p-1 px-2 "
+                  onClick={() => {
+                    setDialogOpen(false);
+                    dispatch(RsetLoggedIn(false));
+                  }}
+                >
+                  تایید
+                </Button>
+              </Link>
+            </DialogFooter>
+          </div>
+        </DialogContent>
+      </Dialog>
+      {/* </div> */}
     </div>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className="bg-gray-400">
-    <DropdownMenuLabel>حساب من</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem className="cursor-pointer">پروفایل
-    
-    </DropdownMenuItem>
-    <DropdownMenuItem className="cursor-pointer" onClick={handleLoginChange}>خروج از حساب</DropdownMenuItem>
-  </DropdownMenuContent>
-</DropdownMenu>
-</div>
   );
-}
- 
+};
+
 export default DropDownMenu;

@@ -27,37 +27,25 @@ const Footer = () => {
         </div>
         <div id=" site-sections" className="sm:flex-1 flex-col md:px-12 sm:px-4 ">
           <div className="font-bold text-[16px]  lg:pb-6 mt-5 lg:mt-0 w-auto">بخش های سایت</div>
-          <div className="text-[#979595] space-y-1 text-sm flex flex-col lg:items-end items-center">
-            <div className="cursor-pointer">
-              <Link href="/">
-            خانه
-            </Link>
-            </div>
-            <div className="cursor-pointer">
-              <Link href="/">
-            طرح ها
-            </Link>
-            </div>
-            <div className="cursor-pointer">
-              <Link href="/">
-            وبلاگ
-            </Link>
-            </div>
-            <div className="cursor-pointer">
-              <Link href="/">
-            مشتریان
-            </Link>
-            </div>
-            <div className="cursor-pointer">
-              <Link href="/">
-            درباره ما
-            </Link>
-            </div>
-            <div className="cursor-pointer">
-              <Link href="/contactus">
-            ارتباط با ما
-            </Link>
-            </div>
+          <div className="text-[#979595] space-y-1 text-sm flex flex-col-reverse lg:items-end items-center">
+          <div className=" cursor-pointer text-center">
+          <Link href="/contactus">ارتباط با ما</Link>
+        </div>
+        <div className=" cursor-pointer  text-center">
+          <Link href="/#aboutus-container">درباره ما</Link>
+        </div>
+        <div className=" cursor-pointer  text-center">
+          <Link href="/#customers-section">مشتریان</Link>
+        </div>
+        <div className="cursor-pointer  text-center">
+          <Link href="/#blog-container">وبلاگ</Link>
+        </div>
+        <div className="cursor-pointer  text-center">
+          <Link href="/#servicesCardsContainer">طرح ها</Link>
+        </div>
+        <div className="cursor-pointer  text-center">
+          <Link href="/">خانه</Link>
+        </div>
           </div>
 
         </div>
