@@ -20,11 +20,13 @@ import { NavbarResponsive } from "@/components/Navbar/NavbarResponsive";
 import ContactUsLanding from "../components/ContactUs/ContactUsLanding";
 import ContactUsMain from "@/components/ContactUs/ContactUsMain";
 import BackToTopButton from "@/components/BackToTopButton";
+import ScrollBar from "@/components/horizontalScroll/ScrollBar";
 
 const Home = () => {
   return (
     <>
       <Navbar />
+      {/* <ScrollBar/> */}
       <Hero />
       <div
         id="container"

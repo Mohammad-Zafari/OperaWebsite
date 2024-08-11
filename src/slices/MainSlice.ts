@@ -14,6 +14,7 @@ interface MainState {
     firstName: string;
     lastName: string;
     email: string;
+    forgetEmail: string;
     showPasswordConfirmation: boolean;
     showPasswordConfirmationType:string;
     formErrors: {
@@ -24,12 +25,15 @@ interface MainState {
         userName: string,
         password: string,
         passwordConfirmation: string,
+        forgetEmail: string;
     };
     loginErrors : {
         userErrorStyle: object;
         passwordErrorStyle: object;
     }
     rememberMe: boolean;
+    forgetTimer: number;
+    forgetVerificationCode: string;
     token: string | null;
 }
 
@@ -44,6 +48,7 @@ const initialState: MainState = {
     firstName: "",
     lastName: "",
     email: "",
+    forgetEmail: "",
     showPasswordConfirmation: false,
     showPasswordConfirmationType: "password",
     formErrors: {
@@ -54,12 +59,15 @@ const initialState: MainState = {
         userName: "",
         password: "",
         passwordConfirmation: "",
+        forgetEmail: "",
     },
     loginErrors: {
         userErrorStyle: {},
         passwordErrorStyle: {},
     },
     rememberMe: false,
+    forgetTimer: 0,
+    forgetVerificationCode: "",
     token: null,
 
 };
@@ -111,7 +119,8 @@ const mainSlice = createSlice({
         state.formErrors.email = action.payload.email;
         state.formErrors.userName = action.payload.userName;
         state.formErrors.password = action.payload.password;
-        state.formErrors.passwordConfirmation = action.payload.passwordConfirmation;        
+        state.formErrors.passwordConfirmation = action.payload.passwordConfirmation;
+        state.formErrors.forgetEmail = action.payload.forgetEmail;
     },
     RsetLoginErrors: (state, action) => {
         state.loginErrors.userErrorStyle = action.payload.userErrorStyle;
@@ -123,12 +132,20 @@ const mainSlice = createSlice({
     RsetToken: (state, action: PayloadAction<string>) => {
         state.token = action.payload;
       },
-
+      RsetForgetEmail: (state, action: PayloadAction<string>) => {
+        state.forgetEmail = action.payload;
+    },
+    RsetForgetTimer: (state, action: PayloadAction<number>) => {
+        state.forgetTimer = action.payload;
+    },
+    RsetForgetVerficationCode: (state, action: PayloadAction<string>) => {
+        state.forgetVerificationCode = action.payload;
+    },
   },
 });
 
 export const { RsetGender , RsetIsGenderChecked, RsetUserName, RsetPassword, RsetShowPassword, RsetShowPasswordType, RsetPasswordConfirmation, RsetFirstName, 
-    RsetLastName, RsetEmail, RsetShowPasswordConfirmation, RsetShowPasswordConfirmationType, RsetFormErrors, RsetLoginErrors, RsetRememberMe, RsetToken } = mainSlice.actions;
+    RsetLastName, RsetEmail, RsetForgetEmail, RsetShowPasswordConfirmation, RsetShowPasswordConfirmationType, RsetFormErrors, RsetLoginErrors, RsetRememberMe, RsetForgetTimer, RsetForgetVerficationCode, RsetToken } = mainSlice.actions;
 export const selectGender = (state:RootState) => state.main.gender;
 export const selectIsGenderChecked = (state:RootState) => state.main.isGenderChecked;
 export const selectUserName = (state:RootState) => state.main.userName;
@@ -144,6 +161,9 @@ export const selectShowPasswordConfirmation = (state:RootState) => state.main.sh
 export const selectFormErrors = (state:RootState) => state.main.formErrors;
 export const selectLoginErrors = (state:RootState) => state.main.loginErrors;
 export const selectRememberMe = (state:RootState) => state.main.rememberMe;
+export const selectForgetEmail = (state:RootState) => state.main.forgetEmail;
+export const selectForgetTimer = (state:RootState) => state.main.forgetTimer;
+export const selectForgetVerficationCode = (state:RootState) => state.main.forgetVerificationCode;
 export const selectToken = (state:RootState) => state.main.token;
 export default mainSlice.reducer;
 

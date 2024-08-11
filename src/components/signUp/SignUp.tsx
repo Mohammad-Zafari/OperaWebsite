@@ -106,14 +106,12 @@ const SignUp = () => {
     }
   }
 
-  // const validUsername = "^[A-Za-z]\\w{5, 29}$";
-
   const genderIsEmpty = isGenderChecked === "no";
   const firstNameIsValid = namevalidation(firstName);
   const firstNameIsEmpty = firstName.trim() === "";
   const lastNameIsValid = namevalidation(lastName);
   const lastNameIsEmpty = lastName.trim() === "";
-  const userNameIsValid = /^(?!\.)(?![a-zA-Z._]*(?:\._|_\.|\.\.))[a-zA-Z._]*[a-zA-Z_]$/.test(userName);
+  const userNameIsValid = /^(?!\.)(?![a-zA-Z0-9._]*(?:\._|_\.|\.\.))[a-zA-Z0-9._]*[a-zA-Z0-9_]$/.test(userName);
   console.log(userNameIsValid);
   console.log(userName);
   const userNameIsEmpty = userName === "";
