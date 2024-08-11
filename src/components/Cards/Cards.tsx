@@ -1,6 +1,8 @@
 import { space } from "postcss/lib/list";
 import Card from "./Card";
-
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const cardData = [
   {
     title: "امکان جستجو در تماس ها",
@@ -61,11 +63,18 @@ const cardData = [
 ];
 
 const Cards = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true }); 
+  }, []);
   return (
-    <div className="  w-[95%] mx-auto">
+    <div className="w-[95%] mx-auto">
       <div className="lg:flex items-center justify-center">
-        <img className="" src="/whyOpera.svg" alt="" />
-        <h1 className="text-[#333333]  lg:text-6xl font-bold w-fit mx-auto lg:mx-0 md:text-5xl text-4xl">
+        <img className="" src="/whyOpera.svg" alt="" data-aos="fade-up"
+        />
+        <h1
+          className="text-[#333333]  lg:text-6xl font-bold w-fit mx-auto lg:mx-0 md:text-5xl text-4xl"
+          data-aos="fade-up"
+        >
           چرا
           <span className="text-customPurple mr-3">اپرا </span>؟
         </h1>
@@ -73,13 +82,14 @@ const Cards = () => {
 
       <div className="flex flex-wrap mt-14 justify-center">
         {cardData.map((cart, index) => (
-          <Card
-            key={index} // Use index as key, but try to use unique IDs if possible
-            title={cart.title}
-            description={cart.description}
-            imagesrc={cart.imagesrc}
-            extratext={cart.extratext}
-          />
+          <div key={index} data-aos="fade-up">
+            <Card
+              title={cart.title}
+              description={cart.description}
+              imagesrc={cart.imagesrc}
+              extratext={cart.extratext}
+            />
+          </div>
         ))}
       </div>
     </div>
