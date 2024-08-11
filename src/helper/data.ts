@@ -1,36 +1,34 @@
-//import BlogCard from "../../public/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg";
 
 export const blogPosts = [
-  
   {
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg", 
-       title: 'First Blog Post',
-    description: 'This is a more detailed description of the first blog post, providing more context and information for readers.',
-    link: '/posts/first-blog-post',
-    date: 'July 24, 2024'
+  id: '1',
+  imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",    title: 'آینده‌ی تماس‌های خودکار با هوش مصنوعی',
+    description: 'با استفاده از سرویس‌های پیشرفته‌ی گفت‌و‌گو با هوش مصنوعی، می‌توانید تماس‌های خودکار با مشتریان را به صورت کاملاً خودکار و هوشمند انجام دهید. این فناوری به کسب و کارها کمک می‌کند تا به بهبود ارتباطات و افزایش رضایت مشتریان بپردازند.',
+    link: '/posts/ai-automated-calls',
+    date: 'شهریور ۱, ۱۴۰۳'
   },
   {
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg", 
+    id: '2',
+    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",    title: 'بهینه‌سازی تماس‌های ورودی با روتینگ هوشمند',
+    description: 'سرویس روتینگ هوشمند تماس‌ها با استفاده از تکنولوژی‌های هوش مصنوعی، به شما این امکان را می‌دهد که تماس‌های ورودی را به صورت بهینه و هوشمند هدایت کنید. این روش باعث افزایش کارایی و کاهش زمان انتظار مشتریان می‌شود.',
+    link: '/posts/intelligent-call-routing',
+    date: 'شهریور ۸, ۱۴۰۳'
+  },
+  {
+    id: '3',
+    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",    title: 'تکنولوژی تبدیل متن به گفتار در تماس‌های تلفنی',
+    description: 'تکنولوژی تبدیل متن به گفتار (Text-to-Speech) به شما این امکان را می‌دهد که متن‌های نوشته شده را به صورت گفتار طبیعی و روان به مشتریان ارائه دهید. این فناوری می‌تواند تجربه کاربری بهتری را فراهم کند و به افزایش کارایی تماس‌ها کمک کند.',
+    link: '/posts/text-to-speech-tech',
+    date: 'شهریور ۱۵, ۱۴۰۳'
+  },
+  {
+    id: '4',
+    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",    title: 'سرویس گفت‌و‌گو و استعلام هوشمند',
+    description: 'Opera به عنوان یک محصول پیشرفته در زمینه هوش مصنوعی، به شما این امکان را می‌دهد که با استفاده از موتور هوش مصنوعی به طور مستقیم با مشتریان تعامل داشته باشید. این سرویس به شما کمک می‌کند تا با بهبود فرآیندهای ارتباطی، تجربه مشتری را بهبود بخشید.',
+    link: '/posts/smart-inquiry-service',
+    date: 'شهریور ۲۲, ۱۴۰۳'
+  },
 
-    title: 'بلاگ شماره 2',
-    description: ' نننببببی سسسسسسسسسسسسسسسسسسس خخخخخخخخخخخخخ وووووووو کککککککککک سسسسس ررررررر ظظظظظظظظظ  ئئئئئئئئئئئئئئئئئئئئ',
-    link: '/posts/second-blog-post',
-    date: 'July 25, 2024'
-  },
-  {
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg", 
-    title: 'third Blog Post',
-    description: 'This is a more detailed description of the third blog post, providing more context and information for readers.',
-    link: '/posts/second-blog-post',
-    date: 'July 25, 2024'
-  },
-  {
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg", 
-    title: 'forth Blog Post',
-    description: 'This is a more detailed description of the third blog post, providing more context and information for readers.',
-    link: '/posts/second-blog-post',
-    date: 'July 25, 2024'
-  },
   
  
 ];
