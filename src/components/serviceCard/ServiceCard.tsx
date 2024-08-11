@@ -24,7 +24,7 @@ const ServiceCard = (props: info) => {
       />
       <div
         id="CardInfoContainer"
-        className="flex-col h-68 lg:h-80 xl:h-72 bg-purple-800 rounded-b-xl rounded-t-3xl mx-auto px-4 py-4"
+        className="flex flex-col h-68 lg:h-80 xl:h-72 bg-purple-800 rounded-b-xl rounded-t-3xl mx-auto px-4 py-4"
       >
         <h2 id="title" className="h-1/6 text-3xl text-yellow-500 font-bold">
           {props.cardInfo.title}
@@ -34,16 +34,16 @@ const ServiceCard = (props: info) => {
         </p>
         <div
           id=""
-          className="h-4/6 lg:flex lg:flex-col mx-auto mt-4 items-center"
+          className="h-4/6 lg:flex lg:flex-col mx-auto mt-4 items-center relative"
         >
-          <div id="discribtionContainer" className="lg:w- bg-inigo-500 ">
+          <div id="discribtionContainer" className="lg:w- bg-inigo-500">
             <p id="discribtion" className="text-white ">
               {props.cardInfo.discribtion}
             </p>
           </div>
           <div
             id="seeProductContainer"
-            className="lg:w-5/12 flex justify-center items-center mr-2 "
+            className="lg:w-5/12 flex  justify-center items-center mr-2 lg:absolute bottom-0"
           >
             <a
               id="seeProductBtn"

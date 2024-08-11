@@ -33,11 +33,14 @@ const ServicesCards = () => {
         id="servicesCardsContainer"
         className="py-80 px-6 sm:px-12 xl:px-12 2xl:px-48"
         dir="rtl"
+
       >
-        <h1 id="title" className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto md:mr-20">
+        <h1 id="title" className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto md:mr-20"        data-aos="fade-up"
+        >
           طرح ها
         </h1>
-        <div id="cardsContainer" className="block lg:flex justify-center mx-auto pt-24">
+        <div id="cardsContainer" className="block lg:flex justify-center mx-auto pt-24"         data-aos="fade-left"
+        >
           <ServiceCard cardInfo={cardContents[0]} />
           <ServiceCard cardInfo={cardContents[1]} />
           <ServiceCard cardInfo={cardContents[2]} />

@@ -1,7 +1,7 @@
 import React from "react";
 import { MoveLeft } from "lucide-react";
-
 const Hero = () => {
+
   return (
     <>
       <div
@@ -12,7 +12,9 @@ const Hero = () => {
         
         <div
           id="textsContainer"
-          className="bg-re-200 md:w-7/12 lg:w-4/12 xl:2/12 md:mr-20 lg:mr-40 p-8"
+          className="bg-re-200 md:w-7/12 lg:w-4/12 xl:2/12 md:mr-20 lg:mr-40 p-8 "
+          data-aos="fade-up"
+
         >
           <h1
             id="heroTitle"

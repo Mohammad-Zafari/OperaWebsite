@@ -1,22 +1,27 @@
 import ContactUsMain from "./ContactUsMain";
-import Footer from "../Footer";
+import Footer from "../footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import Map from "../Map";
-
+import React, { useEffect } from "react";
 const ContactUsPage = () => {
+
   return (
     <div
       id="container"
       className="bg-[url('/background-contactus-2.svg')]
-    bg-cover bg-center h-full flex flex-col"
+    bg-cover bg-center h-full flex flex-col "
     >
       <div>
         {/* <HumburgerNavbar/> */}
         {/* <NewNavbar/> */}
         {/* <SheetDemo/> */}
-        <Navbar/>
+        <Navbar />
       </div>
-      <div id="top-section" className="lg:flex lg:flex-row flex flex-col-reverse mt-20 ">
+      <div
+        id="top-section"
+        className="lg:flex lg:flex-row flex flex-col-reverse mt-20 "
+        data-aos="fade-up"
+      >
         <div
           id="left-section"
           className=" flex flex-col flex-1 lg:pt-72 lg:pb-48 md:pb-20 pb-12 items-center justify-center"
@@ -26,10 +31,12 @@ const ContactUsPage = () => {
           </div>
           <div
             id="address"
-            className="flex-1 sm:flex-3 bg-[#333333] bg-white md:w-[70%] w-[70%] related flex flex-col items-end text-gray-700 font-medium leading-relaxed rounded-b-2xl border-8 "
+            className="flex-1 sm:flex-3  bg-white md:w-[70%] w-[70%] related flex flex-col items-end text-gray-700 font-medium leading-relaxed rounded-b-2xl border-8 "
           >
             {/* when we use map rounded doesnt apply because of the map     */}
-            <div className="flex-2 flex items-center px-2 md:text-base text-sm rounded-b-full ">
+            <div
+              className="flex-2 flex items-center px-2 md:text-base text-sm rounded-b-full "
+            >
               <p className="flex-12 text-right lg:pt-0 pt-4">
                 دفتر مرکزی: تهران، پاسداران، محله دروس، خیابان میربلوکی، پلاک 9،
                 واحد 101 دپارتمان فنی: تهران، دانشگاه علم و صنعت، ساختمان
@@ -41,7 +48,9 @@ const ContactUsPage = () => {
                 alt=""
               />
             </div>
-            <div className="flex-1 flex  px-2  md:text-base text-sm">
+            <div
+              className="flex-1 flex  px-2  md:text-base text-sm"
+            >
               <p className="flex-12 text-right lg:pt-0 py-3">
                 تلفن تماس: 02173227884 | 09224947358 | 09909928171
               </p>
@@ -58,7 +67,7 @@ const ContactUsPage = () => {
         </div>
       </div>
 
-      <div id="bottom-section" className="">
+      <div id="bottom-section" className="" data-aos="fade-up">
         <Footer />
       </div>
     </div>

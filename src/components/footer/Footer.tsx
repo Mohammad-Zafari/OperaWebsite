@@ -3,7 +3,7 @@ const Footer = () => {
   return (
     <div
       id="container"
-      className="flex flex-col md:flex items-center bg-[#333] text-white  xl:rounded-[100px] md:rounded-[60px] rounded-3xl md:mx-20 mx-10 mb-8 "
+      className="flex flex-col md:flex items-center bg-[#333] text-white  xl:rounded-[100px] md:rounded-[60px] rounded-3xl md:mx-20 mx-10 mb-8 "data-aos="fade-up"
     >
       <div
         id="main-footer"

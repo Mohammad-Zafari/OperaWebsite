@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar/Navbar";
 import ContactUs from "../../components/ContactUs/ContactUsLanding"
-import Footer from "@/components/Footer";
+import Footer from "@/components/footer/Footer";
 import ContactUsPage from "@/components/ContactUs/ContactUsPage";
 
 const page = () => {

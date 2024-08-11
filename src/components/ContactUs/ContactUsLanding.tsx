@@ -90,8 +90,9 @@ const ContactUsLanding = () => {
   };
 
   return (
-    <div className="flex mb-24 md:mb-48 flex-col lg:mt-28 mt-8 md:mx-20 lg:w-[50%] mx-auto sm:w-[80%] w-[90%]">
-      <div className="flex flex-row-reverse ">
+    <div className="flex mb-24 md:mb-48 flex-col lg:mt-28 mt-8 md:mx-20 lg:w-[50%] mx-auto sm:w-[80%] w-[90%]" >
+      <div className="flex flex-row-reverse "         data-aos="fade-up"
+      >
         <h1 className="text-black text-right xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold flex-1 lg:mr-2 md:mr-40 sm:mr-28 mr-32 ">
           ارتباط با ما
         </h1>
@@ -101,7 +102,8 @@ const ContactUsLanding = () => {
           className="bottom mt-8 lg:size-28 md:size-24 sm:size-20 size-14 "
         />
       </div>
-      <div className="flex items-center md:justify-start justify-center ">
+      <div className="flex items-center md:justify-start justify-center "         data-aos="fade-left"
+      >
         <div
           id="container"
           className="w-[95%] md:w-[70%] lg:w-[90%] rounded-[40px] bg-white p-1 sm:p-2 md:p-3 lg:mt-8 md:mt-4 sm:mt-4 mt-4 shadow-customShadow1"

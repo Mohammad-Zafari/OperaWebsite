@@ -67,12 +67,12 @@ const DropDownMenu = () => {
           </DialogHeader>
           <div className="flex justify-center items-center">
             <DialogFooter>
-              <Button className="border p-1 " onClick={() => setDialogOpen(false)}>
+              <Button className="border p-1 px-3 rounded-xl hover:bg-[rgb(139,47,21)]" onClick={() => setDialogOpen(false)}>
                 انصراف
               </Button>
               <Link href="/">
                 <Button
-                  className=" border p-1 px-2 "
+                  className=" border p-1 px-4 rounded-xl hover:bg-[rgb(76,85,15)]"
                   onClick={() => {
                     setDialogOpen(false);
                     dispatch(RsetLoggedIn(false));

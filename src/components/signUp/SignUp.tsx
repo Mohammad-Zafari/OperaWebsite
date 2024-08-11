@@ -36,7 +36,7 @@ import {
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Label } from "../ui/label";
-import Footer from "../Footer";
+import Footer from "../footer/Footer";
 
 const SignUp = () => {
   const dispatch = useDispatch<AppDispatch>();

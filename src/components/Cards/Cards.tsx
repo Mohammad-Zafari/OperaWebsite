@@ -1,8 +1,7 @@
 import { space } from "postcss/lib/list";
 import Card from "./Card";
 import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 const cardData = [
   {
     title: "امکان جستجو در تماس ها",
@@ -63,13 +62,11 @@ const cardData = [
 ];
 
 const Cards = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true }); 
-  }, []);
+ 
   return (
     <div className="w-[95%] mx-auto">
       <div className="lg:flex items-center justify-center">
-        <img className="" src="/whyOpera.svg" alt="" data-aos="fade-up"
+        <img className="" src="/whyOpera.svg" alt="" data-aos="fade-left"
         />
         <h1
           className="text-[#333333]  lg:text-6xl font-bold w-fit mx-auto lg:mx-0 md:text-5xl text-4xl"
