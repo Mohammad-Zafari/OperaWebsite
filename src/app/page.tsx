@@ -45,7 +45,7 @@ const Home = () => {
         </div>
         <BackToTopButton />
       </div>
-      <ConfirmPassword></ConfirmPassword>
+      {/* <ConfirmPassword></ConfirmPassword> */}
     </>
   );
 };
