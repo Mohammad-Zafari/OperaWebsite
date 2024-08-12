@@ -213,7 +213,7 @@ const Login = () => {
                   </a>
                   <a
                     className="block text-sm py-1 text-purple-600 hover:text-purple-400"
-                    href="/signUp"
+                    href="/signup"
                   >
                     ایجاد حساب کاربری
                   </a>

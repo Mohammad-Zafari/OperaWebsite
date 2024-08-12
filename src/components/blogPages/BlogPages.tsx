@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useEffect } from "react";
-import BlogPage from "../blogPage/BlogPage";
+import BlogPage from "./BlogPage";
 
 const BlogPages = () => {
   const blogContents = [
     {
+      // title
       text: `هوش مصنوعی موضوعی که امروزه توجه تمام دنیا را به خود جلب کرده و هر روز در حال توسعه و پیشرفت میباشد به گونه ای که اثرات آن در آینده نزدیک شیوه تمدن بشر را دستخوش تغییرات خواهد کرد. دسته بندی هوش مصنوعی به طورکلی به چند بخش اصلی تقسیم میشود:\n
 1. هوش مصنوعی محدود
 2. هوش مصنوعی عمومی

@@ -22,7 +22,7 @@ const Navbar = () => {
   const handleSignup = () => {
     // dispatch(RsetSignedUp(true));
     // dispatch(RsetLoggedIn(false));
-    window.location.href = "/signUp";
+    window.location.href = "/signup";
   };
   const handleLogin = () => {
     // dispatch(RsetLoggedIn(true));

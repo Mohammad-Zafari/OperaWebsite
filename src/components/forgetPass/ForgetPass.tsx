@@ -27,7 +27,7 @@ import {
 } from "@/components/ui/input-otp";
 const ForgetPass = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const email = useSelector(selectEmail); // Extract the email from the store
+  // const email = useSelector(selectEmail); // Extract the email from the store
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false); // State to manage visibility
 
   const forgetEmail = useSelector(selectForgetEmail);
