@@ -56,6 +56,7 @@ const BlogPages = () => {
       id: 4,
     },
   ];
+  
 
   const hash = window.location.hash;
   const id = hash.substring(1);

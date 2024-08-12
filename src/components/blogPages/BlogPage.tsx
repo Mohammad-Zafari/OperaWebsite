@@ -3,8 +3,9 @@ import { Button } from "../ui/button";
 
 interface info {
   blogInfo: {
-    text: string, 
-  }
+    text: string;
+    id?: number; // id is now optional
+  };
 }
 
 const BlogPage = (props : info) => {
