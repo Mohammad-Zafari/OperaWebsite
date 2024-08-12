@@ -9,7 +9,6 @@ import { Checkbox } from "../ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
 import {
   CircleUserRound,
-  DoorClosed,
   Eye,
   EyeOff,
   Lock,
@@ -72,6 +71,8 @@ const Login = () => {
   const handleLogin = (event: any) => {
     if (formIsValid) {
       dispatch(RsetLoginErrors(validation()));
+      //post username & pass to backend and they check if it exist
+
       if (userName === "qwerty" && password === "Parsa123") {
         if (rememberMe) {
           localStorage.setItem("username", userName);

@@ -1,11 +1,9 @@
+import BlogPages from '@/components/blogPages/BlogPages'
 import React from 'react'
 
-function page() {
+const page = () => {
   return (
-    <div>
-        salam
-      
-    </div>
+    <BlogPages/>
   )
 }
 
