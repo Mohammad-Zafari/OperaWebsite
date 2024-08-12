@@ -207,7 +207,7 @@ const Login = () => {
                 <div id="submitLinksContainer" className="text-center">
                   <a
                     className="block text-sm py-1 text-amber-400 hover:text-amber-300"
-                    href="/forgetPass"
+                    href="/forgetpass"
                   >
                     فراموشی رمز عبور
                   </a>
