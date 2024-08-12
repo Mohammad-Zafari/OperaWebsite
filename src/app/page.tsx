@@ -20,6 +20,7 @@ import { NavbarResponsive } from "@/components/Navbar/NavbarResponsive";
 import ContactUsLanding from "../components/ContactUs/ContactUsLanding";
 import ContactUsMain from "@/components/ContactUs/ContactUsMain";
 import BackToTopButton from "@/components/BackToTopButton";
+import ConfirmPassword from "@/components/forgetPass/ConfirmPassword ";
 
 const Home = () => {
   return (
@@ -44,6 +45,7 @@ const Home = () => {
         </div>
         <BackToTopButton />
       </div>
+      <ConfirmPassword></ConfirmPassword>
     </>
   );
 };

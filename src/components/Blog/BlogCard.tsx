@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 interface BlogCardProps {
+  id:string;
   imageSrc: string;
   title: string;
   description: string;
@@ -11,7 +12,7 @@ interface BlogCardProps {
   isActive: boolean;
 }
 
-const BlogCard: FC<BlogCardProps> = ({ imageSrc, title, description, link, isActive }) => {
+const BlogCard: FC<BlogCardProps> = ({id, imageSrc, title, description, link, isActive }) => {
   return (
     <div
       className={`relative rounded-xl overflow-hidden transition-transform duration-300 ${
@@ -41,7 +42,7 @@ const BlogCard: FC<BlogCardProps> = ({ imageSrc, title, description, link, isAct
               isActive ? 'text-xl md:text-2xl text-[#F0C040]' : 'text-lg md:text-xl text-[#D6B023]'
             }`}
           >
-            <Link href={link}>{title}</Link>
+            <Link href={`/blogpages/#${id}`}>{title}</Link>  {/* <-- Update the href */}
           </h2>
           <p
             className={`transition-all duration-300 ${isActive ? 'text-base md:text-lg' : 'text-sm md:text-base'} text-white mb-10`}
@@ -58,8 +59,7 @@ const BlogCard: FC<BlogCardProps> = ({ imageSrc, title, description, link, isAct
         </div>
         <div className="absolute bottom-4 left-4">
           <Link
-            href={link}
-            className={`transition-all duration-300 px-4 py-2 rounded-xl text-center ${
+href={`/blogpages/#${id}`}            className={`transition-all duration-300 px-4 py-2 rounded-xl text-center ${
               isActive
                 ? 'bg-[#F0C040] text-[#333333] hover:bg-[#E0B030]'
                 : 'bg-[#D6B023] text-[#333333] hover:bg-[#C5A21E]'

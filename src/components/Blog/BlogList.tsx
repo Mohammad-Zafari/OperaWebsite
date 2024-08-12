@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 interface BlogPost {
+  id:string;
   imageSrc: string;
   title: string;
   description: string;
@@ -60,6 +61,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogPosts }) => {
         {blogPosts.map((post, index) => (
           <SwiperSlide key={index} className="flex justify-center">
             <BlogCard
+            id={post.id}
               imageSrc={post.imageSrc}
               title={post.title}
               description={post.description}
