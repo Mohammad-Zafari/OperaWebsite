@@ -2,6 +2,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface BlogCardProps {
   id:string;
@@ -13,12 +16,17 @@ interface BlogCardProps {
 }
 
 const BlogCard: FC<BlogCardProps> = ({id, imageSrc, title, description, link, isActive }) => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true }); 
+  }, []);
   return (
     <div
       className={`relative rounded-xl overflow-hidden transition-transform duration-300 ${
         isActive ? 'scale-105 p-4 md:p-6' : 'scale-95 p-2 md:p-4'
       }`}
       style={{ width: '100%', height: 'auto' }}
+      data-aos="fade-up"
+
     >
       <div className="relative w-full h-48 md:h-56 rounded-t-xl overflow-hidden">
         <Image

@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import { Toaster } from "@/components/ui/toaster"
+import Navbar from "@/components/Navbar/Navbar";
 
 
 

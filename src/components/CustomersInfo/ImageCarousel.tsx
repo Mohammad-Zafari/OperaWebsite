@@ -8,7 +8,8 @@ import { Autoplay } from "swiper/modules";
 
 const ImageCarousel: FC = () => {
   return (
-    <div>
+    <div id="customers-section"           data-aos="fade-up"
+>
       <h1
         id="title"
         className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto md:mr-20 mt-20 mb-10"

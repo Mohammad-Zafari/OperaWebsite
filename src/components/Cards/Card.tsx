@@ -11,7 +11,7 @@ const Card = ({ title, description, imagesrc, extratext }) => {
     <div id="first-container" className=" w-fit">
       <div
         id="second-container"
-        className="bg-customBackWhite w-[250px] md:w-[253px] lg:w-[293px] rounded-[29px] flex items-center justify-center md:m-6 m-4 lg:m-6 lg:p-2 p-1 hover:scale-105 transition-transform duration-300"
+        className="bg-customBackWhite w-[80vw] sm:w-[350px] md:w-[350px]  rounded-[29px] flex items-center justify-center m-4 lg:m- lg:p-2 p-1 hover:scale-105 transition-transform duration-300"
       >
         <div
           id="main-container"
@@ -24,18 +24,18 @@ const Card = ({ title, description, imagesrc, extratext }) => {
             <img
               src={imagesrc}
               alt={title}
-              className="z-10 lg:w-[151px] lg:h-[156px] md:h-[136px] md:w-[131px]  absolute w-[151px] h-[156px]"
+              className="z-10 absolute w-[246px] h-[246px]"
               // sm:h-[116px] sm:w-[111px]
             />
-            <div className="lg:w-[151px] lg:h-[156px] md:h-[136px] md:w-[131px]  w-[151px] h-[156px] z-20 rounded-full bg-custom-cart-gradient">
+            <div className=" w-[241px] h-[246px] z-20 rounded-full bg-custom-cart-gradient">
               {/* sm:h-[116px] sm:w-[111px] */}
             </div>
           </div>
           <div id="text-container" className="text-right flex flex-col  p-4 ">
-            <h1 className="text-customPurple font-semibold lg:text-xl md:text-sm text-sm sm:my-0 my-4 sm:mt-0 mt-7 lg:my-2">
+            <h1 className="text-customPurple font-semibold text-xl sm:my-0 my-4 sm:mt-0 mt-7 lg:my-2">
               {/* sm:text-xs */}
                {title}</h1>
-            <p className="mx-1 text-center font-semibold lg:text-[12px] md:text-[7px]  text-[11px]">
+            <p className="mx-1 text-center font-semibold ">
               {/* sm:text-[6px] */}
               {description}
             </p>
@@ -57,7 +57,7 @@ const Card = ({ title, description, imagesrc, extratext }) => {
             >
               {isExpanded && (
                 //enter the rest of your text
-                <p className="text-center font-normal text-xs lg:text-[12px] md:text-[7px]  text-[11px] mt-2">
+                <p className="text-center font-normal mt-2">
                   {extratext}
                 </p>
               )}

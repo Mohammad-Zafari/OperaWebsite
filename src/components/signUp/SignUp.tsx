@@ -38,7 +38,7 @@ import {
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { Label } from "../ui/label";
-import Footer from "../Footer";
+import Footer from "../footer/Footer";
 
 const SignUp = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -262,12 +262,22 @@ const SignUp = () => {
           className="min-h-screen bg-[url('/design.png')] bg-cover md:bg-[url('')] md:w-7/12 px-2 py-8 md:px-16"
           dir="rtl"
         >
+          <div className="flex items-center">
           <img
             id="logo"
             className="w-44 h-16 mx-auto sm:mx-2 md:m-0"
             src="/logo.png"
             alt=""
           />
+          <a className=" absolute left-20" href="/">
+            <img id="home"
+              className="w-28 h-10  sm:mx-2 md:m-0 "
+              src="/home-icon.svg"
+              alt=""
+              
+              />
+            </a>
+          </div>
           <div
             id="formContiner"
             className="flex-col bg-white shadow-[0_-5px_60px_-15px] mx-auto rounded-2xl my-24"

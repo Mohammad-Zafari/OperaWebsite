@@ -118,19 +118,30 @@ const Login = () => {
       <div
         id="container"
         dir="ltr"
-        className="before:absolute before:w-full before:h-full before:bg-cover before:bg-center before:filter before:blur-[10px] before:-z-10 before:bg-[url('/design.png')] before:md:bg-[url('')] h-screen md:flex"
+        className="before:absolute before:w-full before:h-full before:bg-cover before:bg-center before:filter before:blur-[10px] before:-z-10 before:bg-[url('/design.png')] before:md:bg-[url('')] h-screen md:flex
+      "
       >
         <div
           id="leftPartContainer"
           className="h-screen md:w-7/12 flex-col items-center px-2 sm:px-4 py-8 md:px-16"
           dir="rtl"
         >
-          <img
-            id="logo"
-            className="w-44 h-16 mx-auto sm:mx-2 md:m-0"
-            src="/logo.png"
-            alt=""
-          />
+          <div className="flex items-center  ">
+            <img
+              id="logo"
+              className="w-44 h-16 sm:mx-2 md:m-0"
+              src="/logo.png"
+              alt=""
+            />
+            <a className="flex-1 absolute left-20" href="/">
+            <img id="home"
+              className="w-28 h-10  sm:mx-2 md:m-0 "
+              src="/home-icon.svg"
+              alt=""
+              
+              />
+            </a>
+          </div>
           <div
             id="formContiner"
             className="bg-white rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto my-12 min-[321px]:my-24 md:my-20"

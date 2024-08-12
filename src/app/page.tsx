@@ -12,18 +12,21 @@ import BlogPages from "@/components/blogPages/BlogPages";
 import AboutUsVideo from "@/components/aboutUsVideo/AboutUsVideo";
 import Cards from "../components/Cards/Cards";
 import ContactUs from "../components/ContactUs/ContactUsLanding";
-import Footer from "../components/Footer";
+import Footer from "../components/footer/Footer";
 import ContactUsPage from "../components/ContactUs/ContactUsPage";
 import Navbar from "@/components/Navbar/Navbar";
-import Footer2 from "@/components/Footer";
+import Footer2 from "@/components/footer/Footer";
 import { NavbarResponsive } from "@/components/Navbar/NavbarResponsive";
 import ContactUsLanding from "../components/ContactUs/ContactUsLanding";
 import ContactUsMain from "@/components/ContactUs/ContactUsMain";
 import BackToTopButton from "@/components/BackToTopButton";
 
+
 const Home = () => {
+
   return (
     <>
+      
       <Navbar />
       {/* <ScrollBar/> */}
       <Hero />

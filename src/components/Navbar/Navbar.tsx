@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <div
       id="container"
-      className="max-w-[1920px] flex w-[95%] lg:h-24 md:h-20 sm:h-18 h-14 text-white justify-center bg-gradient-to-l from-[#552E87]/10 to-black/30 shadow-xl items-center rounded-xl mx-auto z-50 fixed left-0 right-0 top-0"
+      className="max-w-[1920px] absolute right-0 left-0 flex w-[95%] lg:h-24 md:h-20 sm:h-18 h-14 text-white justify-center bg-gradient-to-l from-[#552E87]/10 to-black/30 shadow-xl items-center rounded-xl z-50  mx-auto"
       style={{
         background:
           "linear-gradient(90.02deg, #000000 -8.68%, #552E87 105.83%)",
@@ -41,10 +41,13 @@ const Navbar = () => {
       }}
       //box-shadow: 0px 5px 42.6px 9px rgba(0, 0, 0, 0.36);
     >
+     <div id="left-section-container" className="md:relative md:flex-none flex-1"
+    //  "md:flex items-center lg:pl-12 md:pl-6"
+     >
       {!loggedIn &&
         <div
           id="left-section"
-          className="flex-2 flex items-center lg:pl-12 md:pl-6"
+          // className="flex-2 flex items-center lg:pl-12 md:pl-6"
         >
           <Button
             className="text-black  lg:h-[50px] lg:text-sm text-xs rounded-2xl absolute transition duration-200 hover:bg-[#a07f3b] bg-[#b09945] lg:w-[100px] w-[80px] ml-2"
@@ -62,40 +65,44 @@ const Navbar = () => {
         </div>
       
       }
-      
-      {loggedIn && <DropdownMenu />}
+      <div className=" ">
 
+      {loggedIn && <DropdownMenu />}
+      </div>
+      </div>
       <div
         id="middle-section"
-        className="flex-6 md:flex xl:text-xl md:text-lg sm:text-sm text-xs justify-center hidden items-center lg:space-x-5"
+        className=" md:flex md:flex-1 xl:text-xl md:text-lg sm:text-sm text-xs justify-center hidden items-center xl:space-x-12 lg:space-x-8 md:space-x-3"
       >
-        <div className="flex-1 cursor-pointer  w-full text-center">
+        <div className=" cursor-pointer text-center">
           <Link href="/contactus">ارتباط با ما</Link>
         </div>
-        <div className="flex-1 cursor-pointer  text-center">
-          <Link href="/#main-footer">درباره ما</Link>
+        <div className=" cursor-pointer  text-center">
+          <Link href="/#aboutus-container">درباره ما</Link>
         </div>
-        <div className="flex-1 cursor-pointer  text-center">
+        <div className=" cursor-pointer  text-center">
           <Link href="/#customers-section">مشتریان</Link>
         </div>
-        <div className="flex-1 cursor-pointer  text-center">
+        <div className="cursor-pointer  text-center">
           <Link href="/#blog-container">وبلاگ</Link>
         </div>
-        <div className="flex-1 cursor-pointer  text-center">
+        <div className="cursor-pointer  text-center">
           <Link href="/#servicesCardsContainer">طرح ها</Link>
         </div>
-        <div className="flex-1 cursor-pointer  text-center">
+        <div className="cursor-pointer  text-center">
           <Link href="/">خانه</Link>
         </div>
       </div>
-      <div id="right-section" className="lg:flex-2 md:flex-1 md:flex hidden">
+      <div id="right-section" className=" md:flex hidden md:items-start">
         <img
           src="logo (1).svg"
           alt=""
-          className="lg:size-16 md:size-10 sm:size-8 size-6 flex-1 flex"
+          className="md:flex md:items-end"
         />
       </div>
-      <div id="small-screen-right-section" className="md:hidden flex "></div>
+      <div id="small-screen-right-section" className="md:hidden flex right-5">
+        <NavbarResponsive/>
+      </div>
     </div>
   );
 };

@@ -59,7 +59,7 @@ const ContactUsMain = () => {
       hasError = true;
     }
 
-    if (!contactPhoneNumber || contactPhoneNumber.toString().length < 11) {
+    if (!contactPhoneNumber || contactPhoneNumber.toString().length < 11 ||contactPhoneNumber.toString()!== "0") {
       if (!contactPhoneNumber) {
         dispatch(RsetNumberError(".شماره تلفن همراه نمی تواند خالی باشد."));
       } else {
