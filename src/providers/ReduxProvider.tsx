@@ -3,7 +3,7 @@
 
 import React from "react";
 import { Provider } from "react-redux";
-import store from "../../store/store"; // Adjust the path if necessary
+import store from "../store/store"; // Adjust the path if necessary
 
 const ReduxProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
