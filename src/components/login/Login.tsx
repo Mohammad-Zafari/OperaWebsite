@@ -28,6 +28,10 @@ import {
   RsetLoginErrors,
   selectLoginErrors,
 } from "@/slices/MainSlice";
+import {
+  RsetLoggedIn,
+  selectLoggedIn,
+} from "@/slices/NavbarSlices"
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter, usePathname } from "next/navigation";
@@ -74,6 +78,7 @@ const Login = () => {
       //post username & pass to backend and they check if it exist
 
       if (userName === "qwerty" && password === "Parsa123") {
+        RsetLoggedIn(true);
         if (rememberMe) {
           localStorage.setItem("username", userName);
           localStorage.setItem("password", password);

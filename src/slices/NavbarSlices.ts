@@ -7,7 +7,7 @@ interface navbarState {
 }
 const initialState: navbarState = {
 
-  isLoggedIn: true,
+  isLoggedIn: false,
   isSignedUp: false, 
 };
 

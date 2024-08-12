@@ -2,8 +2,12 @@
 
 import React, { useEffect } from "react";
 import BlogPage from "./BlogPage";
+import Navbar from "../Navbar/Navbar";
 
-const BlogPages = () => {
+interface inf{
+  id: number;
+}
+const BlogPages = (props: inf) => {
   const blogContents = [
     {
       title: `دسته‌بندی‌های اصلی هوش مصنوعی و کاربردهای آن`,
@@ -63,17 +67,12 @@ const BlogPages = () => {
   ];
   
 
-  const hash = window.location.hash;
-  const id = hash.substring(1);
-
-  useEffect(() => {
-    
-  })
 
   return (
     <div>
+      <Navbar/>
       {blogContents.map(
-        (content, i) => i == Number(id)-1 && <BlogPage blogInfo={content} />
+        (content, i) => i == props.id-1 && <BlogPage blogInfo={content} />
       )}
     </div>
   );
