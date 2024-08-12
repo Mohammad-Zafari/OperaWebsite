@@ -2,7 +2,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '@/store/store';
 
-
 interface MainState {
     gender: string;
     isGenderChecked: string;
@@ -34,6 +33,8 @@ interface MainState {
     rememberMe: boolean;
     forgetTimer: number;
     forgetVerificationCode: string;
+    emailExist: boolean;
+    codeVerified: boolean;
     token: string | null;
 }
 
@@ -68,6 +69,8 @@ const initialState: MainState = {
     rememberMe: false,
     forgetTimer: 0,
     forgetVerificationCode: "",
+    emailExist: false,
+    codeVerified: false,
     token: null,
 
 };
@@ -141,11 +144,19 @@ const mainSlice = createSlice({
     RsetForgetVerficationCode: (state, action: PayloadAction<string>) => {
         state.forgetVerificationCode = action.payload;
     },
+    RsetEmailExist: (state, action: PayloadAction<boolean>) => {
+        state.emailExist = action.payload;
+    },
+    RsetCodeVerified: (state, action: PayloadAction<boolean>) => {
+        state.codeVerified = action.payload;
+    },
   },
 });
 
-export const { RsetGender , RsetIsGenderChecked, RsetUserName, RsetPassword, RsetShowPassword, RsetShowPasswordType, RsetPasswordConfirmation, RsetFirstName, 
-    RsetLastName, RsetEmail, RsetForgetEmail, RsetShowPasswordConfirmation, RsetShowPasswordConfirmationType, RsetFormErrors, RsetLoginErrors, RsetRememberMe, RsetForgetTimer, RsetForgetVerficationCode, RsetToken } = mainSlice.actions;
+export const { RsetGender , RsetIsGenderChecked, RsetUserName, RsetPassword, RsetShowPassword, RsetShowPasswordType,
+    RsetPasswordConfirmation, RsetFirstName, RsetLastName, RsetEmail, RsetForgetEmail, RsetShowPasswordConfirmation,
+    RsetShowPasswordConfirmationType, RsetFormErrors, RsetLoginErrors, RsetRememberMe, RsetForgetTimer,
+    RsetForgetVerficationCode, RsetEmailExist,RsetCodeVerified, RsetToken } = mainSlice.actions;
 export const selectGender = (state:RootState) => state.main.gender;
 export const selectIsGenderChecked = (state:RootState) => state.main.isGenderChecked;
 export const selectUserName = (state:RootState) => state.main.userName;
@@ -164,6 +175,8 @@ export const selectRememberMe = (state:RootState) => state.main.rememberMe;
 export const selectForgetEmail = (state:RootState) => state.main.forgetEmail;
 export const selectForgetTimer = (state:RootState) => state.main.forgetTimer;
 export const selectForgetVerficationCode = (state:RootState) => state.main.forgetVerificationCode;
+export const selectEmailExist = (state:RootState) => state.main.emailExist;
+export const selectCodeVerfied = (state:RootState) => state.main.codeVerified;
 export const selectToken = (state:RootState) => state.main.token;
 export default mainSlice.reducer;
 

@@ -202,18 +202,32 @@ const SignUp = () => {
     if (formIsValid) {
       console.log(firstNameIsValid);
       dispatch(RsetFormErrors({}));
+      // post info to backend and they save info and check wether username & email is unique or not 
+      axios
+      .post("", {
+        gender,
+        firstName,
+        lastName,
+        userName,
+        email,
+        password,
+      })
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error));
+      
       if (userName !== "qwerty" && email !== "opera@gmail.com") {
         console.log("Registerd!");
-      }else if(userName !== "qwerty"){
+        router.push("/");
+      }else if(userName == "qwerty"){
         console.log("username or email is taken !");
         toast({
-          description: "این نام کاربری قبلا گرفته شده است !",
+          description: "این نام کاربری قبلا ثبت شده است !",
           variant: "destructive",
         });
       } else{
         console.log("username or email is taken !");
         toast({
-          description: "این ایمیل قبلا گرفته شده است !",
+          description: "این ایمیل قبلا ثبت شده است !",
           variant: "destructive",
         });
       }

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
@@ -12,7 +12,11 @@ import {
   RsetForgetTimer,
   selectForgetTimer,
   RsetForgetVerficationCode,
-  selectForgetVerficationCode
+  selectForgetVerficationCode,
+  RsetEmailExist,
+  selectEmailExist,
+  RsetCodeVerified,
+  selectCodeVerfied,
 } from "@/slices/MainSlice";
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,10 +32,8 @@ const ForgetPass = () => {
   const formErrors = useSelector(selectFormErrors);
   const time = useSelector(selectForgetTimer);
   const forgetVerficationCode = useSelector(selectForgetVerficationCode)
-
-  const [emailExist, setEmailExist] = useState(false);
-  const [codeVerified, setCodeVerified] = useState(false);
-  // const [value, setValue] = useState("");
+  const codeVerified = useSelector(selectCodeVerfied)
+  const emailExist = useSelector(selectEmailExist)
 
   const emailIsValid = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(
     forgetEmail
@@ -54,9 +56,9 @@ const ForgetPass = () => {
   const handleForgetPass = () => {
     if (emailIsValid) {
       dispatch(RsetFormErrors({}));
-      // post email to back for check
+      // post email to backend for check
       if (true) {
-        setEmailExist(true);
+        dispatch(RsetEmailExist(true));
         dispatch(RsetForgetTimer(119));
       }
     } else {
@@ -65,7 +67,7 @@ const ForgetPass = () => {
   };
   const handleVerifyCode = () => {
     // post code to backend for check => if true
-    setCodeVerified(true);
+    dispatch(RsetCodeVerified(true));
   };
 
   useEffect(() => {
@@ -102,7 +104,7 @@ const ForgetPass = () => {
             onChange={(e) => dispatch(RsetForgetEmail(e.target.value))}
             type="email"
           />
-          <p className="text-red-600 text-xs mb-4 px-4">{formErrors.forgetEmail}</p>
+          <p className="text-red-600 text-xs mb-8 px-4">{formErrors.forgetEmail}</p>
           {emailExist && (
             <div className="mb-6 mx-auto" dir="rtl">
               <Label className="px-2">کد تأیید را وارد کنید</Label>
