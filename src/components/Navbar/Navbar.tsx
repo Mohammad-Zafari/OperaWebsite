@@ -87,7 +87,7 @@ const Navbar = () => {
           <Link href="/#blog-container">وبلاگ</Link>
         </div>
         <div className="cursor-pointer  text-center">
-          <Link href="/#servicesCardsContainer">طرح ها</Link>
+          <Link href="/#serviceTitle">طرح ها</Link>
         </div>
         <div className="cursor-pointer  text-center">
           <Link href="/">خانه</Link>

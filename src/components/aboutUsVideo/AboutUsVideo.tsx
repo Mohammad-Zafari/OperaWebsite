@@ -11,7 +11,7 @@ const AboutUsVideo = () => {
         <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <h2 className="text-xl text-white sm:text-2xl pt-16">اینجا یک متن یک خطی قرار می‌گیرد</h2>
+      <h2 className="text-xl text-purple-600 sm:text-2xl pt-16">شرکت ما</h2>
     </div>
   );
 };
