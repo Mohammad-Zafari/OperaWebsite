@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect } from "react";
-import BlogPage from "./BlogPage";
-import Navbar from "../Navbar/Navbar";
+import BlogPage from "@/components/blogpages/BlogPage";
+import Navbar from "../navbar/Navbar";
 
-interface inf{
+interface inf {
   id: number;
 }
 const BlogPages = (props: inf) => {
@@ -30,7 +30,7 @@ const BlogPages = (props: inf) => {
 2.هوش مصنوعی عمومی : این نوع هوش مصنوعی قابلیت این را دارد که همانند انسان از محیط اطراف یاد بگیرد خود را توسعه دهد و بیاندیشد و تصمیم گیری کند که البته هنوز به طور کامل توسعه نیافته و بیشتر در حوزه نظری باقی مانده است.	
 3.هوش مصنوعی فوق العاده : این نوع هوش مصنوعی فراتر از هوش انسانی عمل میکند و میتواند از انسان پیشی بگیرد این مفهوم بیشتر در داستان های علمی تخیلی می گنجد.
 `,
-      id:2,
+      id: 2,
     },
     {
       title: `یادگیری ماشین: معرفی و طبقه‌بندی روش‌ها`,
@@ -65,14 +65,12 @@ const BlogPages = (props: inf) => {
       id: 5,
     },
   ];
-  
-
 
   return (
     <div>
-      <Navbar/>
+      <Navbar />
       {blogContents.map(
-        (content, i) => i == props.id-1 && <BlogPage blogInfo={content} />
+        (content, i) => i == props.id - 1 && <BlogPage blogInfo={content} />
       )}
     </div>
   );

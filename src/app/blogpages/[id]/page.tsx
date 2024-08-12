@@ -1,5 +1,5 @@
-import React from 'react';
-import BlogPages from '@/components/blogPages/BlogPages';
+import React from "react";
+import BlogPages from "@/components/blogpages/BlogPages";
 
 interface PageProps {
   params: {
@@ -9,7 +9,7 @@ interface PageProps {
 
 const Page = async ({ params }: PageProps) => {
   const { id } = params;
-console.log(id)
+  console.log(id);
 
   return (
     <div>
