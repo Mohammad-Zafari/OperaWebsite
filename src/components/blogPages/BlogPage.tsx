@@ -3,8 +3,9 @@ import { Button } from "../ui/button";
 
 interface info {
   blogInfo: {
+    title?: string;
     text: string;
-    id?: number; // id is now optional
+    id?: number;
   };
 }
 
@@ -24,9 +25,9 @@ const BlogPage = (props : info) => {
     >
       <div id="title&img" className="md:flex justify-between items-center xl:px-16">
         <div id="" className="text-center py-8 md:pl-4">
-          <h1 className="text-4xl text-sky-400 mb-8">بلاگ 1</h1>
+          <h1 className="text-4xl text-sky-400 mb-8">بلاگ {props.blogInfo.id}</h1>
           <p className="text-white mb-8">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+            {props.blogInfo.title}
           </p>
           <Button className="bg-sky-500 px-8 text-lg rounded-2xl">
             مشاهده سایر بلاگ‌ها
