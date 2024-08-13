@@ -61,9 +61,9 @@ const SignUp = () => {
   const showPasswordConfirmationType = useSelector(
     selectShowPasswordConfirmationType
   );
-
   const formErrors = useSelector(selectFormErrors);
 
+  // validations
   const passwordValidation = (pass: string) => {
     const hasNumber = /[0-9]/;
     const hasUpperCase = /[A-Z]/;
@@ -141,6 +141,7 @@ const SignUp = () => {
     ? dispatch(RsetShowPasswordConfirmationType("text"))
     : dispatch(RsetShowPasswordConfirmationType("password"));
 
+  // validation error generator
   const validation = () => {
     var errors = {
       gender: "",
@@ -151,7 +152,6 @@ const SignUp = () => {
       password: "",
       passwordConfirmation: "",
     };
-
     
     if (genderIsEmpty) {
       errors.gender = "جنسیت نمی‌تواند خالی باشد !";
@@ -182,7 +182,7 @@ const SignUp = () => {
     }
     if (!passwordIsValid) {
       errors.password =
-        "رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ ، یک سمبل، یک عدد و حداقل شامل 8 کاراکتر باشد  و نباید شامل فاصله باشد  !";
+        "رمز عبور باید حداقل شامل یک حرف کوچک، یک حرف بزرگ ، یک سمبل، یک عدد و حداقل شامل 8 کاراکتر باشد و نباید شامل فاصله باشد  !";
     }
     if (passwordIsEmpty) {
       errors.password = "رمز عبور نمی‌تواند خالی باشد !";
@@ -251,7 +251,6 @@ const SignUp = () => {
   return (
     <>
     <div>
-
       <div
         id="container"
         dir="ltr"
@@ -424,7 +423,7 @@ const SignUp = () => {
                       )}
                     </div>
                   </div>
-                  {(i===0? (!passwordIsValid || passwordIsEmpty) : (!passwordIsValid || passwordIsEmpty)) && (
+                  {(i===0 && (!passwordIsValid || passwordIsEmpty)) && (
                     <p className="text-xs text-red-600 px-2 mx-auto">
                       {i===0? formErrors.password : formErrors.passwordConfirmation}
                     </p> 
@@ -459,9 +458,6 @@ const SignUp = () => {
         </div>
         <div className="hidden bg-[url('/design.png')] bg-cover md:block w-full md:w-5/12"></div>
       </div>
-      {/* <div className="bg-[url('/Group-8738.svg')] bg-cover max-md:bg-bottom absolute -bottom-[800px] sm:-bottom-[600px] md:-bottom-[700px] lg:-bottom-[420px] xl:-bottom-[385px] pt-11 pb-1">
-        <Footer/>
-      </div> */}
     </div>
     </>
   );
