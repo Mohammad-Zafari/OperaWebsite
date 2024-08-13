@@ -1,12 +1,19 @@
 import React from "react";
 
 interface info {
-  blogInfo: {
-    title?: string;
-    text: string;
-    id?: number;
+  blogPost: {
+    id: string;
+    imageSrc: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    link: string;
   };
 }
+
+// interface BlogListProps {
+//   blogPosts: BlogPost[];
+// }
 
 const BlogPage = (props : info) => {
 
@@ -24,9 +31,9 @@ const BlogPage = (props : info) => {
     >
       <div id="title&img" className="md:flex justify-between items-center xl:px-16">
         <div id="" className="text-center py-8 md:pl-4">
-          <h1 className="text-4xl text-sky-400 mb-8">بلاگ {props.blogInfo.id}</h1>
+          <h1 className="text-4xl text-sky-400 mb-8">{props.blogPost.title}</h1>
           <p className="text-purple-600 mb-8">
-            {props.blogInfo.title}
+            {props.blogPost.subtitle}
           </p>
           <a href="/weblog" className="bg-sky-500 px-8 py-2 text-lg shadow-md shadow-black rounded-2xl hover:bg-sky-400 hover:shadow-none">
             مشاهده سایر بلاگ‌ها
@@ -42,7 +49,7 @@ const BlogPage = (props : info) => {
       </div>
       <div className="py-8 my-12 text-justify flex justify-center bg-purple-600 px-8 rounded-xl shadow-black shadow-[0_-10px_30px_-10px] text-white">
         <p >
-          {formatText(props.blogInfo.text)}
+          {formatText(props.blogPost.description)}
         </p>
       </div>
       <div className="flex justify-center w-full py-12 lg:px-32 2xl:px-52">
