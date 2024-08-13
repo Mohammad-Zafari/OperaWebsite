@@ -19,13 +19,13 @@ const BlogPage = (props : info) => {
   return (
     <div
       id="blogContainer"
-      className="bg-violet-900 border-b-2 border-gray-500 px-4 sm:px-20 md:px-32 lg:px-32 xl:px-60 py-10 sm:py-32 md:py-40"
+      className="border-b-2 border-gray-500 px-4 sm:px-20 md:px-32 lg:px-32 xl:px-60 py-10 sm:py-32 md:py-40"
       style={{ direction: "rtl" }}
     >
       <div id="title&img" className="md:flex justify-between items-center xl:px-16">
         <div id="" className="text-center py-8 md:pl-4">
           <h1 className="text-4xl text-sky-400 mb-8">بلاگ {props.blogInfo.id}</h1>
-          <p className="text-white mb-8">
+          <p className="text-purple-600 mb-8">
             {props.blogInfo.title}
           </p>
           <a href="/#blog-container" className="bg-sky-500 px-8 py-2 text-lg shadow-md shadow-black rounded-2xl hover:bg-sky-400 hover:shadow-none">
@@ -40,7 +40,7 @@ const BlogPage = (props : info) => {
           />
         </div>
       </div>
-      <div className="py-8 text-justify flex justify-center text-white">
+      <div className="py-8 my-12 text-justify flex justify-center bg-purple-600 px-8 rounded-xl shadow-black shadow-[0_-10px_30px_-10px] text-white">
         <p >
           {formatText(props.blogInfo.text)}
         </p>
