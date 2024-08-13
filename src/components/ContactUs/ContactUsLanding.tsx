@@ -86,8 +86,24 @@ const ContactUsLanding = () => {
       }
     }
 
-    // This return can be omitted if not returning anything
   };
+  const lettersOnlyRegex = /^[a-zA-Zآ-ی\s]*$/;
+
+const handleNameChange = (e) => {
+  const inputValue = e.target.value;
+  if (lettersOnlyRegex.test(inputValue)) {
+    dispatch(RsetContactName(inputValue));
+  }
+
+  
+};
+const handlePhoneNumberChange = (e) => {
+  const newPhoneNumber = e.target.value;
+  if (/^\d*$/.test(newPhoneNumber) && newPhoneNumber.length <= 11) {
+    dispatch(RsetContactPhoneNumber(newPhoneNumber));
+  }
+};
+
 
   return (
     <div className="flex mb-24   md:mb-48 flex-col lg:mt-28 lg:ml-[20vw] mt-8 md:mx-16 lg:w-[48%] mx-auto sm:w-[75%] w-[85%]" >
@@ -120,9 +136,9 @@ const ContactUsLanding = () => {
                 placeholder="نام و نام خانوادگی"
                 className="text-right border-gray-500 border-2 md:my-3 pr-14 pl-5 md:py-5 py-1 placeholder-purple-300 md:text-sm text-xs focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
                 value={contactName}
-                onChange={(e) => {
-                  dispatch(RsetContactName(e.target.value));
-                }}
+                onChange={
+                  handleNameChange
+                }
               />
               <img
                 src="/account_circle.svg"
@@ -140,20 +156,7 @@ const ContactUsLanding = () => {
                 placeholder="شماره تلفن همراه"
                 value={contactPhoneNumber ? contactPhoneNumber.toString() : ""}
                 className="text-right border-gray-500 border-2 my-1 lg:my-2 lg:py-5 placeholder-purple-300 text-xs md:text-sm pr-14 lg:pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
-                onChange={(e) => {
-                  const newPhoneNumber = e.target.value;
-
-                  if (
-                    /^\d*$/.test(newPhoneNumber) &&
-                    newPhoneNumber.length <= 11
-                  ) {
-                    dispatch(
-                      RsetContactPhoneNumber(
-                        newPhoneNumber ? parseInt(newPhoneNumber) : undefined
-                      )
-                    );
-                  }
-                }}
+                onChange={handlePhoneNumberChange}
               />
               <img
                 src="/call.svg"
