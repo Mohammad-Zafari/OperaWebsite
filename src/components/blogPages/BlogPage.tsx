@@ -11,9 +11,6 @@ interface info {
   };
 }
 
-// interface BlogListProps {
-//   blogPosts: BlogPost[];
-// }
 
 const BlogPage = (props : info) => {
 

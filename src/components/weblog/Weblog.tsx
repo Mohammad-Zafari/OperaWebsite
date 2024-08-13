@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import BlogCard from "../blog/BlogCard";
-import ServiceCard from "../servicescards/ServiceCard";
 import WeblogCards from "@/components/weblog/WeblogCards";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";

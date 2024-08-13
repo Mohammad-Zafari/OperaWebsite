@@ -15,7 +15,7 @@ const BlogPages = (props: inf) => {
     <div>
       <Navbar />
       {blogPosts.map(
-        (content, i) => i == props.id - 1 && <BlogPage blogPost={content} />
+        (content : object, i:number) => i == props.id - 1 && <BlogPage blogPost={content} />
       )}
     </div>
   );

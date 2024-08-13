@@ -38,7 +38,9 @@ const DropDownMenu = () => {
             />
             <p className="text-white md:m-1 md:px-2 px-1 md:text-base text-sm">
               محمد ظفری
+
             </p>
+            
           </div>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-gray-400 text-center">
