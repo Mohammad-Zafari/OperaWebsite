@@ -7,6 +7,7 @@ interface BlogPost {
     id: string;
     imageSrc: string;
     title: string;
+    subtitle: string;
     description: string;
     link: string;
   };
@@ -30,11 +31,11 @@ const weblogCards = (props: BlogPost) => {
         id="CardInfoContainer"
         className="flex-col h-1/2 text-right bg-purple-800 rounded-b-xl rounded-t-3xl mx-auto py-4 px-4"
       >
-        <h2 id="title" className="h-1/6 text-3xl text-yellow-500 font-bold">
-          بلاگ{props.blogPost.id}
+        <h2 id="title" className="h-1/6 text-2xl text-yellow-500 font-bold">
+            {props.blogPost.title}
         </h2>
         <p id="topic" className="h-1/6 text-lg text-white font-bold mt-1 ">
-          {props.blogPost.title}
+          {props.blogPost.subtitle}
         </p>
         <div
           id=""

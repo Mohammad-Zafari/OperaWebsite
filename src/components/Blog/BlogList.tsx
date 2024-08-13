@@ -10,6 +10,7 @@ interface BlogPost {
   id:string;
   imageSrc: string;
   title: string;
+  subtitle: string;
   description: string;
   link: string;
 }
@@ -64,6 +65,7 @@ const BlogList: React.FC<BlogListProps> = ({ blogPosts }) => {
             id={post.id}
               imageSrc={post.imageSrc}
               title={post.title}
+              subtitle={post.subtitle}
               description={post.description}
               link={post.link}
               isActive={false}

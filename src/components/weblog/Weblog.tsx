@@ -10,6 +10,7 @@ interface BlogPost {
   id: string;
   imageSrc: string;
   title: string;
+  subtitle: string;
   description: string;
   link: string;
 }
