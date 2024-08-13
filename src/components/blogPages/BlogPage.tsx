@@ -28,7 +28,7 @@ const BlogPage = (props : info) => {
           <p className="text-purple-600 mb-8">
             {props.blogInfo.title}
           </p>
-          <a href="/#blog-container" className="bg-sky-500 px-8 py-2 text-lg shadow-md shadow-black rounded-2xl hover:bg-sky-400 hover:shadow-none">
+          <a href="/weblog" className="bg-sky-500 px-8 py-2 text-lg shadow-md shadow-black rounded-2xl hover:bg-sky-400 hover:shadow-none">
             مشاهده سایر بلاگ‌ها
           </a>
         </div>
