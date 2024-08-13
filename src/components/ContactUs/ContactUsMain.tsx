@@ -80,28 +80,24 @@ const ContactUsMain = () => {
         toast({
           title: "",
           description: "پیام شما ارسال شد.",
-          className: "bg-purple-700 text-white opacity-80 mb-5 rounded-3xl outline-none border-none",
-          style: { direction: 'rtl', textAlign: 'right' },
+          className:
+            "bg-purple-700 text-white opacity-80 mb-5 rounded-3xl outline-none border-none",
+          style: { direction: "rtl", textAlign: "right" },
         });
-          
-        
-        
       }
     }
   };
   const lettersOnlyRegex = /^[a-zA-Zآ-ی\s]*$/;
 
-  const handleNameChange = (e) => {
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if (lettersOnlyRegex.test(inputValue)) {
       dispatch(RsetContactName(inputValue));
     }
-  
-    
   };
-  const handlePhoneNumberChange = (e) => {
+  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newPhoneNumber = e.target.value;
-    if (/^\d*$/.test(newPhoneNumber) && newPhoneNumber.length <= 11 ) {
+    if (/^\d*$/.test(newPhoneNumber) && newPhoneNumber.length <= 11) {
       dispatch(RsetContactPhoneNumber(newPhoneNumber));
     }
   };
@@ -168,11 +164,11 @@ const ContactUsMain = () => {
                 dispatch(RsetContactEmail(e.target.value));
               }}
             />
-                          <img
-                src="/mail.svg"
-                alt=""
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 size-7"
-              />
+            <img
+              src="/mail.svg"
+              alt=""
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 md:size-9 size-7"
+            />
           </div>
           {emailError && (
             <p className="text-red-600 md:text-sm text-xs py-1 text-right pr-3">

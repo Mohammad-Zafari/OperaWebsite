@@ -11,14 +11,14 @@ import {
 } from "../../slices/NavbarSlices";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
-import DropdownMenu from "./DropDownNavbar";
+import DropDownMenu from "./DropDownNavbar";
 import { useState } from "react";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const loggedIn = useSelector(selectLoggedIn);
   const signedUp = useSelector(selectSignedUp);
-  
+
   const handleSignup = () => {
     // dispatch(RsetSignedUp(true));
     // dispatch(RsetLoggedIn(false));
@@ -41,34 +41,32 @@ const Navbar = () => {
       }}
       //box-shadow: 0px 5px 42.6px 9px rgba(0, 0, 0, 0.36);
     >
-     <div id="left-section-container" className="md:relative md:flex-none flex-1"
-    //  "md:flex items-center lg:pl-12 md:pl-6"
-     >
-      {!loggedIn &&
-        <div
-          id="left-section"
-          // className="flex-2 flex items-center lg:pl-12 md:pl-6"
-        >
-          <Button
-            className="text-black  lg:h-[50px] lg:text-sm text-xs rounded-2xl absolute transition duration-200 hover:bg-[#a07f3b] bg-[#b09945] lg:w-[100px] w-[80px] ml-2"
-            onClick={handleSignup}
+      <div
+        id="left-section-container"
+        className="md:relative md:flex-none flex-1"
+        //  "md:flex items-center lg:pl-12 md:pl-6"
+      >
+        {!loggedIn && (
+          <div
+            id="left-section"
+            // className="flex-2 flex items-center lg:pl-12 md:pl-6"
           >
-            <img src="/person_add.svg" alt="" className="lg:" /> عضویت
-          </Button>
-          <Button
-            className="bg-white text-black lg:w-[190px] lg:h-[50px] rounded-2xl text-right justify-end hover:bg-gray-300 transition duration-200 lg:text-sm text-xs w-[150px] ml-2"
-            onClick={handleLogin}
-          >
-            <img src="/login.svg" alt="" className="lg:mr-4 md:mr- mr-1 " />
-            ورود
-          </Button>
-        </div>
-      
-      }
-      <div className=" ">
-
-      {loggedIn && <DropdownMenu />}
-      </div>
+            <Button
+              className="text-black  lg:h-[50px] lg:text-sm text-xs rounded-2xl absolute transition duration-200 hover:bg-[#a07f3b] bg-[#b09945] lg:w-[100px] w-[80px] ml-2"
+              onClick={handleSignup}
+            >
+              <img src="/person_add.svg" alt="" className="lg:" /> عضویت
+            </Button>
+            <Button
+              className="bg-white text-black lg:w-[190px] lg:h-[50px] rounded-2xl text-right justify-end hover:bg-gray-300 transition duration-200 lg:text-sm text-xs w-[150px] ml-2"
+              onClick={handleLogin}
+            >
+              <img src="/login.svg" alt="" className="lg:mr-4 md:mr- mr-1 " />
+              ورود
+            </Button>
+          </div>
+        )}
+        <div className=" ">{loggedIn && <DropDownMenu />}</div>
       </div>
       <div
         id="middle-section"
@@ -94,14 +92,10 @@ const Navbar = () => {
         </div>
       </div>
       <div id="right-section" className=" md:flex hidden md:items-start mr-5">
-        <img
-          src="logo (1).svg"
-          alt=""
-          className="md:flex md:items-end"
-        />
+        <img src="logo (1).svg" alt="" className="md:flex md:items-end" />
       </div>
       <div id="small-screen-right-section" className="md:hidden flex right-5">
-        <NavbarResponsive/>
+        <NavbarResponsive />
       </div>
     </div>
   );
