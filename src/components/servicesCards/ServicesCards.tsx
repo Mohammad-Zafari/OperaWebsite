@@ -37,7 +37,7 @@ const ServicesCards = () => {
       >
         <h1 id="serviceTitle" className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pt-4 pb-2 mx-auto md:mr-20"        data-aos="fade-up"
         >
-          طرح ها
+          اشتراک های ویژه
         </h1>
         <div id="cardsContainer" className="block lg:flex justify-center mx-auto pt-24" data-aos="fade-left"
         >

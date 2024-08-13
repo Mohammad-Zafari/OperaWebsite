@@ -33,12 +33,11 @@ const ContactUsMain = () => {
   const numberError = useSelector((state: any) => state.contact.numberError);
   const textError = useSelector((state: any) => state.contact.textError);
   const { toast } = useToast();
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i; // Email validation regex
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
   console.log(contactText);
   const handleSubmit = () => {
     let hasError = false;
 
-    // Reset all error states before validation
     dispatch(RsetEmailError(""));
     dispatch(RsetNameError(""));
     dispatch(RsetTextError(""));
@@ -59,7 +58,7 @@ const ContactUsMain = () => {
       hasError = true;
     }
 
-    if (!contactPhoneNumber || contactPhoneNumber.toString().length < 11 ||contactPhoneNumber.toString()!== "0") {
+    if (!contactPhoneNumber || contactPhoneNumber.toString().length < 11) {
       if (!contactPhoneNumber) {
         dispatch(RsetNumberError(".شماره تلفن همراه نمی تواند خالی باشد."));
       } else {
@@ -79,15 +78,32 @@ const ContactUsMain = () => {
       dispatch(RsetContactForm());
       {
         toast({
-          title: ".پیام شما ارسال شد",
-          description: "",
-          className:
-            "bg-purple-700 text-white opacity-80 mb-5 rounded-3xl text-center items-center flex outline-none border-none",
+          title: "",
+          description: "پیام شما ارسال شد.",
+          className: "bg-purple-700 text-white opacity-80 mb-5 rounded-3xl outline-none border-none",
+          style: { direction: 'rtl', textAlign: 'right' },
         });
+          
+        
+        
       }
     }
+  };
+  const lettersOnlyRegex = /^[a-zA-Zآ-ی\s]*$/;
 
-    return; // This return can be omitted if not returning anything
+  const handleNameChange = (e) => {
+    const inputValue = e.target.value;
+    if (lettersOnlyRegex.test(inputValue)) {
+      dispatch(RsetContactName(inputValue));
+    }
+  
+    
+  };
+  const handlePhoneNumberChange = (e) => {
+    const newPhoneNumber = e.target.value;
+    if (/^\d*$/.test(newPhoneNumber) && newPhoneNumber.length <= 11 ) {
+      dispatch(RsetContactPhoneNumber(newPhoneNumber));
+    }
   };
 
   return (
@@ -111,9 +127,7 @@ const ContactUsMain = () => {
               placeholder="نام و نام خانوادگی"
               className="text-right border-gray-500 border-2 md:my-3 pr-14 pl-5 md:py-5 py-1 placeholder-purple-300 md:text-sm  focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg text-xs"
               value={contactName}
-              onChange={(e) => {
-                dispatch(RsetContactName(e.target.value));
-              }}
+              onChange={handleNameChange}
             />
             <img
               src="/account_circle.svg"
@@ -131,20 +145,7 @@ const ContactUsMain = () => {
               placeholder="شماره تلفن همراه"
               value={contactPhoneNumber ? contactPhoneNumber.toString() : ""} // Convert to string for display
               className="text-right border-gray-500 border-2 my-1 lg:my-2 lg:py-5 placeholder-purple-300 text-xs md:text-sm pr-14 lg:pl-5 focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg "
-              onChange={(e) => {
-                const newPhoneNumber = e.target.value;
-                // Validate input to allow only digits
-                if (
-                  /^\d*$/.test(newPhoneNumber) &&
-                  newPhoneNumber.length <= 11
-                ) {
-                  dispatch(
-                    RsetContactPhoneNumber(
-                      newPhoneNumber ? parseInt(newPhoneNumber) : undefined
-                    )
-                  );
-                }
-              }}
+              onChange={handlePhoneNumberChange}
             />
             <img
               src="/call.svg"

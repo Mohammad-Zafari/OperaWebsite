@@ -93,7 +93,7 @@ const Navbar = () => {
           <Link href="/">خانه</Link>
         </div>
       </div>
-      <div id="right-section" className=" md:flex hidden md:items-start">
+      <div id="right-section" className=" md:flex hidden md:items-start mr-5">
         <img
           src="logo (1).svg"
           alt=""
