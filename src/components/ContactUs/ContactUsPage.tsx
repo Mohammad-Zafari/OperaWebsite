@@ -1,8 +1,8 @@
+import React from "react";
 import ContactUsMain from "./ContactUsMain";
 import Footer from "../footer/Footer";
 import Navbar from "../navbar/Navbar";
 import Map from "../Map";
-import React, { useEffect } from "react";
 const ContactUsPage = () => {
   return (
     <div
@@ -25,13 +25,13 @@ const ContactUsPage = () => {
           id="left-section"
           className=" flex flex-col flex-1 lg:pt-72 lg:pb-48 md:pb-20 pb-12 items-center justify-center"
         >
-          <div id="map" className="flex-1 sm:flex-6 md:w-[70%] w-[70%] z-0">
-            <Map />
-          </div>
           <div
             id="address"
-            className="flex-1 sm:flex-3  bg-white md:w-[70%] w-[70%] related flex flex-col items-end text-gray-700 font-medium leading-relaxed rounded-b-2xl border-8 "
+            className="flex-1 sm:flex-3  bg-white md:w-[70%] w-[70%] related flex flex-col items-end text-gray-700 font-medium leading-relaxed rounded-2xl border-8 "
           >
+            <div id="map" className="flex-1  w-[100%] z-0">
+              <Map />
+            </div>
             {/* when we use map rounded doesnt apply because of the map     */}
             <div className="flex-2 flex items-center px-2 md:text-base text-sm rounded-b-full ">
               <p className="flex-12 text-right lg:pt-0 pt-4">
@@ -57,7 +57,7 @@ const ContactUsPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
+        <div id="right-section" className="flex-1">
           <ContactUsMain />
         </div>
       </div>
