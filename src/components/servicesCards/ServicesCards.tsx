@@ -39,7 +39,7 @@ const ServicesCards = () => {
         >
           اشتراک های ویژه
         </h1>
-        <div id="cardsContainer" className="block lg:flex justify-center mx-auto pt-24"         data-aos="fade-left"
+        <div id="cardsContainer" className="block lg:flex justify-center mx-auto pt-24" data-aos="fade-left"
         >
           <ServiceCard cardInfo={cardContents[0]} />
           <ServiceCard cardInfo={cardContents[1]} />
