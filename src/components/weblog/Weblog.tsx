@@ -2,7 +2,9 @@
 import React from "react";
 import BlogCard from "../blog/BlogCard";
 import ServiceCard from "../servicescards/ServiceCard";
-import WeblogCards from "./weblogCards";
+import WeblogCards from "@/components/weblog/WeblogCards";
+import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 
 interface BlogPost {
   id: string;
@@ -17,13 +19,16 @@ interface BlogListProps {
 }
 
 const Weblog: React.FC<BlogListProps> = ({ blogPosts }) => {
-    console.log(blogPosts)
+  console.log(blogPosts);
   return (
-    <div id="weblog-container" dir="rtl">
-      <div
-        id="weblog-hero"
-        className="bg-violet-900 flex-col text-center py-32"
-      >
+    <>
+    <Navbar/>
+    <div
+      id="weblog-container"
+      className=" bg-gradient-to-b py-4 to-yellow-600 via-purple-600 from-purple-800"
+      dir="rtl"
+    >
+      <div id="weblog-hero" className="shadow-xl flex-col text-center py-32 pt-52">
         <h1 id="weblog-title" className="text-white text-3xl p-2">
           به وبلاگ ما خوش آمدید
         </h1>
@@ -31,26 +36,28 @@ const Weblog: React.FC<BlogListProps> = ({ blogPosts }) => {
           کاوش در هوش مصنوعی: از مبانی تا پیشرفته‌ترین کاربردها
         </p>
       </div>
-      <div id="weblog-body" className="px-80 pt-8 text-2xl">
-        <h2 id="weblog-body-title" className="w-fit p-2 border-b-2">
+      <div
+        id="weblog-body"
+        data-AOS="fade-up"
+        className="px-2 min-[460px]:px-16 sm:px-4 md:px-16 lg:px-20 xl:px-40 2xl:px-80 py-20 text-2xl "
+      >
+        <h2
+          id="weblog-body-title"
+          className="w-fit text-white p-2 border-b-2 border-gray-400"
+        >
           آخرین مطالب
         </h2>
-        <div id="weblog-cards-container" className="grid grid-cols-3 gap-4 bg-red-400 p-8">
-        <WeblogCards blogPost={blogPosts[1]}/>
-        {/* <WeblogCards/>
-        <WeblogCards/>
-        <WeblogCards/>
-        <WeblogCards/> */}
-        {/* <div className="bg-red-500">1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div> */}
-
-
-
+        <div
+          id="weblog-cards-container"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center py-4"
+        >
+          {blogPosts.map((post) => (
+            <WeblogCards blogPost={post} />
+          ))}
         </div>
       </div>
     </div>
+    </>
   );
 };
 
