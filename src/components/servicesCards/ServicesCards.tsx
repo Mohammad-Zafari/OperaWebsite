@@ -1,5 +1,5 @@
 import React from "react";
-import ServiceCard from "../serviceCard/ServiceCard";
+import ServiceCard from "@/components/servicescards/ServiceCard";
 
 const ServicesCards = () => {
   const cardContents = [
@@ -35,7 +35,7 @@ const ServicesCards = () => {
         dir="rtl"
 
       >
-        <h1 id="title" className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pb-2 mx-auto md:mr-20"        data-aos="fade-up"
+        <h1 id="serviceTitle" className="text-3xl w-fit text-gray-800 font-semibold border-b-2 pt-4 pb-2 mx-auto md:mr-20"        data-aos="fade-up"
         >
           طرح ها
         </h1>

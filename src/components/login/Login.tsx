@@ -28,6 +28,10 @@ import {
   RsetLoginErrors,
   selectLoginErrors,
 } from "@/slices/MainSlice";
+import {
+  RsetLoggedIn,
+  selectLoggedIn,
+} from "@/slices/NavbarSlices"
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter, usePathname } from "next/navigation";
@@ -74,6 +78,7 @@ const Login = () => {
       //post username & pass to backend and they check if it exist
 
       if (userName === "qwerty" && password === "Parsa123") {
+        RsetLoggedIn(true);
         if (rememberMe) {
           localStorage.setItem("username", userName);
           localStorage.setItem("password", password);
@@ -207,13 +212,13 @@ const Login = () => {
                 <div id="submitLinksContainer" className="text-center">
                   <a
                     className="block text-sm py-1 text-amber-400 hover:text-amber-300"
-                    href="/forgetPass"
+                    href="/forgetpass"
                   >
                     فراموشی رمز عبور
                   </a>
                   <a
                     className="block text-sm py-1 text-purple-600 hover:text-purple-400"
-                    href="/signUp"
+                    href="/signup"
                   >
                     ایجاد حساب کاربری
                   </a>

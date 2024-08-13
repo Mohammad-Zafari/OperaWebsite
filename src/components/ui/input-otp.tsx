@@ -1,7 +1,6 @@
 'use client'
 
 import { OTPInput, OTPInputContext } from 'input-otp'
-import { Dot } from 'lucide-react'
 
 import * as React from 'react'
 
@@ -42,7 +41,7 @@ const InputOTPSlot = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        'relative flex h-10 w-10 items-center justify-center border-y-4 border-2 border-border dark:border-darkBorder text-sm font-base transition-all first:rounded-l-base first:border-l-4 last:border-r-4 last:rounded-r-base',
+        'relative flex h-10 w-10 items-center px-2 justify-center border-y-2 border-2 border-border dark:border-darkBorder text-sm font-base transition-all first:rounded-l-base first:border-l-2 last:border-r-2 last:rounded-r-base',
         isActive &&
           'z-10 ring-1 ring-black ring-offset-white dark:ring-white dark:ring-offset-black',
         className,
@@ -65,7 +64,7 @@ const InputOTPSeparator = React.forwardRef<
   React.ComponentPropsWithoutRef<'div'>
 >(({ ...props }, ref) => (
   <div ref={ref} role="separator" {...props}>
-    <Dot />
+    <p>&nbsp;&nbsp;</p>
   </div>
 ))
 InputOTPSeparator.displayName = 'InputOTPSeparator'
