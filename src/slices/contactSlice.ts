@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface ContactState {
   contactName: string;
-  contactPhoneNumber?: number; // Could be undefined if not provided
+  contactPhoneNumber?: string; 
   contactText: string;
   contactEmail: string;
   emailError: string;
@@ -31,7 +31,7 @@ const contactSlice = createSlice({
       state.contactName = action.payload;
       console.log(state.contactName);
     },
-    RsetContactPhoneNumber(state, action: PayloadAction<number | undefined>) {
+    RsetContactPhoneNumber(state, action: PayloadAction<string | undefined>) {
       state.contactPhoneNumber = action.payload;
       console.log(state.contactPhoneNumber);
     },

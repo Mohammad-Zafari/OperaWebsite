@@ -43,9 +43,7 @@ export function NavbarResponsive() {
           ))}
         </nav>
 
-        <SheetFooter>
-          {/* Additional footer content can go here */}
-        </SheetFooter>
+        <SheetFooter>{/* Additional footer content can go here */}</SheetFooter>
       </SheetContent>
     </Sheet>
   );

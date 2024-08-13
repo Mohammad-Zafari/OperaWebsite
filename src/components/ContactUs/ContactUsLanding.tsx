@@ -85,40 +85,37 @@ const ContactUsLanding = () => {
         });
       }
     }
-
   };
   const lettersOnlyRegex = /^[a-zA-Zآ-ی\s]*$/;
 
-const handleNameChange = (e) => {
-  const inputValue = e.target.value;
-  if (lettersOnlyRegex.test(inputValue)) {
-    dispatch(RsetContactName(inputValue));
-  }
-
-  
-};
-const handlePhoneNumberChange = (e) => {
-  const newPhoneNumber = e.target.value;
-  if (/^\d*$/.test(newPhoneNumber) && newPhoneNumber.length <= 11) {
-    dispatch(RsetContactPhoneNumber(newPhoneNumber));
-  }
-};
-
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    if (lettersOnlyRegex.test(inputValue)) {
+      dispatch(RsetContactName(inputValue));
+    }
+  };
+  const handlePhoneNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newPhoneNumber = e.target.value;
+    if (/^\d*$/.test(newPhoneNumber) && newPhoneNumber.length <= 11) {
+      dispatch(RsetContactPhoneNumber(newPhoneNumber));
+    }
+  };
 
   return (
-    <div className="flex mb-24   md:mb-48 flex-col lg:mt-28 lg:ml-[20vw] mt-8 md:mx-16 lg:w-[48%] mx-auto sm:w-[75%] w-[85%]" >
-      <div className=" flex"         data-aos="fade-up"
-      >
-        <h1 className="text-black text-xl sm:text-3xl font-bold flex-1 lg:mr-2 md:mr-36 sm:mr-28  border-b-2 border-black w-fit absolute right-0 pb-2 lg:right-[-320px] md:right-[-220px] sm:right-[-120px]" >
+    <div className="flex mb-24   md:mb-48 flex-col lg:mt-28 lg:ml-[20vw] mt-8 md:mx-16 lg:w-[48%] mx-auto sm:w-[75%] w-[85%]">
+      <div className=" flex" data-aos="fade-up">
+        <h1 className="text-black text-xl sm:text-3xl font-bold flex-1 lg:mr-2 md:mr-36 sm:mr-28  border-b-2 border-black w-fit absolute right-0 pb-2 lg:right-[-320px] md:right-[-220px] sm:right-[-120px]">
           ارتباط با ما
         </h1>
       </div>
-        <img
-          src="/subtract.svg"
-          alt=""
-          className="bottom mt-8 lg:size-28 md:size-24 sm:size-20 size-14"
-        />
-      <div className="flex items-center md:justify-start justify-center "         data-aos="fade-left"
+      <img
+        src="/subtract.svg"
+        alt=""
+        className="bottom mt-8 lg:size-28 md:size-24 sm:size-20 size-14"
+      />
+      <div
+        className="flex items-center md:justify-start justify-center "
+        data-aos="fade-left"
       >
         <div
           id="container"
@@ -136,9 +133,7 @@ const handlePhoneNumberChange = (e) => {
                 placeholder="نام و نام خانوادگی"
                 className="text-right border-gray-500 border-2 md:my-3 pr-14 pl-5 md:py-5 py-1 placeholder-purple-300 md:text-sm text-xs focus-visible:ring-0 focus-visible:ring-offset-0 rounded-[35px] shadow-lg"
                 value={contactName}
-                onChange={
-                  handleNameChange
-                }
+                onChange={handleNameChange}
               />
               <img
                 src="/account_circle.svg"
