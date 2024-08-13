@@ -1,15 +1,17 @@
 "use client";
 
-import React, { useEffect } from "react";
-import BlogPage from "@/components/blogpages/BlogPage";
+import React from "react";
+import BlogPage from "./BlogPage";
 import Navbar from "../navbar/Navbar";
-import { blogPosts } from "@/helper/data";
+import { blogPosts } from "../../helper/data";
 
 interface inf {
   id: number;
 }
 
+
 const BlogPages = (props: inf) => {
+
  
   return (
     <div>
