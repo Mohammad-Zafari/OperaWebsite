@@ -12,42 +12,42 @@ const cardData = [
       "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title:"ارائه راه‌حل جهت بهبود تماس",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+      "اپرا با تحلیل تماس ها، راه حل های جهت بهبود کیفیت پاسخ گوی اپراتور ها ارائه میکند ",
+    imagesrc: "/Wavy_Bus-19_Single-08 1.svg",
     extratext:
       "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title: "امکان بازرسی تمام تماس ها",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+      "با کمک opera می‌توانید تمامی تماس هاس ورودی و خروجی را بازرسی کنید .این امر موجب میشود که...",
+    imagesrc: "/bazrasi-tamas.svg",
     extratext:
       "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title:"صرفه جویی در هزینه ها",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+      "با کمک opera می‌توانید در هزینه های خود صرفه جویی کنید",
+    imagesrc: "/OrgUVC-L_Bus-16_Single-08 1.svg",
     extratext:
       "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title: "همگام با تکنولوژی روز دنیا",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+     "اپرا با به روزترین تکنولوژی روز دنیا محصولات خود را هماهنگ کرده است",
+    imagesrc: "/Portfolio-update 1.svg",
     extratext:
       "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title: "پشتیبانی",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+      "با تهیه محصول از پشتیبانی دائمی آن نیز برخوردار شوید!",
+    imagesrc: "/Sandy_Bus-04_Single-10 1.svg",
     extratext:
       "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
   },
