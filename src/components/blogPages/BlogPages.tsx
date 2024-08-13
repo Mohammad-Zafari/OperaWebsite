@@ -9,20 +9,7 @@ interface inf {
   id: number;
 }
 
-interface BlogPost {
-  id: string;
-  imageSrc: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  link: string;
-}
-
-interface BlogListProps {
-  blogPosts: BlogPost[];
-}
-
-const BlogPages = (props: inf,{}) => {
+const BlogPages = (props: inf) => {
  
   return (
     <div>

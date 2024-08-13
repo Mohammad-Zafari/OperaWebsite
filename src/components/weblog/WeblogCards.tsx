@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 interface BlogPost {
@@ -23,18 +24,20 @@ const weblogCards = (props: BlogPost) => {
     >
       <img
         id="cardImage"
-        className="w-full h-1/2"
+        className="w-full h-1/2 rounded-t-2xl"
         src={props.blogPost.imageSrc}
         alt=""
       />
       <div
         id="CardInfoContainer"
-        className="flex-col h-1/2 text-right bg-purple-800 rounded-b-xl rounded-t-3xl mx-auto py-4 px-4"
+        className="flex-col h-1/2 text-right bg-purple-800 rounded-b-xl mx-auto py-4 px-4"
       >
         <h2 id="title" className="h-1/6 text-2xl text-yellow-500 font-bold">
-            {props.blogPost.title}
+            <Link href={`/blogpages/${props.blogPost.id}`}>
+                {props.blogPost.title}
+            </Link>
         </h2>
-        <p id="topic" className="h-1/6 text-lg text-white font-bold mt-1 ">
+        <p id="topic" className="h-1/6 text-lg text-white font-bold mt-1">
           {props.blogPost.subtitle}
         </p>
         <div

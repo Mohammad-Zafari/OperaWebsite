@@ -2,7 +2,7 @@
 export const blogPosts = [
   {
   id: '1',
-  imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",
+  imageSrc: "/DALL·E_2024_08_13_15_28_26_A_high_quality,_detailed_image_representing.png",
   title:"انواع هوش مصنوعی",   
   subtitle: `دسته‌بندی‌های اصلی هوش مصنوعی و کاربردهای آن`,
     description: `هوش مصنوعی موضوعی که امروزه توجه تمام دنیا را به خود جلب کرده و هر روز در حال توسعه و پیشرفت میباشد به گونه ای که اثرات آن در آینده نزدیک شیوه تمدن بشر را دستخوش تغییرات خواهد کرد. دسته بندی هوش مصنوعی به طورکلی به چند بخش اصلی تقسیم میشود:\n
@@ -19,7 +19,7 @@ export const blogPosts = [
   },
   {
     id: '2',
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",
+    imageSrc: "/DALL·E_2024_08_13_15_32_02_A_high_quality,_detailed_image_representing.png",
     title:"هوش مصنوعی چیست؟",   
     subtitle: `هوش مصنوعی: تعریف و طبقه‌بندی`,
     description: `تعریف کلی :
@@ -33,7 +33,7 @@ export const blogPosts = [
   },
   {
     id: '3',
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",
+    imageSrc: "/DALL·E_2024_08_13_15_29_09_A_high_quality,_artistic_image_representing.png",
     title:"یادگیری ماشین", 
     subtitle: `معرفی و طبقه‌بندی روش‌ها`,
     description:`یادگیری ماشین : زیر مجموعه ای از هوش مصنوعی که به سیستم ها اجازه میدهد بدون برنامه نویسی صریح از داده ها یاد بگیرند  و پیشرفت کنند 
@@ -50,7 +50,7 @@ export const blogPosts = [
     id: '4',
     title:"یادگیری عمیق",
     subtitle: `معرفی و کاربردهای یادگیری عمیق`,
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",
+    imageSrc: "/DALL·E_2024_08_13_15_26_14_A_high_quality,_detailed_image_representing.png",
     description: 'Opera به عنوان یک محصول پیشرفته در زمینه هوش مصنوعی، به شما این امکان را می‌دهد که با استفاده از موتور هوش مصنوعی به طور مستقیم با مشتریان تعامل داشته باشید. این سرویس به شما کمک می‌کند تا با بهبود فرآیندهای ارتباطی، تجربه مشتری را بهبود بخشید.',
     link: '/posts/smart-inquiry-service',
     date: 'شهریور ۲۲, ۱۴۰۳'
@@ -60,7 +60,7 @@ export const blogPosts = [
     id: '5',
     title:"پردازش زبان طبیعی",
     subtitle: `تکنیک‌ها و کاربردهای پردازش زبان طبیعی`,
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",
+    imageSrc: "/DALL·E_2024_08_13_15_26_42_A_high_quality,_artistic_image_representing.png",
     description: `پردازش زبان طبیعی : شامل تکنیک ها و الگوریتم هایی است که به کامپیوتر ها کمک میکند تا متن و گفتار انسانی را درک کند و با آن ها تعامل داشته باشد این فرآیند ها شامل مراحل زیر است .
 1. تحلیل متن :تحلیل و تجزیه ساختار معناشناسی جملات 
 2.شناسایی موجودیت ها :شناسایی نام ها و مکان ها و تاریخ ها و دیگر اطلاعات مهم در متن 
@@ -76,7 +76,7 @@ export const blogPosts = [
     id: '6',
     title:"پردازش زبان طبیعی",
     subtitle: `تکنیک‌ها و کاربردهای پردازش زبان طبیعی`,
-    imageSrc: "/images/pawel-czerwinski-eybM9n4yrpE-unsplash 1.svg",
+    imageSrc: "/DALL·E_2024_08_13_15_28_41_A_high_quality,_artistic_image_representing.png",
     description: `پردازش زبان طبیعی : شامل تکنیک ها و الگوریتم هایی است که به کامپیوتر ها کمک میکند تا متن و گفتار انسانی را درک کند و با آن ها تعامل داشته باشد این فرآیند ها شامل مراحل زیر است .
 1. تحلیل متن :تحلیل و تجزیه ساختار معناشناسی جملات 
 2.شناسایی موجودیت ها :شناسایی نام ها و مکان ها و تاریخ ها و دیگر اطلاعات مهم در متن 
