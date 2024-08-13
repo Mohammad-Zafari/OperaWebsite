@@ -107,17 +107,17 @@ const handlePhoneNumberChange = (e) => {
 
   return (
     <div className="flex mb-24   md:mb-48 flex-col lg:mt-28 lg:ml-[20vw] mt-8 md:mx-16 lg:w-[48%] mx-auto sm:w-[75%] w-[85%]" >
-      <div className="flex flex-row-reverse "         data-aos="fade-up"
+      <div className=" flex"         data-aos="fade-up"
       >
-        <h1 className="text-black text-right xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold flex-1 lg:mr-2 md:mr-36 sm:mr-28 mr-28">
+        <h1 className="text-black xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold flex-1 lg:mr-2 md:mr-36 sm:mr-28  border-b-2 border-black w-fit absolute right-0 pb-2 lg:right-[-320px] md:right-[-220px] sm:right-[-120px]" >
           ارتباط با ما
         </h1>
+      </div>
         <img
           src="/subtract.svg"
           alt=""
           className="bottom mt-8 lg:size-28 md:size-24 sm:size-20 size-14"
         />
-      </div>
       <div className="flex items-center md:justify-start justify-center "         data-aos="fade-left"
       >
         <div
