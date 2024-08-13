@@ -15,11 +15,11 @@ const Footer = () => {
             <p className="">
               تلفن تماس: 02173227884  |  09224947358  |  09909928171 {" "}
             </p>
-            <img className= "xl:size-6 md:size-4 size-2 ml-2" src="phone icon.svg" alt="" />
+            <img className= "xl:size-6 size-5 sm:ml-2 " src="phone icon.svg" alt="" />
           </div>
           <div className="flex flex-1 text-right text-sm text-[#979595] lg:justify-end justify-center">
             <p>ایمیل: info@opera24.net</p>
-            <img src="email icon.svg" alt="" className= "xl:size-6 md:size-4 size-2 ml-2" />
+            <img src="email icon.svg" alt="" className= "xl:size-6 md:size-4 size-5 ml-2" />
           </div>
           <div id="pictures" className="bg-red-300 flex-1 xl:pb-20 md:pb-10 sm:pb-5">
             2pictures

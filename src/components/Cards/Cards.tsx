@@ -9,47 +9,47 @@ const cardData = [
       "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
     imagesrc: "/call-search-item.svg",
     extratext:
-      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+      "با اپرا می‌توانید به‌سرعت در تمامی تماس‌های ورودی و خروجی جستجو کرده و تماس موردنظر خود را پیدا کنید. این قابلیت دسترسی سریع به اطلاعات مهم را فراهم می‌آورد.",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title:"ارائه راه‌حل جهت بهبود تماس",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+      "اپرا با تحلیل تماس ها، راه حل هایی را جهت بهبود کیفیت پاسخ گویی اپراتور ها ارائه میکند ... ",
+    imagesrc: "/Wavy_Bus-19_Single-08 1.svg",
     extratext:
-      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+      "اپرا با تحلیل دقیق مکالمات، نقاط قابل بهبود را شناسایی کرده و راهکارهای عملی برای ارتقاء مهارت‌های اپراتورها ارائه می‌دهد. با این راه‌حل‌ها، تجربه مشتریان را بهبود ببخشید.",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title: "امکان بازرسی تمام تماس ها",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+      "با کمک opera می‌توانید تمامی تماس هاس ورودی و خروجی را بازرسی کنید .این امر موجب میشود که...",
+    imagesrc: "/bazrasi-tamas.svg",
     extratext:
-      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+      "این امر موجب می‌شود نقاط ضعف و قوت مکالمات را شناسایی کرده و استراتژی‌های بهبود را به‌صورت دقیق‌تری اجرا کنید. با این قابلیت، کیفیت خدمات خود را به‌طور مستمر افزایش دهید.",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title:"صرفه جویی در هزینه ها",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+      "با کمک opera می‌توانید در هزینه های خود صرفه جویی کنید.",
+    imagesrc: "/OrgUVC-L_Bus-16_Single-08 1.svg",
     extratext:
-      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+      "با اپرا می‌توانید هزینه‌های خود را کاهش داده و بهره‌وری کسب‌وکار را افزایش دهید. این صرفه‌جویی به بهبود سودآوری شما کمک می‌کند.",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title: "همگام با تکنولوژی روز دنیا",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+     "اپرا با به روزترین تکنولوژی روز دنیا محصولات خود را هماهنگ کرده است.",
+    imagesrc: "/Portfolio-update 1.svg",
     extratext:
-      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+      "اپرا با بهره‌گیری از جدیدترین تکنولوژی‌ها، محصولات خود را همواره به‌روز و هماهنگ با پیشرفت‌های جهانی نگه می‌دارد. این همگامی به شما کمک می‌کند تا از مزایای نوآوری‌های پیشرفته بهره‌مند شوید.",
   },
   {
-    title: "امکان جستجو در تماس ها",
+    title: " پشتیبانی دائمی",
     description:
-      "اپرا این امکان را به شما میدهد که در تمامی تماس های ورودی و خروجی جستجو و تماس مدنظر را پیدا کنید.",
-    imagesrc: "/call-search-item.svg",
+      "با تهیه محصول از پشتیبانی دائمی آن نیز برخوردار شوید!",
+    imagesrc: "/Sandy_Bus-04_Single-10 1.svg",
     extratext:
-      "here you can add extea explanation to each cart... here you can add extea explanation to each cart...",
+      "با خرید محصولات اپرا، از پشتیبانی دائمی و همراهی همیشگی بهره‌مند شوید. این پشتیبانی اطمینان شما را در استفاده از خدمات تضمین می‌کند.",
   },
   
 ];
@@ -57,7 +57,7 @@ const cardData = [
 const Cards = () => {
  
   return (
-    <div className="w-[95%] mx-auto">
+    <div className="w-[95%] mx-auto " dir="rtl">
       <div className="lg:flex items-center justify-center">
         <img className="" src="/whyOpera.svg" alt="" data-aos="fade-left"
         />
