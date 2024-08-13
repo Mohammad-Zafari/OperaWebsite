@@ -1,19 +1,12 @@
 "use client";
 
-// import React from "react";
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Checkbox } from "../ui/checkbox";
 import { useToast } from "@/components/ui/use-toast";
-import {
-  CircleUserRound,
-  Eye,
-  EyeOff,
-  Lock,
-  X,
-} from "lucide-react";
+import { CircleUserRound, Eye, EyeOff, Lock, X } from "lucide-react";
 import {
   RsetUserName,
   selectUserName,
@@ -28,6 +21,7 @@ import {
   RsetLoginErrors,
   selectLoginErrors,
 } from "@/slices/MainSlice";
+import { RsetLoggedIn, selectLoggedIn } from "@/slices/NavbarSlices";
 import { AppDispatch } from "../../store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter, usePathname } from "next/navigation";
@@ -74,6 +68,7 @@ const Login = () => {
       //post username & pass to backend and they check if it exist
 
       if (userName === "qwerty" && password === "Parsa123") {
+        RsetLoggedIn(true);
         if (rememberMe) {
           localStorage.setItem("username", userName);
           localStorage.setItem("password", password);
@@ -134,17 +129,17 @@ const Login = () => {
               alt=""
             />
             <a className="flex-1 absolute left-20" href="/">
-            <img id="home"
-              className="w-28 h-10  sm:mx-2 md:m-0 "
-              src="/home-icon.svg"
-              alt=""
-              
+              <img
+                id="home"
+                className="w-28 h-10  sm:mx-2 md:m-0 "
+                src="/home-icon.svg"
+                alt=""
               />
             </a>
           </div>
           <div
             id="formContiner"
-            className="bg-white rounded-2xl shadow-[0_-10px_60px_-15px] mx-auto my-12 min-[321px]:my-24 md:my-20"
+            className="bg-white rounded-2xl shadow-[0_-1px_30px_-10px] mx-auto my-12 min-[321px]:my-24 md:my-20"
           >
             <div
               id="closeIconContainer"
@@ -153,7 +148,10 @@ const Login = () => {
             >
               <X />
             </div>
-            <div id="inputsConatainer" className="px-2 sm:px-8 md:px-3 lg:px-12 xl:px-20 2xl:px-32 py-16 sm:py-28 md:py-20 lg:py-28 xl:py-36">
+            <div
+              id="inputsConatainer"
+              className="px-2 sm:px-8 md:px-3 lg:px-12 xl:px-20 2xl:px-32 py-16 sm:py-28 md:py-20 lg:py-28 xl:py-36"
+            >
               <div
                 id="userInput"
                 className="h-16 flex px-2 mb-4 mx-auto bg-zinc-800 rounded-3xl"
@@ -207,7 +205,7 @@ const Login = () => {
                 <div id="submitLinksContainer" className="text-center">
                   <a
                     className="block text-sm py-1 text-amber-400 hover:text-amber-300"
-                    href="/forgetPass"
+                    href="/forgetpass"
                   >
                     فراموشی رمز عبور
                   </a>

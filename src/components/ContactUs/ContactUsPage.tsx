@@ -1,7 +1,7 @@
 import React from "react";
 import ContactUsMain from "./ContactUsMain";
 import Footer from "../footer/Footer";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../navbar/Navbar";
 import Map from "../Map";
 const ContactUsPage = () => {
   return (

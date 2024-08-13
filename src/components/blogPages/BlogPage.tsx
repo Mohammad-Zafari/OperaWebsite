@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "../ui/button";
 
 interface info {
   blogInfo: {
@@ -29,9 +28,9 @@ const BlogPage = (props : info) => {
           <p className="text-white mb-8">
             {props.blogInfo.title}
           </p>
-          <Button className="bg-sky-500 px-8 text-lg rounded-2xl">
+          <a href="/#blog-container" className="bg-sky-500 px-8 py-2 text-lg shadow-md shadow-black rounded-2xl hover:bg-sky-400 hover:shadow-none">
             مشاهده سایر بلاگ‌ها
-          </Button>
+          </a>
         </div>
         <div id="imageContainer" className="sm:px-16 md:px-0">
           <img

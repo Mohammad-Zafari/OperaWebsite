@@ -84,10 +84,10 @@ const Navbar = () => {
           <Link href="/#customers-section">مشتریان</Link>
         </div>
         <div className="cursor-pointer  text-center">
-          <Link href="/#blog-container">وبلاگ</Link>
+          <Link href="/weblog">وبلاگ</Link>
         </div>
         <div className="cursor-pointer  text-center">
-          <Link href="/#servicesCardsContainer">طرح ها</Link>
+          <Link href="/#serviceTitle">طرح ها</Link>
         </div>
         <div className="cursor-pointer  text-center">
           <Link href="/">خانه</Link>
