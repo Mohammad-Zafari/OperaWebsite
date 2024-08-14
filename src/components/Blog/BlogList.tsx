@@ -1,7 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
-import BlogCard from "./BlogCard";
+import BlogCard from "../Blog/BlogCard";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";

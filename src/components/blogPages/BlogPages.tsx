@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import BlogPage from "./BlogPage";
+import BlogPage from "../blogPages/BlogPage";
 import Navbar from "../navbar/Navbar";
 import { blogPosts } from "../../helper/data";
 
