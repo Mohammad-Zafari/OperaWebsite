@@ -24,7 +24,7 @@ const Weblog: React.FC<BlogListProps> = ({ blogPosts }) => {
     <Navbar/>
     <div
       id="weblog-container"
-      className=" bg-gradient-to-b py-4 to-yellow-600 via-purple-600 from-purple-800"
+      className=" bg-gradient-to-b py-4 to-yellow-800 from-violet-700"
       dir="rtl"
     >
       <div id="weblog-hero" className="shadow-xl flex-col text-center py-32 pt-52">
@@ -50,7 +50,7 @@ const Weblog: React.FC<BlogListProps> = ({ blogPosts }) => {
           id="weblog-cards-container"
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 text-center py-4"
         >
-          {blogPosts.map((post) => (
+          {[...blogPosts].reverse().map((post) => (
             <WeblogCards blogPost={post} />
           ))}
         </div>

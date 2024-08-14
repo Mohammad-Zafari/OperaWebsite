@@ -45,12 +45,13 @@ const DropDownMenu = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-gray-400 text-center">
           <DropdownMenuLabel>حساب من</DropdownMenuLabel>
+          <DropdownMenuLabel>opera@gmail.com</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem className="cursor-pointer text-right flex justify-end">
+          <DropdownMenuItem className="cursor-pointer text-right flex justify-end hover:bg-slate-500">
             پروفایل
           </DropdownMenuItem>
           <DropdownMenuItem
-            className="cursor-pointer flex justify-end"
+            className="cursor-pointer flex justify-end hover:bg-slate-500"
             onClick={() => setDialogOpen(true)}
           >
             خروج از حساب
