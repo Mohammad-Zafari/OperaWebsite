@@ -41,7 +41,7 @@ const Card: React.FC<CardProps> = ({ title, description, imagesrc, extratext }) 
             </div>
           </div>
           <div id="text-container" className="text-right flex flex-col p-4">
-            <h1 className="text-customPurple font-semibold text-xl sm:my-0 my-4 sm:mt-0 mt-7 lg:my-2">
+            <h1 className="text-customPurple font-semibold text-xl sm:my-0 my-4 sm:mt-0 mt-7 lg:my-5">
               {/* sm:text-xs */}
               {title}
             </h1>
