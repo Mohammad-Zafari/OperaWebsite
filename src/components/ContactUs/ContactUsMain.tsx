@@ -116,7 +116,7 @@ const ContactUsMain = () => {
           className="bg-white rounded-[44px] shadow-customShadow1 px-2 pt-10 pb-8 md:pb-20 relative "
         >
           <p className="text-purple-700 md:text-base text-sm font-bold text-right pb-5">
-            درصورت داشتن درخواست، نظر یا انتقاد برای ما بنویسید.
+            .درصورت داشتن درخواست، نظر یا انتقاد برای ما بنویسید
           </p>
           <div className="relative">
             <Input
@@ -189,11 +189,7 @@ const ContactUsMain = () => {
               alt=""
               className="absolute right-3 top-8 transform -translate-y-1/2 md:size-9 size-7"
             />
-            <img
-              src="/Group 2490.svg"
-              alt=""
-              className="absolute bottom-2 left-2 md:size-9 size-7 "
-            />
+           
           </div>
           {textError && (
             <p className="text-red-600 md:text-sm text-xs py-1 text-right pr-3">
