@@ -34,9 +34,9 @@ const BlogPage: React.FC<info> = ({blogPost}) => {
       style={{ direction: "rtl" }}
     >
       <div id="title-container" className="justify-between items-center xl:px-16">
-        <div id="" className="text-center md:text-right py-4 md:pl-4">
+        <div id="" className="text-center md:text-right py-8 md:pl-4">
           <h1 className="text-4xl text-sky-400 mb-6">{blogPost.title}</h1>
-          <p className="text-purple-600">
+          <p className="text-purple-600 mb-8">
             {blogPost.subtitle}
           </p>
 
@@ -44,15 +44,16 @@ const BlogPage: React.FC<info> = ({blogPost}) => {
         <div id="imageContainer" className="sm:px-16 md:px-0">
         </div>
       </div>
-      <div className="py-8 text-justify flex justify-center px-8 rounded-xl text-purple">
+      <div className="py-8 my-8 text-justify flex justify-center  px-8 rounded-xl text-purple">
         <p >
           {formatText(blogPost.description)}
         </p>
       </div>
-      <div className="w-full text-center mb-8">
-        <a href="/weblog" className="bg-sky-500 px-40 py-2 text-lg shadow-md shadow-black rounded-2xl hover:bg-sky-400 hover:shadow-none">
-          مشاهده سایر بلاگ‌ها
-        </a>
+      <div className="w-full text-center">
+
+      <a href="/weblog" className="bg-sky-500 px-40 py-2 text-lg shadow-md shadow-black rounded-2xl hover:bg-sky-400 hover:shadow-none">
+        مشاهده سایر بلاگ‌ها
+      </a>
       </div>
       <div className="flex justify-center w-full py-12 lg:px-32 2xl:px-52">
         <img className="rounded-lg" src="/hero-pattern.png" alt="video" />
