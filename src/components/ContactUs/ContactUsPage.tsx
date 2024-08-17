@@ -1,5 +1,5 @@
 import React from "react";
-import ContactUsMain from "./ContactUsMain";
+import ContactUsMain from "../ContactUs/ContactUsMain";
 import Footer from "../footer/Footer";
 import Navbar from "../navbar/Navbar";
 import Map from "../Map";
