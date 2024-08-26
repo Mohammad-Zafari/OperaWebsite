@@ -8,6 +8,8 @@ import {
   RsetSignedUp,
   selectLoggedIn,
   selectSignedUp,
+  RsetIsOpen,
+  selectIsOpen
 } from "../../slices/NavbarSlices";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
@@ -22,7 +24,7 @@ const Navbar = () => {
   const handleSignup = () => {
     // dispatch(RsetSignedUp(true));
     // dispatch(RsetLoggedIn(false));
-    window.location.href = "/signup";
+    window.location.href = "/signUp";
   };
   const handleLogin = () => {
     // dispatch(RsetLoggedIn(true));
