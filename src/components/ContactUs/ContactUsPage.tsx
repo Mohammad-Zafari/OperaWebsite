@@ -43,7 +43,7 @@ const ContactUsPage = () => {
                 </p>
                 <img
                   src="location icon (1).svg"
-                  className="flex-2 mx-2 lg:size-7 md:size-6 sm:size-5 size-4 sm:mb-5 md:mb-7 lg:mb-10"
+                  className="flex-2 mx-2 lg:size-7 md:size-6 sm:size-5 size-4 sm:mb-5 md:mb-7 lg:mb-10 mb-16"
                   alt=""
                 />
               </div>
@@ -53,7 +53,7 @@ const ContactUsPage = () => {
                 </p>
                 <img
                   src="phone icon.svg "
-                  className="flex lg:size-7 md:size-6 sm:size-5 size-4 mx-2 lg:mt-[-2px] sm:mt-2 mt-[11px]"
+                  className="flex lg:size-7 md:size-6 sm:size-5 size-4 mx-2 lg:mt-[-2px] mt-8"
                   alt=""
                 />
               </div>
