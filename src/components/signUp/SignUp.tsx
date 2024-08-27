@@ -264,13 +264,13 @@ const SignUp = () => {
           <div className="flex items-center">
           <img
             id="logo"
-            className="w-44 h-16 mx-auto sm:mx-2 md:m-0"
+            className="w-44 h-16 mx-0 sm:mx-2 md:m-0"
             src="/logo.png"
             alt=""
           />
           <a className=" absolute left-20" href="/">
             <img id="home"
-              className="w-28 h-10  sm:mx-2 md:m-0 "
+              className="w-28 h-10 sm:mx-2 md:m-0 "
               src="/home-icon.svg"
               alt=""
               

@@ -29,12 +29,12 @@ export function NavbarResponsive() {
 
           <div className="grid gap-4 py-4 justify-items-end text-black">
             {[
-              { href: "/contactus", label: "ارتباط با ما" },
-              { href: "/#aboutus-container", label: "درباره ما" },
-              { href: "/#customers-section", label: "مشتریان" },
-              { href: "/weblog", label: "وبلاگ" },
-              { href: "/#serviceTitle", label: "طرح ها" },
               { href: "/", label: "خانه" },
+              { href: "/#serviceTitle", label: "طرح ها" },
+              { href: "/weblog", label: "وبلاگ" },
+              { href: "/#customers-section", label: "مشتریان" },
+              { href: "/#aboutus-container", label: "درباره ما" },
+              { href: "/contactus", label: "ارتباط با ما" },
             ].map(({ href, label }) => (
               <SheetClose asChild key={href}>
                 <Link href={href} className="block items-center cursor-pointer">
