@@ -1,6 +1,6 @@
 import { space } from "postcss/lib/list";
 import Card from "./Card";
-import React, { useEffect } from "react";
+import React, { useEffect } from "react";   
 
 const cardData = [
   {

@@ -17,18 +17,18 @@ const Footer = () => {
           <h1 className="font-bold xl:text-lg text-[16px] lg:mt-0 mt-5">
             راه های ارتباطی
           </h1>
-          <div className="flex flex-1 text-[#979595]  lg:justify-end">
+          <div className="flex flex-1 text-[#979595] lg:justify-end ">
             <p className="">
               تلفن تماس: 02173227884  |  09224947358  |  09909928171 {" "}
             </p>
             <img
-              className="xl:size-6 size-5 sm:ml-2 "
+              className="size-6 ml-2 "
               src="phone icon.svg"
               alt=""
             />
           </div>
-          <div className="flex flex-1 text-right text-sm text-[#979595] lg:justify-end justify-center">
-            <p>ایمیل: info@opera24.net</p>
+          <div className="flex flex-1 text-right text-sm text-[#979595] lg:justify-end justify-center ">
+            <p> info@opera24.net :ایمیل</p>
             <img
               src="email icon.svg"
               alt=""

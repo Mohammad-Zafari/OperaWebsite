@@ -104,7 +104,7 @@ const ContactUsLanding = () => {
   return (
     <div className="flex mb-24   md:mb-48 flex-col lg:mt-28 lg:ml-[20vw] mt-8 md:mx-16 lg:w-[48%] mx-auto sm:w-[75%] w-[85%]">
       <div className=" flex" data-aos="fade-up">
-        <h1 className="text-black text-xl sm:text-3xl font-bold flex-1 lg:mr-2 md:mr-36 sm:mr-28  border-b-2 border-black w-fit absolute right-0 pb-2 lg:right-[-320px] md:right-[-220px] sm:right-[-120px]">
+        <h1 className="text-black text-3xl font-bold flex-1 lg:mr-2 md:mr-36 sm:mr-28  border-b-2 border-black w-fit absolute right-0 pb-2 lg:right-[-320px] md:right-[-220px] sm:right-[-120px]">
           ارتباط با ما
         </h1>
       </div>
